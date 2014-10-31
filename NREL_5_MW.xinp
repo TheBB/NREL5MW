@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<wingdef>
+  <section z="2.0" theta="13.308" chord="3.542" ac="0.25" ao="0.5" foil="cylinder" />
+  <section z="2.8667" theta="13.308" chord="3.542" ac="0.25" ao="0.5" foil="cylinder" />
+  <section z="5.6" theta="13.308" chord="3.854" ac="0.2218" ao="0.44" foil="cylinder" />
+  <section z="8.3333" theta="13.308" chord="4.167" ac="0.1883" ao="0.38" foil="cylinder" />
+  <section z="11.75" theta="13.308" chord="4.557" ac="0.1465" ao="0.3" foil="DU40_ft.txt" />
+  <section z="15.85" theta="11.48" chord="4.652" ac="0.125" ao="0.25" foil="DU35_ft.txt" />
+  <section z="19.95" theta="10.162" chord="4.458" ac="0.125" ao="0.25" foil="DU35_ft.txt" />
+  <section z="24.05" theta="9.011" chord="4.249" ac="0.125" ao="0.25" foil="DU30_ft.txt" />
+  <section z="28.15" theta="7.795" chord="4.007" ac="0.125" ao="0.25" foil="DU25_ft.txt" />
+  <section z="32.25" theta="6.544" chord="3.748" ac="0.125" ao="0.25" foil="DU25_ft.txt" />
+  <section z="36.35" theta="5.361" chord="3.502" ac="0.125" ao="0.25" foil="DU21_ft.txt" />
+  <section z="40.45" theta="4.188" chord="3.256" ac="0.125" ao="0.25" foil="DU21_ft.txt" />
+  <section z="44.55" theta="3.125" chord="3.01" ac="0.125" ao="0.25" foil="NACA_ft.txt" />
+  <section z="48.65" theta="2.31" chord="2.764" ac="0.125" ao="0.25" foil="NACA_ft.txt" />
+  <section z="52.75" theta="1.526" chord="2.518" ac="0.125" ao="0.25" foil="NACA_ft.txt" />
+  <section z="56.1667" theta="0.863" chord="2.313" ac="0.125" ao="0.25" foil="NACA_ft.txt" />
+  <section z="58.9" theta="0.37" chord="2.086" ac="0.125" ao="0.25" foil="NACA_ft.txt" />
+  <section z="61.6333" theta="0.106" chord="1.419" ac="0.125" ao="0.25" foil="NACA_ft.txt" />
+  <section z="62.9" theta="0.0" chord="0.7" ac="0.125" ao="0.25" foil="NACA_ft.txt" />
+</wingdef>

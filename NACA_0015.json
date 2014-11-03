@@ -1,0 +1,14 @@
+{
+    "wingfile": "NACA_0015.xinp",
+
+    "tip": false,
+
+    "extrudeLen": 10.0,
+
+    "NlenBase": 20,
+    "Nlen": 0,
+    "NlenP": 2,
+
+    "addpt": -1,
+    "adds": 0
+}

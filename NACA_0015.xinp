@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<wingdef>
+  <section z="0.0" theta="0.0" chord="3.5" ac="0.0" ao="0.25" foil="NACA_0015_ft.txt" />
+</wingdef>

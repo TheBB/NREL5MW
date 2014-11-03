@@ -280,8 +280,10 @@ def LoadWingSectionFtTXT(filen):
     return [map(itemgetter(i), rows) for i in range(4)] # xc, tc, f, dfdx
 
 
-def ResampleWing(surface, params, critical):
+def ResampleWing(surface, params):
     knots1, knots2 = surface.GetKnots()
+
+    critical = params.wingdef[params.addpt].z
 
     ylen = critical - knots2[0]
     ry = ComputeFactor(ylen, params.dzJoin, params.NlenBase)
@@ -411,6 +413,8 @@ default_params = {
     'adds': 4,                               # Number of intermediate refinements
     'addpt': 4,                              # Airfoil index around which to perform intermediate refinement
 
+    'gradedLen': True,                       # Whether to use graded refinement lengthwise
+    'extrudeLen': 10.0,
     'dzTip': 0.006,                          # Element size in z-direction near tip
     'dzJoin': 0.2,                           # Element size in z-direction near join
     'NlenBase': 20,                          # Number of elements lengthwise at the base
@@ -432,12 +436,29 @@ default_params = {
     'NradP': 4,                              # Number of patches radially
 
     'NlenP': 18,                             # Number of patches lengthwise
+
+    'tip': True,                             # Whether to include tip
+
+    'OpenFOAM': False,
 }
 
 
 if __name__ == '__main__':
 
-    params = PrepareParams(default_params)
+    ParseArgs(sys.argv[1:], default_params)
+
+    def fix(d):
+        for k in ['z', 'theta', 'chord', 'ac', 'ao']:
+            d[k] = float(d[k])
+        return d
+
+    wingdef_tree = ET.parse(default_params['wingfile'])
+    default_params['wingdef'] = [namedtuple('Section', s.attrib.keys())(**fix(s.attrib))
+                         for s in wingdef_tree.getroot()]
+    default_params['teC'] = default_params['teC_fac'] * default_params['te']
+    default_params['computed'] = {}
+
+    params = namedtuple('Params', default_params.keys())(**default_params)
     PrepareOutput(params)
 
     # create non-dimensional sections
@@ -571,30 +592,32 @@ if __name__ == '__main__':
                                                      c.EvaluateTangent(c.GetKnots()[0]).Normalize() * 0.1,
                                                      relative=True))])
 
-    wing1 = LoftCurves(sections, order=4)
+    if len(params.wingdef) > 1:
+        wing1 = LoftCurves(sections, order=4)
 
-    if params.debug:
-        WriteG2('out/wing1.g2', wing1)
+        if params.debug:
+            WriteG2('out/wing1.g2', wing1)
 
+        knots1, knots2 = wing1.GetKnots(True)
 
-    knots1, knots2 = wing1.GetKnots(True)
+        zcoord = [wing1.Evaluate(knots1[0], k2)[2] for k2 in knots2]
+        zcoord[1:4] = repeat(zcoord[0], 3)
+        zcoord[-4:-1] = repeat(zcoord[-1], 3)
 
-    zcoord = [wing1.Evaluate(knots1[0], k2)[2] for k2 in knots2]
-    zcoord[1:4] = repeat(zcoord[0], 3)
-    zcoord[-4:-1] = repeat(zcoord[-1], 3)
+        coeffs = list(wing1)
 
-    coeffs = list(wing1)
-    Ntot = 2 * (params.Nte + params.Nback + params.Nfront)
+        # Curve length parametrization
+        p1, p2 = wing1.GetOrder()
+        wing = Surface(p1, p2, knots1, zcoord, coeffs, False)
 
-    # Curve length parametrization
-    p1, p2 = wing1.GetOrder()
-    wing = Surface(p1, p2, knots1, zcoord, coeffs, False)
+        if params.debug:
+            WriteG2('out/wing.g2', wing)
 
-    if params.debug:
-        WriteG2('out/wing.g2', wing)
+        wingsecs = ResampleWing(wing, params)
 
+    else:
+        wingsecs = sections
 
-    wingsecs = ResampleWing(wing, params, params.wingdef[params.addpt].z)
 
     if params.debug:
         WriteG2('out/wingsecs.g2', wingsecs)
@@ -606,13 +629,19 @@ if __name__ == '__main__':
 
 
     # Generate circular sections
-    thetapts = [Point(0, 0, th) for th in map(attrgetter('theta'), params.wingdef)]
-    thetacurve = ip.CubicCurve(pts=thetapts, t=map(attrgetter('z'), params.wingdef), boundary=ip.NATURAL)
+    if len(params.wingdef) > 1:
+        thetapts = [Point(0, 0, th) for th in map(attrgetter('theta'), params.wingdef)]
+        thetacurve = ip.CubicCurve(pts=thetapts, t=map(attrgetter('z'), params.wingdef), boundary=ip.NATURAL)
+        theta = lambda z: thetacurve.Evaluate(z)[2]
+    else:
+        theta = lambda _: params.wingdef[0].theta
+
+    Ntot = 2 * (params.Nte + params.Nback + params.Nfront)
     circlesecs = []
     for ws in wingsecs:
         pt = ws.Evaluate(ws.GetKnots()[0])
         x0 = Point(0, 0, pt[2])
-        angle = thetacurve.Evaluate(pt[2])[2]
+        angle = theta(pt[2])
         circlesecs.append(CircleCurve(x0, params.R, angle, Ntot))
 
     if params.debug:
@@ -724,15 +753,12 @@ if __name__ == '__main__':
             edges = innersec.GetEdges()
             c1 = edges[2]
 
-            # c21 = InterpolateCurve([ptp, ptn], range(0,2), order=2)
             knots2 = edges[2].GetKnots()
             pts = [(1.0-s)*ptp + s*ptn for s in np.linspace(0, 1, len(knots2))]
             c2 = ip.LinearCurve(pts=pts).RaiseOrder(2)
 
             c3 = ip.InterpolateCurve(np.matrix([sPtp, ptp]), [0, 1], [0, 0, 1, 1])
             c4 = ip.InterpolateCurve(np.matrix([sPtn, ptn]), [0, 1], [0, 0, 1, 1])
-            # c3 = InterpolateCurve([sPtp, ptp], range(0,2), order=2)
-            # c4 = InterpolateCurve([sPtn, ptn], range(0,2), order=2)
             rf = ComputeFactor(slen, dy, params.NradSq)
             sst = GradedSpace(0.0, dy/slen, rf, params.NradSq)[1:]
             for c in [c3, c4]:
@@ -761,101 +787,174 @@ if __name__ == '__main__':
 
 
 
-    print 'Generating tip...'
+    if params.tip:
+        print 'Generating tip...'
 
-    wv = []
-    for secs in [innersecs[i::8] for i in range(8)][::-1]:
-        wv.append(LoftSurfaces(secs[-5:], range(5), params.order))
+        wv = []
+        for secs in [innersecs[i::8] for i in range(8)][::-1]:
+            wv.append(LoftSurfaces(secs[-5:], range(5), params.order))
 
-    cs = [o.Clone() for o in crossecs8[-16::2]]
-    os = [o.Clone() for o in outersecs[-8:]]
+        cs = [o.Clone() for o in crossecs8[-16::2]]
+        os = [o.Clone() for o in outersecs[-8:]]
 
-    tip = WingTip(wv, params)
-    # sphere = OMeshTip(params.wingdef[-1].z, params.R, cs, tip)
-    # tfi_surfaces = TipTFISurfaces(cs, tip, sphere, params)
-    # tipvols = TipCircleVolumes(cs, tip, sphere, tfi_surfaces)
-    # outervols = OuterVolumes(os, tipvols, params)
+        tip = WingTip(wv, params)
+        # sphere = OMeshTip(params.wingdef[-1].z, params.R, cs, tip)
+        # tfi_surfaces = TipTFISurfaces(cs, tip, sphere, params)
+        # tipvols = TipCircleVolumes(cs, tip, sphere, tfi_surfaces)
+        # outervols = OuterVolumes(os, tipvols, params)
 
-    # if params.debug:
-    #     WriteG2('out/tipvols.g2', tipvols + outervols)
-
-
-
-
-
-    # print 'Constructing master volumes...'
-
-    # innervols_master = []
-    # outervols_master = []
-    # vols_master = []
-
-    # for secs, tv in zip([innersecs[i::8] for i in range(8)], tipvols[:8]):
-    #     tvsecs = [tv.GetConstParSurf(k, 1).LowerOrder(2,2) for k in tv.GetKnots()[1][1:]]
-    #     allsecs = [s.ReParametrize() for s in secs + tvsecs]
-    #     innervols_master.append(LoftSurfaces(allsecs, range(len(allsecs)), order=2))
-
-    # for secs, tv in zip([outersecs[i::8] for i in range(8)], outervols[:8]):
-    #     tvsecs = [tv.GetConstParSurf(k, 0).SwapParametrization() for k in tv.GetKnots()[0][1:]]
-    #     allsecs = [s.ReParametrize() for s in secs + tvsecs]
-    #     outervols_master.append(LoftSurfaces(allsecs, range(len(allsecs)), order=2))
-
-    # for iv, ov in zip(innervols_master, outervols_master):
-    #     iss = [iv.GetConstParSurf(k, 1) for k in iv.GetKnots()[1]]
-    #     iss += [ov.GetConstParSurf(k, 1) for k in ov.GetKnots()[1][1:]]
-    #     vols_master.append(LoftSurfaces(iss, range(len(iss)), order=2))
-
-    # for iv, ov, flip in zip(tipvols[8:], outervols[8:], [False, True, False, True]):
-    #     ivs = [iv.GetConstParSurf(k, 2).LowerOrder(2,2) for k in iv.GetKnots()[2]]
-    #     ovs = [ov.GetConstParSurf(k, 0).SwapParametrization().FlipParametrization(1)
-    #            for k in ov.GetKnots()[0][1:]]
-    #     allsecs = ivs + ovs
-    #     vols_master.append(LoftSurfaces(allsecs, range(len(allsecs)), order=2))
-
-
-    # if params.debug:
-    #     WriteG2('out/innervols_master.g2', innervols_master)
-    #     WriteG2('out/outervols_master.g2', outervols_master)
-    #     WriteG2('out/full_master.g2', vols_master)
+        # if params.debug:
+        #     WriteG2('out/tipvols.g2', tipvols + outervols)
 
 
 
 
+    if len(params.wingdef) == 1:
+        srfs = [CombineSurfaces(i, o) for i, o in zip(innersecs, outersecs)]
+        vols_master = [ExtrudeSurface(s, Point(0, 0, 1), params.extrudeLen) for s in srfs]
+        for v in vols_master:
+            UniformVolume(v, 3, params.NlenBase + 2*params.Nlen)
+            v.SwapParametrization(1, 2)
+            v.FlipParametrization(0)
 
-    # print 'Subdividing...'
+    else:
 
-    # radials = []
-    # for v in vols_master:
-    #     ku, kv, kw = v.GetKnots()
+        print 'Constructing master volumes...'
 
-    #     ret = []
-    #     N = len(kw) - 1
-    #     for i in range(params.NradP):
-    #         k1 = kw[i * N / params.NradP]
-    #         k2 = kw[(i+1) * N / params.NradP]
-    #         ret.append(v.GetSubVol([ku[0], kv[0], k1], [ku[-1], kv[-1], k2]))
-    #     radials.append(ret)
+        innervols_master = []
+        outervols_master = []
+        vols_master = []
 
-    # if params.debug:
-    #     WriteG2('out/radials.g2', list(chain.from_iterable(radials)))
+        if not params.tip:
+            tipvols = [None]*12
+            outervols = [None]*12
 
-    # length_vols = []
-    # for sector in radials[:8]:
-    #     final_sector = []
-    #     for column in sector:
-    #         final_column = []
-    #         ku, kv, kw = column.GetKnots()
+        for secs, tv in zip([innersecs[i::8] for i in range(8)], tipvols[:8]):
+            if tv:
+                tvsecs = [tv.GetConstParSurf(k, 1).LowerOrder(2,2) for k in tv.GetKnots()[1][1:]]
+            else:
+                tvsecs = []
+            allsecs = [s.ReParametrize() for s in secs + tvsecs]
+            innervols_master.append(LoftSurfaces(allsecs, range(len(allsecs)), order=4))
 
-    #         N = len(kv) - 1
-    #         for i in range(params.NlenP):
-    #             k1 = kv[i * N / params.NlenP]
-    #             k2 = kv[(i+1) * N / params.NlenP]
-    #             final_column.append(column.GetSubVol([ku[0], k1, kw[0]], [ku[-1], k2, kw[-1]]))
-    #         final_sector.append(final_column)
-    #     length_vols.append(final_sector)
+        for secs, tv in zip([outersecs[i::8] for i in range(8)], outervols[:8]):
+            if tv:
+                tvsecs = [tv.GetConstParSurf(k, 0).SwapParametrization() for k in tv.GetKnots()[0][1:]]
+            else:
+                tvsecs = []
+            allsecs = [s.ReParametrize() for s in secs + tvsecs]
+            outervols_master.append(LoftSurfaces(allsecs, range(len(allsecs)), order=4))
 
-    # tip_vols = radials[8:]
+        for iv, ov in zip(innervols_master, outervols_master):
+            iss = [iv.GetConstParSurf(k, 1) for k in iv.GetKnots()[1]]
+            iss += [ov.GetConstParSurf(k, 1) for k in ov.GetKnots()[1][1:]]
+            vols_master.append(LoftSurfaces(iss, range(len(iss)), order=4))
 
-    # if params.debug:
-    #     WriteG2('out/vols.g2',
-    #             list(chain.from_iterable(chain.from_iterable(length_vols))) +
-    #             list(chain.from_iterable(tip_vols)))
+        if params.tip:
+            for iv, ov, flip in zip(tipvols[8:], outervols[8:], [False, True, False, True]):
+                ivs = [iv.GetConstParSurf(k, 2).LowerOrder(2,2) for k in iv.GetKnots()[2]]
+                ovs = [ov.GetConstParSurf(k, 0).SwapParametrization().FlipParametrization(1)
+                       for k in ov.GetKnots()[0][1:]]
+                allsecs = ivs + ovs
+                vols_master.append(LoftSurfaces(allsecs, range(len(allsecs)), order=4))
+
+
+        if params.debug:
+            WriteG2('out/innervols_master.g2', innervols_master)
+            WriteG2('out/outervols_master.g2', outervols_master)
+
+    if params.debug:
+        WriteG2('out/full_master.g2', vols_master)
+
+
+
+
+
+    print 'Subdividing...'
+
+    radials = []
+    for v in vols_master:
+        ku, kv, kw = v.GetKnots()
+
+        ret = []
+        N = len(kw) - 1
+        for i in range(params.NradP):
+            k1 = kw[i * N / params.NradP]
+            k2 = kw[(i+1) * N / params.NradP]
+            ret.append(v.GetSubVol([ku[0], kv[0], k1], [ku[-1], kv[-1], k2]))
+        radials.append(ret)
+
+    if params.debug:
+        WriteG2('out/radials.g2', list(chain.from_iterable(radials)))
+
+    length_vols = []
+    for sector in radials[:8]:
+        final_sector = []
+        for column in sector:
+            final_column = []
+            ku, kv, kw = column.GetKnots()
+
+            N = len(kv) - 1
+            for i in range(params.NlenP):
+                k1 = kv[i * N / params.NlenP]
+                k2 = kv[(i+1) * N / params.NlenP]
+                final_column.append(column.GetSubVol([ku[0], k1, kw[0]], [ku[-1], k2, kw[-1]]))
+            final_sector.append(final_column)
+        length_vols.append(final_sector)
+
+    out_vols = list(chain.from_iterable(chain.from_iterable(length_vols)))
+    if params.tip:
+        out_vols += list(chain.from_iterable(radials[:8]))
+
+    if params.debug:
+        WriteG2('out/vols.g2', out_vols)
+
+
+
+
+
+numberer = Numberer()
+numberer.AddPatches(out_vols)
+
+numberer.AddGroup('inflow', 'volume', length_vols[3][-1] + length_vols[4][-1])
+numberer.AddGroup('outflow', 'volume', length_vols[0][-1] + length_vols[7][-1])
+numberer.AddGroup('out_left', 'volume', length_vols[0][-1])
+numberer.AddGroup('out_right', 'volume', length_vols[7][-1])
+numberer.AddGroup('slip_left', 'volume', length_vols[1][-1] + length_vols[2][-1])
+numberer.AddGroup('slip_right', 'volume', length_vols[5][-1] + length_vols[6][-1])
+numberer.AddGroup('slip_left_in', 'volume', length_vols[2][-1])
+numberer.AddGroup('slip_right_in', 'volume', length_vols[5][-1])
+numberer.AddGroup('inner', 'volume', list(chain.from_iterable([length_vols[k][0] for k in xrange(8)])))
+numberer.AddGroup('btm', 'volume', [v[0] for v in chain.from_iterable(length_vols)])
+numberer.AddGroup('top', 'volume', [v[-1] for v in chain.from_iterable(length_vols)])
+
+numberer.AddBoundary('hub', [('btm', 'face', [2])])
+numberer.AddBoundary('antihub', [('top', 'face', [3])])
+numberer.AddBoundary('inflow', [('inflow', 'face', [5]),
+                                ('slip_left_in', 'edge', [10]),
+                                ('slip_right_in', 'edge', [11])])
+numberer.AddBoundary('outflow', [('outflow', 'face', [5])])
+numberer.AddBoundary('slipwall_left', [('slip_left', 'face', [5]),
+                                       ('out_left', 'edge', [10])])
+numberer.AddBoundary('slipwall_right', [('slip_right', 'face', [5]),
+                                        ('out_right', 'edge', [11])])
+numberer.AddBoundary('wing', [('inner', 'face', [4])])
+
+
+numberer.Renumber(params.nprocs)
+
+
+if params.debug:
+    for g in numberer.Groups():
+        numberer.WriteGroup(g, 'out/group-%s.g2' % g)
+    for g in numberer.Boundaries():
+        numberer.WriteBoundary(g, 'out/boundary-%s.g2' % g)
+
+
+numberer.WriteEverything(p.out)
+numberer.PrintLoadBalance()
+
+if params.OpenFOAM:
+    print 'Converting to OpenFOAM format...'
+    f = InputFile('%s.xinp' % p.out)
+    f.writeOpenFOAM(p.out)

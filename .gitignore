@@ -2,3 +2,6 @@ out/*
 *.g2
 *.3dm
 *.pyc
+*.xinp
+*.xml
+*.hdf5

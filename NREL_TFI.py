@@ -439,6 +439,8 @@ default_params = {
 
     'tip': True,                             # Whether to include tip
 
+    'back': 4.0,
+
     'OpenFOAM': False,
 }
 
@@ -813,6 +815,7 @@ if __name__ == '__main__':
         srfs = [CombineSurfaces(i, o) for i, o in zip(innersecs, outersecs)]
         vols_master = [ExtrudeSurface(s, Point(0, 0, 1), params.extrudeLen) for s in srfs]
         for v in vols_master:
+            v.RaiseOrder(0, 0, 2)
             UniformVolume(v, 3, params.NlenBase + 2*params.Nlen)
             v.SwapParametrization(1, 2)
             v.FlipParametrization(0)
@@ -906,55 +909,88 @@ if __name__ == '__main__':
     if params.tip:
         out_vols += list(chain.from_iterable(radials[:8]))
 
+
+
+
+
+    if params.back > 0:
+        backvols = []
+        for l in length_vols[0][-1] + length_vols[7][-1]:
+            srf = l.GetFaces()[5]
+            backvols.append(ExtrudeSurface(srf, Point(1, 0, 0), params.R * params.back))
+        for v in backvols:
+            v.RaiseOrder(0, 0, 2)
+            UniformVolume(v, 3, int(ceil(params.back * params.NradSq)))
+        out_vols += backvols
+
     if params.debug:
         WriteG2('out/vols.g2', out_vols)
 
 
 
+    # for v in backvols:
+    #     v.LowerOrder(4 - params.order, 4 - params.order, 4 - params.order)
 
 
-numberer = Numberer()
-numberer.AddPatches(out_vols)
 
-numberer.AddGroup('inflow', 'volume', length_vols[3][-1] + length_vols[4][-1])
-numberer.AddGroup('outflow', 'volume', length_vols[0][-1] + length_vols[7][-1])
-numberer.AddGroup('out_left', 'volume', length_vols[0][-1])
-numberer.AddGroup('out_right', 'volume', length_vols[7][-1])
-numberer.AddGroup('slip_left', 'volume', length_vols[1][-1] + length_vols[2][-1])
-numberer.AddGroup('slip_right', 'volume', length_vols[5][-1] + length_vols[6][-1])
-numberer.AddGroup('slip_left_in', 'volume', length_vols[2][-1])
-numberer.AddGroup('slip_right_in', 'volume', length_vols[5][-1])
-numberer.AddGroup('inner', 'volume', list(chain.from_iterable([length_vols[k][0] for k in xrange(8)])))
-numberer.AddGroup('btm', 'volume', [v[0] for v in chain.from_iterable(length_vols)])
-numberer.AddGroup('top', 'volume', [v[-1] for v in chain.from_iterable(length_vols)])
+    numberer = Numberer()
+    numberer.AddPatches(out_vols)
+    if params.back > 0:
+        numberer.AddPatches(backvols)
 
-numberer.AddBoundary('hub', [('btm', 'face', [2])])
-numberer.AddBoundary('antihub', [('top', 'face', [3])])
-numberer.AddBoundary('inflow', [('inflow', 'face', [5]),
-                                ('slip_left_in', 'edge', [10]),
-                                ('slip_right_in', 'edge', [11])])
-numberer.AddBoundary('outflow', [('outflow', 'face', [5])])
-numberer.AddBoundary('slipwall_left', [('slip_left', 'face', [5]),
-                                       ('out_left', 'edge', [10])])
-numberer.AddBoundary('slipwall_right', [('slip_right', 'face', [5]),
-                                        ('out_right', 'edge', [11])])
-numberer.AddBoundary('wing', [('inner', 'face', [4])])
+    numberer.AddGroup('inflow', 'volume', length_vols[3][-1] + length_vols[4][-1])
+    numberer.AddGroup('out_left', 'volume', length_vols[0][-1])
+    numberer.AddGroup('out_right', 'volume', length_vols[7][-1])
+    numberer.AddGroup('slip_left', 'volume', length_vols[1][-1] + length_vols[2][-1])
+    numberer.AddGroup('slip_right', 'volume', length_vols[5][-1] + length_vols[6][-1])
+    numberer.AddGroup('slip_left_in', 'volume', length_vols[2][-1])
+    numberer.AddGroup('slip_right_in', 'volume', length_vols[5][-1])
+    numberer.AddGroup('inner', 'volume', list(chain.from_iterable([length_vols[k][0] for k in xrange(8)])))
+    numberer.AddGroup('btm', 'volume', [v[0] for v in chain.from_iterable(length_vols)])
+    numberer.AddGroup('top', 'volume', [v[-1] for v in chain.from_iterable(length_vols)])
+
+    if params.back > 0:
+        numberer.AddGroup('outflow', 'volume', backvols)
+        numberer.AddGroup('btm', 'volume', [backvols[0], backvols[len(backvols)/2]])
+        numberer.AddGroup('top', 'volume', [backvols[len(backvols)/2-1], backvols[-1]])
+        numberer.AddGroup('slip_left_back', 'volume', backvols[:len(backvols)/2])
+        numberer.AddGroup('slip_right_back', 'volume', backvols[len(backvols)/2:])
+    else:
+        numberer.AddGroup('outflow', 'volume', length_vols[0][-1] + length_vols[7][-1])
+
+    numberer.AddBoundary('hub', [('btm', 'face', [2])])
+    numberer.AddBoundary('antihub', [('top', 'face', [3])])
+    numberer.AddBoundary('inflow', [('inflow', 'face', [5]),
+                                    ('slip_left_in', 'edge', [10]),
+                                    ('slip_right_in', 'edge', [11])])
+    numberer.AddBoundary('outflow', [('outflow', 'face', [5])])
+    numberer.AddBoundary('slipwall_left', [('slip_left', 'face', [5]),
+                                           ('out_left', 'edge', [10])])
+    numberer.AddBoundary('slipwall_right', [('slip_right', 'face', [5]),
+                                            ('out_right', 'edge', [11])])
+    numberer.AddBoundary('wing', [('inner', 'face', [4])])
+
+    if params.back > 0:
+        numberer.AddBoundary('slipwall_left', [('slip_left_back', 'face', [0]),
+                                               ('slip_left_back', 'edge', [10])])
+        numberer.AddBoundary('slipwall_right', [('slip_right_back', 'face', [1]),
+                                                ('slip_right_back', 'edge', [11])])
 
 
-numberer.Renumber(params.nprocs)
+    numberer.Renumber(params.nprocs)
 
 
-if params.debug:
-    for g in numberer.Groups():
-        numberer.WriteGroup(g, 'out/group-%s.g2' % g)
-    for g in numberer.Boundaries():
-        numberer.WriteBoundary(g, 'out/boundary-%s.g2' % g)
+    if params.debug:
+        for g in numberer.Groups():
+            numberer.WriteGroup(g, 'out/group-%s.g2' % g)
+        for g in numberer.Boundaries():
+            numberer.WriteBoundary(g, 'out/boundary-%s.g2' % g)
 
 
-numberer.WriteEverything(p.out)
-numberer.PrintLoadBalance()
+    numberer.WriteEverything(params.out)
+    numberer.PrintLoadBalance()
 
-if params.OpenFOAM:
-    print 'Converting to OpenFOAM format...'
-    f = InputFile('%s.xinp' % p.out)
-    f.writeOpenFOAM(p.out)
+    if params.OpenFOAM:
+        print 'Converting to OpenFOAM format...'
+        f = InputFile('%s.xinp' % params.out)
+        f.writeOpenFOAM(params.out)

@@ -928,7 +928,7 @@ if __name__ == '__main__':
 
 
 
-    # for v in backvols:
+    # for v in out_vols:
     #     v.LowerOrder(4 - params.order, 4 - params.order, 4 - params.order)
 
 

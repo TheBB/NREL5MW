@@ -812,7 +812,38 @@ if __name__ == '__main__':
 
 
     if len(params.wingdef) == 1:
-        srfs = [CombineSurfaces(i, o) for i, o in zip(innersecs, outersecs)]
+        srfs = []
+
+        # Kill me now
+        for i, o in zip(innersecs, outersecs):
+            ikus, ikvs = i.GetKnots()
+            okus, okvs = o.GetKnots()
+
+            eikus = [ikus[0], (ikus[0]+ikus[1])/2] + ikus[1:-1] + [(ikus[-2]+ikus[-1])/2, ikus[-1]]
+            eokus = [okus[0], (okus[0]+okus[1])/2] + okus[1:-1] + [(okus[-2]+okus[-1])/2, okus[-1]]
+
+            eikvs = [ikvs[0], (ikvs[0]+ikvs[1])/2] + ikvs[1:]
+            eokvs = okvs[1:-1] + [(okvs[-2]+okvs[-1])/2, okvs[-1]]
+
+            pts = []
+            for ikv in eikvs:
+                for iku in eikus:
+                    pts.append(i.Evaluate(iku, ikv))
+            for okv in eokvs:
+                for oku in eokus:
+                    pts.append(o.Evaluate(oku, okv))
+
+            ukts = map(float, range(len(ikus)))
+            vkts = map(float, range(len(ikvs) + len(okvs) - 1))
+            eukts = [ukts[0], (ukts[0]+ukts[1])/2] + ukts[1:-1] + [(ukts[-2]+ukts[-1])/2, ukts[-1]]
+            evkts = [vkts[0], (vkts[0]+vkts[1])/2] + vkts[1:-1] + [(vkts[-2]+vkts[-1])/2, vkts[-1]]
+            ukts = [ukts[0]]*3 + ukts + [ukts[-1]]*3
+            vkts = [vkts[0]]*3 + vkts + [vkts[-1]]*3
+
+            srf = ip.InterpolateSurface(pts, eukts, evkts, ukts, vkts)
+
+            srfs.append(srf)
+
         vols_master = [ExtrudeSurface(s, Point(0, 0, 1), params.extrudeLen) for s in srfs]
         for v in vols_master:
             v.RaiseOrder(0, 0, 2)
@@ -928,10 +959,10 @@ if __name__ == '__main__':
 
 
 
-    # for v in out_vols:
-    #     v.LowerOrder(4 - params.order, 4 - params.order, 4 - params.order)
 
 
+    for v in out_vols:
+        v.LowerOrder(4 - params.order, 4 - params.order, 4 - params.order)
 
     numberer = Numberer()
     numberer.AddPatches(out_vols)

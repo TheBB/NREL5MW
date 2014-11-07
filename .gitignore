@@ -5,3 +5,4 @@ out/*
 *.xinp
 *.xml
 *.hdf5
+NREL_wing_mesh_3D/*

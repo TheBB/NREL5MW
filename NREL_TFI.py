@@ -961,13 +961,85 @@ if __name__ == '__main__':
 
 
 
+    maxdist, npts = 0.0, 0
+    N = 50
+    for ray_a, ray_b in zip(length_vols, length_vols[1:] + [length_vols[0]]):
+        for col_a, col_b in zip(ray_a, ray_b):
+            for va, vb in zip(col_a, col_b):
+                a_ukts, a_vkts, a_wkts = va.GetKnots(with_multiplicities=True)
+                b_ukts, b_vkts, b_wkts = vb.GetKnots(with_multiplicities=True)
+                assert(a_wkts == b_wkts)
+                assert(a_vkts == b_vkts)
+
+                a_ukts, a_vkts, a_wkts = va.GetKnots()
+                b_ukts, b_vkts, b_wkts = vb.GetKnots()
+                assert(a_wkts == b_wkts)
+                assert(a_vkts == b_vkts)
+
+                vtest = np.linspace(a_vkts[0], a_vkts[-1], N)
+                wtest = np.linspace(a_wkts[0], a_wkts[-1], N)
+
+                a_pts = [va.Evaluate(a_ukts[0], v, w) for v in vtest for w in wtest]
+                b_pts = [vb.Evaluate(b_ukts[-1], v, w) for v in vtest for w in wtest]
+
+                npts += len(a_pts)
+                maxdist = max(max(abs(a-b) for a, b in zip(a_pts, b_pts)), maxdist)
+
+    for ray in length_vols:
+        for col_i, col_o in zip(ray[:-1], ray[1:]):
+            for va, vb in zip(col_i, col_o):
+                a_ukts, a_vkts, a_wkts = va.GetKnots(with_multiplicities=True)
+                b_ukts, b_vkts, b_wkts = vb.GetKnots(with_multiplicities=True)
+                assert(a_ukts == b_ukts)
+                assert(a_vkts == b_vkts)
+
+                a_ukts, a_vkts, a_wkts = va.GetKnots()
+                b_ukts, b_vkts, b_wkts = vb.GetKnots()
+                assert(a_ukts == b_ukts)
+                assert(a_vkts == b_vkts)
+
+                utest = np.linspace(a_ukts[0], a_ukts[-1], N)
+                vtest = np.linspace(a_vkts[0], a_vkts[-1], N)
+
+                a_pts = [va.Evaluate(u, v, a_wkts[-1]) for u in utest for v in vtest]
+                b_pts = [vb.Evaluate(u, v, b_wkts[0]) for u in utest for v in vtest]
+
+                npts += len(a_pts)
+                maxdist = max(max(abs(a-b) for a, b in zip(a_pts, b_pts)), maxdist)
+
+    for ray in length_vols:
+        for col in ray:
+            for va, vb in zip(col[:-1], col[1:]):
+                a_ukts, a_vkts, a_wkts = va.GetKnots(with_multiplicities=True)
+                b_ukts, b_vkts, b_wkts = vb.GetKnots(with_multiplicities=True)
+                assert(a_ukts == b_ukts)
+                assert(a_wkts == b_wkts)
+
+                a_ukts, a_vkts, a_wkts = va.GetKnots()
+                b_ukts, b_vkts, b_wkts = vb.GetKnots()
+                assert(a_ukts == b_ukts)
+                assert(a_wkts == b_wkts)
+
+                utest = np.linspace(a_ukts[0], a_ukts[-1], N)
+                wtest = np.linspace(a_wkts[0], a_wkts[-1], N)
+
+                a_pts = [va.Evaluate(u, a_vkts[-1], w) for u in utest for w in wtest]
+                b_pts = [vb.Evaluate(u, b_vkts[0], w) for u in utest for w in wtest]
+
+                npts += len(a_pts)
+                maxdist = max(max(abs(a-b) for a, b in zip(a_pts, b_pts)), maxdist)
+
+    print 'Maximal node gap found: %s (tested %i points)' % (maxdist, npts)
+
+
+
+
+
     for v in out_vols:
         v.LowerOrder(4 - params.order, 4 - params.order, 4 - params.order)
 
     numberer = Numberer()
     numberer.AddPatches(out_vols)
-    if params.back > 0:
-        numberer.AddPatches(backvols)
 
     numberer.AddGroup('inflow', 'volume', length_vols[3][-1] + length_vols[4][-1])
     numberer.AddGroup('out_left', 'volume', length_vols[0][-1])

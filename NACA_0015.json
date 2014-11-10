@@ -1,7 +1,7 @@
 {
     "wingfile": "NACA_0015.xinp",
-
     "tip": false,
+    "nprocs": 16,
 
     "extrudeLen": 10.0,
 

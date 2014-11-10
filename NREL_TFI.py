@@ -440,6 +440,7 @@ default_params = {
     'tip': True,                             # Whether to include tip
 
     'back': 4.0,
+    'front': 0.2,
 
     'OpenFOAM': False,
 }
@@ -954,6 +955,16 @@ if __name__ == '__main__':
             UniformVolume(v, 3, int(ceil(params.back * params.NradSq)))
         out_vols += backvols
 
+    if params.front > 0:
+        frontvols = []
+        for l in length_vols[3][-1] + length_vols[4][-1]:
+            srf = l.GetFaces()[5]
+            frontvols.append(ExtrudeSurface(srf, Point(-1, 0, 0), params.R * params.front))
+        for v in frontvols:
+            v.RaiseOrder(0, 0, 2)
+            UniformVolume(v, 3, int(ceil(params.front * params.NradSq)))
+        out_vols += frontvols
+
     if params.debug:
         WriteG2('out/vols.g2', out_vols)
 
@@ -967,13 +978,12 @@ if __name__ == '__main__':
     numberer = Numberer()
     numberer.AddPatches(out_vols)
 
-    numberer.AddGroup('inflow', 'volume', length_vols[3][-1] + length_vols[4][-1])
     numberer.AddGroup('out_left', 'volume', length_vols[0][-1])
     numberer.AddGroup('out_right', 'volume', length_vols[7][-1])
+    numberer.AddGroup('in_left', 'volume', length_vols[3][-1])
+    numberer.AddGroup('in_right', 'volume', length_vols[4][-1])
     numberer.AddGroup('slip_left', 'volume', length_vols[1][-1] + length_vols[2][-1])
     numberer.AddGroup('slip_right', 'volume', length_vols[5][-1] + length_vols[6][-1])
-    numberer.AddGroup('slip_left_in', 'volume', length_vols[2][-1])
-    numberer.AddGroup('slip_right_in', 'volume', length_vols[5][-1])
     numberer.AddGroup('inner', 'volume', list(chain.from_iterable([length_vols[k][0] for k in xrange(8)])))
     numberer.AddGroup('btm', 'volume', [v[0] for v in chain.from_iterable(length_vols)])
     numberer.AddGroup('top', 'volume', [v[-1] for v in chain.from_iterable(length_vols)])
@@ -982,16 +992,24 @@ if __name__ == '__main__':
         numberer.AddGroup('outflow', 'volume', backvols)
         numberer.AddGroup('btm', 'volume', [backvols[0], backvols[len(backvols)/2]])
         numberer.AddGroup('top', 'volume', [backvols[len(backvols)/2-1], backvols[-1]])
-        numberer.AddGroup('slip_left_back', 'volume', backvols[:len(backvols)/2])
-        numberer.AddGroup('slip_right_back', 'volume', backvols[len(backvols)/2:])
+        numberer.AddGroup('left_back', 'volume', backvols[:len(backvols)/2])
+        numberer.AddGroup('right_back', 'volume', backvols[len(backvols)/2:])
     else:
         numberer.AddGroup('outflow', 'volume', length_vols[0][-1] + length_vols[7][-1])
 
+    if params.front > 0:
+        numberer.AddGroup('inflow', 'volume', frontvols)
+        numberer.AddGroup('btm', 'volume', [frontvols[0], frontvols[len(frontvols)/2]])
+        numberer.AddGroup('top', 'volume', [frontvols[len(frontvols)/2-1], frontvols[-1]])
+        numberer.AddGroup('left_front', 'volume', frontvols[:len(frontvols)/2])
+        numberer.AddGroup('right_front', 'volume', frontvols[len(frontvols)/2:])
+    else:
+        numberer.AddGroup('inflow', 'volume', length_vols[3][-1] + length_vols[4][-1])
+        numberer.AddGroup('slip_left_in', 'volume', length_vols[2][-1])
+        numberer.AddGroup('slip_right_in', 'volume', length_vols[5][-1])
+
     numberer.AddBoundary('hub', [('btm', 'face', [2])])
     numberer.AddBoundary('antihub', [('top', 'face', [3])])
-    numberer.AddBoundary('inflow', [('inflow', 'face', [5]),
-                                    ('slip_left_in', 'edge', [6]),
-                                    ('slip_right_in', 'edge', [7])])
     numberer.AddBoundary('outflow', [('outflow', 'face', [5])])
     numberer.AddBoundary('slipwall_left', [('out_left', 'edge', [6]),
                                            ('slip_left', 'face', [5])])
@@ -1000,10 +1018,23 @@ if __name__ == '__main__':
     numberer.AddBoundary('wing', [('inner', 'face', [4])])
 
     if params.back > 0:
-        numberer.AddBoundary('slipwall_left', [('slip_left_back', 'edge', [6]),
-                                               ('slip_left_back', 'face', [0])])
-        numberer.AddBoundary('slipwall_right', [('slip_right_back', 'edge', [7]),
-                                                ('slip_right_back', 'face', [1])])
+        numberer.AddBoundary('slipwall_left', [('left_back', 'edge', [6]),
+                                               ('left_back', 'face', [0])])
+        numberer.AddBoundary('slipwall_right', [('right_back', 'edge', [7]),
+                                                ('right_back', 'face', [1])])
+
+    if params.front > 0:
+        numberer.AddBoundary('inflow', [('inflow', 'face', [5]),
+                                        ('left_front', 'edge', [7]),
+                                        ('right_front', 'edge', [6])])
+        numberer.AddBoundary('slipwall_left', [('left_front', 'face', [1]),
+                                               ('in_left', 'edge', [7])])
+        numberer.AddBoundary('slipwall_right', [('right_front', 'face', [0]),
+                                                ('in_right', 'edge', [6])])
+    else:
+        numberer.AddBoundary('inflow', [('inflow', 'face', [5]),
+                                        ('left_in', 'edge', [6]),
+                                        ('right_in', 'edge', [7])])
 
 
     numberer.Renumber(params.nprocs)

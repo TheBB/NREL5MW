@@ -427,6 +427,8 @@ default_params = {
     'R': 10.0,                               # Radius of the o-mesh, the sidelength of the full mesh
                                              # is four times as large
 
+    'fe': 5.0e-4,                            # Resolution factor, front edge
+
     'Nte': 9,                                # Cells for trailing edge
     'Nback': 27,                             # Cells for back part of wing
     'Nfront': 38,                            # Cells for front part of wing
@@ -546,13 +548,12 @@ if __name__ == '__main__':
 
 
     # Loop over sections and sample mesh points
-    for i, (sT, sU, st, nds) in enumerate(zip(sTotal, sUpper, ste, ndsections)):
+    for i, (sT, sU, st, wd, nds) in enumerate(zip(sTotal, sUpper, ste, params.wingdef, ndsections)):
         factor = 0.5
         s1 = 0.5 * st                     # Length of trailing edge modification
         ds1 = s1 / params.Nte                    # Grid spacing at trailing edge
 
-        # If shit is fucked up near the hub, try changing this number first
-        dx2 = 2.5e-3 if i >= 4 else 5e-2
+        dx2 = params.fe * sT
         r2, r3, _ = GradingTwoSided(sU-s1, ds1, dx2, params.Nback-1, params.Nfront-1,
                                     1.1, 0.9, 1.0e-12, 200)
         r4, r5, _ = GradingTwoSided(sT-sU-s1, dx2, ds1, params.Nfront-1, params.Nback-1,

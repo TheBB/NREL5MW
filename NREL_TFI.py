@@ -430,10 +430,10 @@ default_params = {
     'fe': 5.0e-4,                            # Resolution factor, front edge
 
     'Nte': 9,                                # Cells for trailing edge
-    'Nback': 27,                             # Cells for back part of wing
-    'Nfront': 38,                            # Cells for front part of wing
+    'Nback': 28,                             # Cells for back part of wing
+    'Nfront': 39,                            # Cells for front part of wing
 
-    'Nrad': 70,                              # Number of elements radially in the o-mesh
+    'Nrad': 72,                              # Number of elements radially in the o-mesh
     'NradSq': 8,                             # Number of elements radially outside the o-mesh
     'NradP': 4,                              # Number of patches radially
 
@@ -849,7 +849,7 @@ if __name__ == '__main__':
         vols_master = [ExtrudeSurface(s, Point(0, 0, 1), params.extrudeLen) for s in srfs]
         for v in vols_master:
             v.RaiseOrder(0, 0, 2)
-            UniformVolume(v, 3, params.NlenBase + 2*params.Nlen)
+            UniformVolume(v, 3, params.NlenBase + 2*params.Nlen - 1)
             v.SwapParametrization(1, 2)
             v.FlipParametrization(0)
 
@@ -950,10 +950,16 @@ if __name__ == '__main__':
         backvols = []
         for l in length_vols[0][-1] + length_vols[7][-1]:
             srf = l.GetFaces()[5]
-            backvols.append(ExtrudeSurface(srf, Point(1, 0, 0), params.R * params.back))
-        for v in backvols:
+            v = ExtrudeSurface(srf, Point(1, 0, 0), params.R * params.back)
             v.RaiseOrder(0, 0, 2)
             UniformVolume(v, 3, int(ceil(params.back * params.NradSq)))
+
+            kus, kvs, kws = v.GetKnots()
+            mid = kws[len(kws)/2]
+            inner = v.GetSubVol([kus[0], kvs[0], kws[0]], [kus[-1], kvs[-1], mid])
+            outer = v.GetSubVol([kus[0], kvs[0], mid], [kus[-1], kvs[-1], kws[-1]])
+            backvols += [inner, outer]
+
         out_vols += backvols
 
     if params.front > 0:
@@ -990,9 +996,9 @@ if __name__ == '__main__':
     numberer.AddGroup('top', 'volume', [v[-1] for v in chain.from_iterable(length_vols)])
 
     if params.back > 0:
-        numberer.AddGroup('outflow', 'volume', backvols)
-        numberer.AddGroup('btm', 'volume', [backvols[0], backvols[len(backvols)/2]])
-        numberer.AddGroup('top', 'volume', [backvols[len(backvols)/2-1], backvols[-1]])
+        numberer.AddGroup('outflow', 'volume', backvols[1::2])
+        numberer.AddGroup('btm', 'volume', [backvols[i] for i in [0,1,4,5]])
+        numberer.AddGroup('top', 'volume', [backvols[i] for i in [2,3,6,7]])
         numberer.AddGroup('left_back', 'volume', backvols[:len(backvols)/2])
         numberer.AddGroup('right_back', 'volume', backvols[len(backvols)/2:])
     else:

@@ -10,5 +10,6 @@
     "NlenP": 2,
 
     "addpt": -1,
-    "adds": 0
+    "adds": 0,
+    "nprocs_mg": 4
 }

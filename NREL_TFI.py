@@ -90,89 +90,6 @@ def PrepareOutput(params):
         except OSError: pass
 
 
-def PrintPatchSizes(revols):
-    ndofs = {}
-    for i, v in enumerate(revols):
-        ku, kv, kw = v.GetKnots()
-        n = len(ku) * len(kv) * len(kw)
-        if n not in ndofs:
-            ndofs[n] = []
-        ndofs[n].append(i+1)
-
-    def ranges(lst):
-        split = []
-        for i, (prv, nxt) in enumerate(zip(lst[:-1], lst[1:])):
-            if nxt - prv > 1:
-                split.append(i+1)
-        rngs = []
-        split = [None] + split + [None]
-        for prv, nxt in zip(split[:-1], split[1:]):
-            lstpart = lst[slice(prv, nxt)]
-            rngs.append((lstpart[0], lstpart[-1]))
-        return rngs
-
-    print ''
-
-    for n in sorted(ndofs, reverse=True):
-        s = []
-        for a,b in ranges(ndofs[n]):
-            s.append(('%i-%i' % (a,b)) if a != b else ('%i' % a))
-
-        title = '%i DoFs:' % n
-        indent = len(title)
-
-        print title,
-
-        n = 0
-        for i, p in enumerate(s):
-            if n + len(p) + 2 > 60:
-                print ''
-                print ' '*indent,
-                n = 0
-            print (p + ',') if i < len(s)-1 else p,
-            n += len(p) + 2
-
-        print ''
-
-    print 'Total: ~%i DoFs' % sum(n * len(patches) for n, patches in ndofs.iteritems())
-
-
-def WriteXML(patchgroups, face_bnds, edge_bnds, reorder, params):
-    old_to_new = lambda i: reorder.index(i)
-    new_to_old = lambda i: reorder[i]
-
-    ends = cumsum(patchgroups)
-    starts = hstack(([1], ends[:-1] + 1))
-
-    pg = ['    <part proc="%i" lower="%i" upper="%i" />' % tup
-          for tup in zip(range(len(starts)), starts, ends)]
-
-    ts_face = [['    <set name="%s" type="face">' % name]
-             + ['      <item patch="%i">%i</item>' % (old_to_new(pid-1)+1, face) for pid, face in boundary]
-             + ['    </set>']
-               for name, boundary in face_bnds.iteritems()]
-    ts_edge = [['    <set name="%s" type="edge">' % name]
-             + ['      <item patch="%i">%i</item>' % (old_to_new(pid-1)+1, edge) for pid, edge in boundary]
-             + ['    </set>']
-               for name, boundary in edge_bnds.iteritems()]
-    ts = list(chain(*(ts_face + ts_edge)))
-
-    with open('out/%s.xinp' % params.out, 'w') as f:
-        f.write('<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n\n')
-        f.write('<geometry>\n')
-        f.write('  <partitioning procs="%i">\n' % len(pg))
-        for s in pg:
-            f.write(s + '\n')
-        f.write('  </partitioning>\n')
-        f.write('  <patchfile>%s.g2</patchfile>\n'%params.out)
-        f.write('  <nodefile>%s.hdf5</nodefile>\n'%params.out)
-        f.write('  <topologysets>\n')
-        for s in ts:
-            f.write(s + '\n')
-        f.write('  </topologysets>\n')
-        f.write('</geometry>')
-
-
 def CurveLength(pts):
     return sum([abs(pn-pp) for pp, pn in zip(pts[:-1], pts[1:])])
 
@@ -400,7 +317,119 @@ def LinSpace(*args, **kwargs):
 
 
 def MkInternalMesh(wv):
-    pass
+    f = 0.18
+
+    edges = [p.GetEdges()[0].ReParametrize() for p in patches]
+    knots = [e.GetKnots() for e in edges]
+    bdpts = [e.Evaluate(0) for e in edges]
+    nout = int(2 * f * len(knots[0]))
+
+    surfaces = []
+
+    # Form midcurve
+    top_pts = list(chain.from_iterable([GetCurvePoints(edges[4])] +
+                                       [GetCurvePoints(e)[1:] for e in edges[5:]]))[::-1]
+    btm_pts = list(chain.from_iterable([GetCurvePoints(edges[0])] +
+                                       [GetCurvePoints(e)[1:] for e in edges[1:4]]))
+    midcurve = ip.CubicCurve(pts=[(t+b)/2 for t, b in zip(top_pts, btm_pts)],
+                             boundary=ip.NATURAL)
+
+    # Evaluate some points and create some curves
+    bparam = abs(bdpts[1] - bdpts[0]) * 0.5
+    fparam = midcurve.GetKnots()[-1] - abs(bdpts[4] - bdpts[3]) * 0.5
+    mnorm = LineSegment(bdpts[2], bdpts[6])
+    mparam = midcurve.GetParameterAtPoint(midcurve.Intersect(mnorm))[0]
+
+    bcrv = ip.CubicCurve(pts=[midcurve.Evaluate(t) for t in np.linspace(bparam, 0, nout)],
+                         boundary=ip.NATURAL).ReParametrize()
+    fcrv = ip.CubicCurve(pts=[midcurve.Evaluate(t) for t in np.linspace(fparam, midcurve.GetKnots()[-1], nout)],
+                         boundary=ip.NATURAL).ReParametrize()
+
+    bkts = CurveLengthParametrization(GetCurvePoints(edges[6]), normalize=True)
+    bmcrv = ip.CubicCurve(pts=[midcurve.Evaluate((1.0-bk)*mparam + bk*bparam) for bk in bkts],
+                          boundary=ip.NATURAL, t=list(np.linspace(0, 1, len(bkts)))).ReParametrize()
+
+    fkts = CurveLengthParametrization(GetCurvePoints(edges[2]), normalize=True)
+    fmcrv = ip.CubicCurve(pts=[midcurve.Evaluate((1.0-fk)*mparam + fk*fparam) for fk in fkts],
+                          boundary=ip.NATURAL, t=list(np.linspace(0, 1, len(fkts)))).ReParametrize()
+
+    # Back
+    nrm_btm = edges[1].EvaluateTangent(0).Rotate(Point(0,0,1), -pi/3).Normalize()
+    nrm_top = edges[7].EvaluateTangent(0).Rotate(Point(0,0,1), -2*pi/3).Normalize()
+    d = abs(bdpts[1] - bdpts[-1])
+
+    crv_btm = LineSegment(edges[1].Evaluate(0), f * d * nrm_btm, relative=True)
+    crv_top = LineSegment(edges[7].Evaluate(0), f * d * nrm_top, relative=True)
+    mcrv_btm = LineSegment(crv_btm.Evaluate(1), bcrv.Evaluate(0))
+    mcrv_top = LineSegment(crv_top.Evaluate(1), bcrv.Evaluate(0))
+
+    for c in [crv_btm, crv_top]: UniformCurve(c.RaiseOrder(2), nout-2)
+    for c in [mcrv_btm, mcrv_top]: UniformCurve(c.RaiseOrder(2), len(knots[0])-2)
+
+    surfaces.append(CoonsSurfacePatch([edges[0], crv_btm, mcrv_btm, bcrv]))
+    surfaces.append(CoonsSurfacePatch([edges[7].FlipParametrization(), crv_top, mcrv_top, bcrv]))
+
+    # Mid-back
+    icrv_btm = LineSegment(mnorm.Evaluate(0), mnorm.Evaluate(f * 0.75))
+    icrv_top = LineSegment(mnorm.Evaluate(1), mnorm.Evaluate(1-f * 0.75))
+    tcrv_btm = ip.CubicCurve(pts=[(1-bk)*icrv_btm.Evaluate(1) + bk*crv_btm.Evaluate(1) for bk in bkts],
+                             boundary=ip.NATURAL, t=list(np.linspace(0, 1, len(bkts))))
+    tcrv_top = ip.CubicCurve(pts=[(1-bk)*icrv_top.Evaluate(1) + bk*crv_top.Evaluate(1) for bk in bkts],
+                             boundary=ip.NATURAL, t=list(np.linspace(0, 1, len(bkts))))
+    imcrv_btm = LineSegment(icrv_btm.Evaluate(1), bmcrv.Evaluate(0))
+    imcrv_top = LineSegment(icrv_top.Evaluate(1), bmcrv.Evaluate(0))
+
+    for c in [icrv_btm, icrv_top]: UniformCurve(c.RaiseOrder(2), nout-2)
+    for c in [imcrv_btm, imcrv_top]: UniformCurve(c.RaiseOrder(2), len(knots[0])-2)
+
+    surfaces.append(CoonsSurfacePatch([edges[1], icrv_btm, tcrv_btm, crv_btm.FlipParametrization()]))
+    surfaces.append(CoonsSurfacePatch([edges[6].FlipParametrization(), icrv_top, tcrv_top,
+                                       crv_top.FlipParametrization()]))
+    surfaces.append(CoonsSurfacePatch([tcrv_btm.FlipParametrization(), imcrv_btm, bmcrv,
+                                       mcrv_btm.FlipParametrization()]))
+    surfaces.append(CoonsSurfacePatch([tcrv_top.FlipParametrization(), imcrv_top, bmcrv,
+                                       mcrv_top.FlipParametrization()]))
+
+    # Front
+    nrm_btm = edges[3].EvaluateTangent(0).Rotate(Point(0,0,1), -2*pi/3).Normalize()
+    nrm_top = edges[5].EvaluateTangent(0).Rotate(Point(0,0,1), -pi/3).Normalize()
+    d = abs(bdpts[5] - bdpts[3])
+
+    crv_btm = LineSegment(edges[3].Evaluate(0), f * d * nrm_btm, relative=True)
+    crv_top = LineSegment(edges[5].Evaluate(0), f * d * nrm_top, relative=True)
+    mcrv_btm = LineSegment(crv_btm.Evaluate(1), fcrv.Evaluate(0))
+    mcrv_top = LineSegment(crv_top.Evaluate(1), fcrv.Evaluate(0))
+
+    for c in [crv_btm, crv_top]: UniformCurve(c.RaiseOrder(2), nout-2)
+    for c in [mcrv_btm, mcrv_top]: UniformCurve(c.RaiseOrder(2), len(knots[3])-2)
+
+    surfaces.append(CoonsSurfacePatch([edges[3].FlipParametrization(), crv_btm, mcrv_btm, fcrv]))
+    surfaces.append(CoonsSurfacePatch([edges[4], crv_top, mcrv_top, fcrv]))
+
+    # Mid-front
+
+    tcrv_btm = ip.CubicCurve(pts=[(1-fk)*icrv_btm.Evaluate(1) + fk*crv_btm.Evaluate(1) for fk in fkts],
+                             boundary=ip.NATURAL, t=list(np.linspace(0, 1, len(fkts))))
+    tcrv_top = ip.CubicCurve(pts=[(1-fk)*icrv_top.Evaluate(1) + fk*crv_top.Evaluate(1) for fk in fkts],
+                             boundary=ip.NATURAL, t=list(np.linspace(0, 1, len(fkts))))
+
+    surfaces.append(CoonsSurfacePatch([edges[2].FlipParametrization(), icrv_btm, tcrv_btm,
+                                       crv_btm.FlipParametrization()]))
+    surfaces.append(CoonsSurfacePatch([edges[5], icrv_top, tcrv_top, crv_top.FlipParametrization()]))
+    surfaces.append(CoonsSurfacePatch([tcrv_btm.FlipParametrization(), imcrv_btm, fmcrv,
+                                       mcrv_btm.FlipParametrization()]))
+    surfaces.append(CoonsSurfacePatch([tcrv_top.FlipParametrization(), imcrv_top, fmcrv,
+                                       mcrv_top.FlipParametrization()]))
+
+    for i in [0, 2, 4, 5, 7, 9]:
+        surfaces[i].FlipParametrization(0)
+    for i in [5, 11]:
+        surfaces[i].FlipParametrization(1)
+    
+    WriteG2('out/internal_surfaces.g2', surfaces)
+
+
+    return surfaces
 
 
 default_params = {
@@ -409,6 +438,7 @@ default_params = {
     'debug': False,                          # Debug mode produces intermediate g2-files
     'nprocs': 800,                           # Optimize for a given number of CPUs
     'order': 2,                              # 2 = linear, 3 = quadratic, etc. (what a dumb convention)
+    'internal': False,                       # Also write internal mesh
 
     'adds': 4,                               # Number of intermediate refinements
     'addpt': 4,                              # Airfoil index around which to perform intermediate refinement
@@ -791,6 +821,14 @@ if __name__ == '__main__':
 
 
 
+    if params.internal:
+        for patches in grouper(8, innersecs, None):
+            internal_mesh = MkInternalMesh(patches)
+
+
+
+
+
     if params.tip:
         print 'Generating tip...'
 
@@ -853,6 +891,13 @@ if __name__ == '__main__':
             v.SwapParametrization(1, 2)
             v.FlipParametrization(0)
 
+        if params.internal:
+            vols_internalmaster = [ExtrudeSurface(s, Point(0, 0, 1), params.extrudeLen)
+                                   for s in internal_mesh]
+            for v in vols_internalmaster:
+                v.RaiseOrder(0, 0, 2)
+                UniformVolume(v, 3, params.NlenBase + 2*params.Nlen - 1)
+
     else:
 
         print 'Constructing master volumes...'
@@ -894,6 +939,8 @@ if __name__ == '__main__':
                 allsecs = ivs + ovs
                 vols_master.append(LoftSurfaces(allsecs, range(len(allsecs)), order=4))
 
+        if params.internal:
+            print '**** NOT IMPLEMENTED'
 
         if params.debug:
             WriteG2('out/innervols_master.g2', innervols_master)
@@ -943,6 +990,25 @@ if __name__ == '__main__':
         out_vols += list(chain.from_iterable(radials[:8]))
 
 
+    if params.internal:
+        internal_vols = []
+        for v in vols_internalmaster:
+            ku, kv, kw = v.GetKnots()
+            
+            ret = []
+            N = len(kw) - 1
+            for i in range(params.NlenP):
+                k1 = kw[i * N / params.NlenP]
+                k2 = kw[(i+1) * N / params.NlenP]
+                ret.append(v.GetSubVol([ku[0], kv[0], k1], [ku[-1], kv[-1], k2]))
+            internal_vols.append(ret)
+            
+        out_internalvols = list(chain.from_iterable(internal_vols))
+
+        if params.debug:
+            WriteG2('out/internalvols.g2', out_internalvols)
+
+
 
 
 
@@ -979,6 +1045,36 @@ if __name__ == '__main__':
 
 
 
+
+    if params.internal:
+        for v in out_internalvols:
+            v.LowerOrder(4 - params.order, 4 - params.order, 4 - params.order)
+
+        numberer = Numberer()
+        numberer.AddPatches(out_internalvols)
+
+        numberer.AddGroup('btm', 'volume', [c[0] for c in internal_vols])
+        numberer.AddGroup('top', 'volume', [c[-1] for c in internal_vols])
+        numberer.AddGroup('wing', 'volume',
+                          list(chain.from_iterable(internal_vols[:4] + internal_vols[6:10])))
+
+        numberer.AddBoundary('hub', [('btm', 'face', [4])])
+        numberer.AddBoundary('antihub', [('top', 'face', [5])])
+        numberer.AddBoundary('wing', [('wing', 'face', [2])])
+
+        numberer.Renumber(params.nprocs)
+
+        if params.debug:
+            for g in numberer.Groups():
+                numberer.WriteGroup(g, 'out/int-group-%s.g2' % g)
+            for g in numberer.Boundaries():
+                numberer.WriteBoundary(g, 'out/int-boundary-%s.g2' % g)
+
+        numberer.WriteEverything(params.out + '_internal')
+        
+
+
+        
     for v in out_vols:
         v.LowerOrder(4 - params.order, 4 - params.order, 4 - params.order)
 

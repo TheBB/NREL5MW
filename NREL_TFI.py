@@ -1139,6 +1139,7 @@ if __name__ == '__main__':
                                         ('left_in', 'edge', [6]),
                                         ('right_in', 'edge', [7])])
 
+    numberer.AddWallGroup('wing')
 
     numberer.Renumber(params.nprocs)
 

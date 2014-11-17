@@ -496,6 +496,8 @@ if __name__ == '__main__':
     params = namedtuple('Params', default_params.keys())(**default_params)
     PrepareOutput(params)
 
+    SetProcessorCount(params.nprocs_mg)
+
     # create non-dimensional sections
     ndsections = []                            # the normalized wing sections
     sections = []
@@ -1139,8 +1141,6 @@ if __name__ == '__main__':
                                         ('left_in', 'edge', [6]),
                                         ('right_in', 'edge', [7])])
 
-    numberer.AddWallGroup('wing')
-
     numberer.Renumber(params.nprocs)
 
 
@@ -1151,6 +1151,8 @@ if __name__ == '__main__':
             numberer.WriteBoundary(g, 'out/boundary-%s.g2' % g)
 
 
+    if params.nprocs_mg:
+        numberer.AddWallGroup('wing')
     numberer.WriteEverything(params.out)
     numberer.PrintLoadBalance()
 

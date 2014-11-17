@@ -437,6 +437,7 @@ default_params = {
     'out': 'NREL_wing_mesh_3D',              # Output filename
     'debug': False,                          # Debug mode produces intermediate g2-files
     'nprocs': 800,                           # Optimize for a given number of CPUs
+    'nprocs_mg': 4,                          # CPUs for mesh generation
     'order': 2,                              # 2 = linear, 3 = quadratic, etc. (what a dumb convention)
     'internal': False,                       # Also write internal mesh
 

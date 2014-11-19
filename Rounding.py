@@ -300,7 +300,7 @@ def MkSurfaces(N1, N2, params, distfun, hmSurf, hmCurve, height):
         presurf = CoonsSurfacePatch(map(hmCurve, curves))
         surfaces.append(ProjectSurfaceToSurface(presurf, height, ulow, uhigh))
 
-    return surfaces
+    return N0, surfaces
 
 
 def WingTip(wv, params):
@@ -361,7 +361,7 @@ def WingTip(wv, params):
     lines = map(points, wv)[::-1]; btm, top = split_ub(lines)
     derivs = map(derivatives, wv)[::-1]; btmd, topd = split_ub(derivs)
 
-    topcurve, midp, lens = MkTopCurve(top, btm, topd, [(0.52, 0.2)])
+    topcurve, midp, lens = MkTopCurve(top, btm, topd, [(0.5, 0.2)])
     dist = ip.CubicCurve(pts=[Point(0,0,h) for h in lens], t=list(linspace(0, 1, len(lens))),
                          boundary=ip.NATURAL)
 
@@ -396,79 +396,92 @@ def WingTip(wv, params):
     N1, N2 = map(lambda l: len(l) - 3, lines[:2])
     distfun = lambda d: (N1+N2) * 2 * dist.GetParameterAtPoint(Point(0,0,d))[0]
 
-    surfaces = MkSurfaces(N1, N2, params, distfun,
-                          lambda s: heightMapSurface(height, s),
-                          lambda c: heightMapCurve(height, c),
-                          height)
+    N0, surfaces = MkSurfaces(N1, N2, params, distfun,
+                              lambda s: heightMapSurface(height, s),
+                              lambda c: heightMapCurve(height, c),
+                              height)
 
-    WriteG2('out/test.g2', surfaces + wv)
-
-    return surfaces
+    return N0, N0 + N2, N0 + N1, surfaces
 
 
-def OMeshTip(z, R, cs, tip):
+def OMeshTip(cs, params):
+    z = params.wingdef[-1].z
 
     center = Point(0, 0, z)
 
-    def pillar(p, ang, N):
+    def pillar(p, angs):
         axis = (p - center) % center
+        angs = [angs[0], (angs[0]+angs[1])/2] + angs[1:-1] + [(angs[-2]+angs[-1])/2, angs[-1]]
+        points = [(p - center).Rotate(axis, v) + center for v in angs]
+        curve = ip.CubicCurve(pts=points, boundary=ip.FREE, t=angs).ReParametrize()
 
-        return CSeg(center, p, ang, axis, N).ReParametrize()
+        k0, k1, k2 = (curve.GetKnots()[0],
+                      curve.GetKnots()[params.computed['n_middle']],
+                      curve.GetKnots()[-1])
 
-    def summit(p, N):
-        axis = (p.Evaluate(0.0) - center) % center
-        return CSeg(center, p.Evaluate(1.0), pi/4, axis, N).ReParametrize()
+        if k1 < k2:
+            return curve.GetSubCurve(k0, k1), curve.GetSubCurve(k1, k2)
+        else:
+            return curve
 
-    def beam(o, p1, p2, sign, N):
-        start = p1.Evaluate(1.0)
-        end = p2.Evaluate(1.0)
-        axis = sign * ((start - center) % (end - center))
-        angle = arccos((start - center).Normalize() * (end - center).Normalize())
-        return CSeg(center, start, sign * angle, axis, N).ReParametrize()
+    def mkWall(outer, beam1, beam2):
+        ks1, ks2 = beam1.GetKnots(), beam2.GetKnots()
+        ks1 = [(ks1[0]+ks1[1])/2] + ks1[1:-1] + [(ks1[-2]+ks1[-1])/2, ks1[-1]]
+        ks2 = [(ks2[0]+ks2[1])/2] + ks2[1:-1] + [(ks2[-2]+ks2[-1])/2, ks2[-1]]
 
-    def icirc(start, end, N, space='lin'):
-        axis = ((start - center) % (end - center)).Normalize()
-        angle = arccos((end - center).Normalize() * (start - center).Normalize())
-        return CSeg(center, start, angle, axis, N, space=space).ReParametrize()
+        ekts = outer.GetKnots()
+        ekts = [ekts[0], (ekts[0]+ekts[1])/2] + ekts[1:-1] + [(ekts[-2]+ekts[-1])/2, ekts[-1]]
 
-    def mkWall(outer, beam, N):
-        icircs = [icirc(outer.Evaluate(k), beam.Evaluate(k), N, space='lin')
-                  for k in outer.GetKnots()]
-        pts = list(chain(*[[ic.Evaluate(k) for k in ic.GetKnots()] for ic in icircs]))
-        return InterpolateSurface(pts,
-                                  list(linspace(0, 1, N+1)),
-                                  list(linspace(0, 1, len(outer.GetKnots()))))
+        curves = [outer]
+        for k1, k2 in zip(ks1, ks2):
+            a, b = beam1.Evaluate(k1), beam2.Evaluate(k2)
+            axis = (a - center) % (b - center)
+            angle = arccos((a - center).Normalize() * (b - center).Normalize())
+            angs = list(np.linspace(0, angle, len(outer.GetKnots())))
+            angs = [angs[0], (angs[0]+angs[1])/2] + angs[1:-1] + [(angs[-2]+angs[-1])/2, angs[-1]]
+            points = [(a - center).Rotate(axis, v) + center for v in angs]
+            curves.append(ip.CubicCurve(pts=points, boundary=ip.FREE, t=ekts))
 
-    def mkCeiling(o1, o2, beam, summit):
-        icircs = [icirc(beam.Evaluate(k), summit.Evaluate(k), len(o2.GetKnots()) - 1)
-                  for k in o1.GetKnots()]
-        pts = list(chain(*[[ic.Evaluate(k) for k in ic.GetKnots()] for ic in icircs]))
-        return InterpolateSurface(pts,
-                                  list(linspace(0, 1, len(o2.GetKnots()))),
-                                  list(linspace(0, 1, len(o1.GetKnots()))))
+        return LoftCurves(curves, range(len(curves)))
+
+    def mkCeiling(w1, w2, p1, p2):
+        return tfi.LinearSurface([w1.FlipParametrization(), p1, w2, p2])
 
     outer = [v.GetEdges()[2].ReParametrize() for v in cs]
     rays = [v.GetEdges()[3].ReParametrize() for v in cs]
-    pillars = [pillar(r.Evaluate(1.0), a, 20) for r, a in zip(rays, cycle([pi/4, arccos(sqrt(2.0/3.0))]))]
 
-    beams = [beam(outer[0], pillars[0], pillars[1], -1, 20), beam(outer[1], pillars[2], pillars[1], 1, 20),
-             beam(outer[2], pillars[2], pillars[3], -1, 20), beam(outer[3], pillars[4], pillars[3], 1, 20),
-             beam(outer[4], pillars[4], pillars[5], -1, 20), beam(outer[5], pillars[6], pillars[5], 1, 20),
-             beam(outer[6], pillars[6], pillars[7], -1, 20), beam(outer[7], pillars[0], pillars[7], 1, 20)]
+    # Plus pillars
+    start_angle = arctan(params.dzTip / params.R)
+    factor_along = ComputeFactor(pi/2, start_angle, params.computed['n_along'])
+    factor_across = ComputeFactor(pi/2, start_angle, params.computed['n_across'])
+    angs_along = GradedSpace(0, start_angle, factor_along, params.computed['n_along']) + [pi/2]
+    angs_across = GradedSpace(0, start_angle, factor_across, params.computed['n_across']) + [pi/2]
 
-    summits = [summit(p, 20).FlipParametrization() for p in pillars[::2]]
+    final_plus_angle = min(angs_along[params.computed['n_middle']],
+                           angs_across[params.computed['n_middle']])
+    plus_pillars = list(chain.from_iterable([pillar(rays[0].Evaluate(1), angs_along),
+                                             pillar(rays[2].Evaluate(1), angs_across),
+                                             pillar(rays[4].Evaluate(1), angs_along),
+                                             pillar(rays[6].Evaluate(1), angs_across)]))
 
-    for o in outer[1::2]:
-        o.FlipParametrization()
+    factor_small = ComputeFactor(final_plus_angle * 0.8, start_angle, params.computed['n_middle'])
+    angs_small = GradedSpace(0, start_angle, factor_small, params.computed['n_middle'] + 1)
 
-    N = len(tip[0].GetKnots()[0]) - 1
+    mid_pillars = [pillar(r.Evaluate(1), angs_small) for r in rays[1::2]]
 
-    walls = [mkWall(o, b, N) for o, b in zip(outer, beams)]
+    walls = [mkWall(outer[0], plus_pillars[0], mid_pillars[0]),
+             mkWall(outer[1], mid_pillars[0], plus_pillars[2]),
+             mkWall(outer[2], plus_pillars[2], mid_pillars[1]),
+             mkWall(outer[3], mid_pillars[1], plus_pillars[4]),
+             mkWall(outer[4], plus_pillars[4], mid_pillars[2]),
+             mkWall(outer[5], mid_pillars[2], plus_pillars[6]),
+             mkWall(outer[6], plus_pillars[6], mid_pillars[3]),
+             mkWall(outer[7], mid_pillars[3], plus_pillars[0])]
 
-    ceilings = [mkCeiling(outer[0], outer[1], beams[0], summits[1]),
-                mkCeiling(outer[2], outer[3], beams[2], summits[2]),
-                mkCeiling(outer[4], outer[5], beams[4], summits[3]),
-                mkCeiling(outer[6], outer[7], beams[6], summits[0])]
+    ceilings = []
+    for w1, w2, p2, p1 in zip(walls[0::2], walls[1::2], plus_pillars[1::2],
+                              plus_pillars[3::2] + [plus_pillars[1]]):
+        ceilings.append(mkCeiling(w1.GetEdges()[2], w2.GetEdges()[2], p1, p2))
 
     return walls + ceilings
 

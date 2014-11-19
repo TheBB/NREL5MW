@@ -49,33 +49,6 @@ def GetEdge(vol, i):
             return vol.GetFaces()[f_idx].GetEdges()[e_idxs.index(i)]
 
 
-def PrepareParams(params):
-    for arg in sys.argv:
-        for key in params.keys():
-            if arg in [key, 'no' + key] and type(params[key]) == bool:
-                params[key] = arg == key
-            elif arg.startswith(key + '='):
-                arg = arg[len(key)+1:]
-                if type(params[key]) in [float, int]:
-                    params[key] = type(params[key])(arg)
-                else:
-                    params[key] = arg
-
-    def fix(d):
-        for k in ['z', 'theta', 'chord', 'ac', 'ao']:
-            d[k] = float(d[k])
-        return d
-
-    wingdef_tree = ET.parse(params['wingfile'])
-    params['wingdef'] = [namedtuple('Section', s.attrib.keys())(**fix(s.attrib))
-                         for s in wingdef_tree.getroot()]
-
-    params['teC'] = params['teC_fac'] * params['te']
-    params['computed'] = {}
-
-    return namedtuple('Params', params.keys())(**params)
-
-
 def PrepareOutput(params):
     shutil.rmtree('out', ignore_errors=True)
 
@@ -88,89 +61,6 @@ def PrepareOutput(params):
     for folder in folders:
         try: os.makedirs(folder)
         except OSError: pass
-
-
-def PrintPatchSizes(revols):
-    ndofs = {}
-    for i, v in enumerate(revols):
-        ku, kv, kw = v.GetKnots()
-        n = len(ku) * len(kv) * len(kw)
-        if n not in ndofs:
-            ndofs[n] = []
-        ndofs[n].append(i+1)
-
-    def ranges(lst):
-        split = []
-        for i, (prv, nxt) in enumerate(zip(lst[:-1], lst[1:])):
-            if nxt - prv > 1:
-                split.append(i+1)
-        rngs = []
-        split = [None] + split + [None]
-        for prv, nxt in zip(split[:-1], split[1:]):
-            lstpart = lst[slice(prv, nxt)]
-            rngs.append((lstpart[0], lstpart[-1]))
-        return rngs
-
-    print ''
-
-    for n in sorted(ndofs, reverse=True):
-        s = []
-        for a,b in ranges(ndofs[n]):
-            s.append(('%i-%i' % (a,b)) if a != b else ('%i' % a))
-
-        title = '%i DoFs:' % n
-        indent = len(title)
-
-        print title,
-
-        n = 0
-        for i, p in enumerate(s):
-            if n + len(p) + 2 > 60:
-                print ''
-                print ' '*indent,
-                n = 0
-            print (p + ',') if i < len(s)-1 else p,
-            n += len(p) + 2
-
-        print ''
-
-    print 'Total: ~%i DoFs' % sum(n * len(patches) for n, patches in ndofs.iteritems())
-
-
-def WriteXML(patchgroups, face_bnds, edge_bnds, reorder, params):
-    old_to_new = lambda i: reorder.index(i)
-    new_to_old = lambda i: reorder[i]
-
-    ends = cumsum(patchgroups)
-    starts = hstack(([1], ends[:-1] + 1))
-
-    pg = ['    <part proc="%i" lower="%i" upper="%i" />' % tup
-          for tup in zip(range(len(starts)), starts, ends)]
-
-    ts_face = [['    <set name="%s" type="face">' % name]
-             + ['      <item patch="%i">%i</item>' % (old_to_new(pid-1)+1, face) for pid, face in boundary]
-             + ['    </set>']
-               for name, boundary in face_bnds.iteritems()]
-    ts_edge = [['    <set name="%s" type="edge">' % name]
-             + ['      <item patch="%i">%i</item>' % (old_to_new(pid-1)+1, edge) for pid, edge in boundary]
-             + ['    </set>']
-               for name, boundary in edge_bnds.iteritems()]
-    ts = list(chain(*(ts_face + ts_edge)))
-
-    with open('out/%s.xinp' % params.out, 'w') as f:
-        f.write('<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n\n')
-        f.write('<geometry>\n')
-        f.write('  <partitioning procs="%i">\n' % len(pg))
-        for s in pg:
-            f.write(s + '\n')
-        f.write('  </partitioning>\n')
-        f.write('  <patchfile>%s.g2</patchfile>\n'%params.out)
-        f.write('  <nodefile>%s.hdf5</nodefile>\n'%params.out)
-        f.write('  <topologysets>\n')
-        for s in ts:
-            f.write(s + '\n')
-        f.write('  </topologysets>\n')
-        f.write('</geometry>')
 
 
 def CurveLength(pts):
@@ -280,8 +170,9 @@ def LoadWingSectionFtTXT(filen):
     return [map(itemgetter(i), rows) for i in range(4)] # xc, tc, f, dfdx
 
 
-def ResampleWing(surface, params, critical):
+def ResampleWing(surface, params):
     knots1, knots2 = surface.GetKnots()
+    critical = params.wingdef[params.addpt].z
 
     ylen = critical - knots2[0]
     ry = ComputeFactor(ylen, params.dzJoin, params.NlenBase)
@@ -406,12 +297,13 @@ default_params = {
     'out': 'NREL_wing_mesh_3D',              # Output filename
     'debug': False,                          # Debug mode produces intermediate g2-files
     'nprocs': 800,                           # Optimize for a given number of CPUs
+    'nprocs_mg': 4,                          # CPUs for mesh generation
     'order': 2,                              # 2 = linear, 3 = quadratic, etc. (what a dumb convention)
 
     'adds': 4,                               # Number of intermediate refinements
     'addpt': 4,                              # Airfoil index around which to perform intermediate refinement
 
-    'dzTip': 0.006,                          # Element size in z-direction near tip
+    'dzTip': 0.003,                          # Element size in z-direction near tip
     'dzJoin': 0.2,                           # Element size in z-direction near join
     'NlenBase': 20,                          # Number of elements lengthwise at the base
     'Nlen': 70,                              # Number of elements for half a wing
@@ -423,22 +315,41 @@ default_params = {
     'R': 10.0,                               # Radius of the o-mesh, the sidelength of the full mesh
                                              # is four times as large
 
-    'Nte': 9,                                # Cells for trailing edge
-    'Nback': 27,                             # Cells for back part of wing
-    'Nfront': 38,                            # Cells for front part of wing
+    'fe': 5.0e-4,                            # Resolution factor, front edge
 
-    'Nrad': 70,                              # Number of elements radially in the o-mesh
+    'Nte': 9,                                # Cells for trailing edge
+    'Nback': 28,                             # Cells for back part of wing
+    'Nfront': 39,                            # Cells for front part of wing
+
+    'Nrad': 72,                              # Number of elements radially in the o-mesh
     'NradSq': 8,                             # Number of elements radially outside the o-mesh
     'NradP': 4,                              # Number of patches radially
 
     'NlenP': 18,                             # Number of patches lengthwise
+
+    'OpenFOAM': False,
 }
 
 
 if __name__ == '__main__':
 
-    params = PrepareParams(default_params)
+    ParseArgs(sys.argv[1:], default_params)
+
+    def fix(d):
+        for k in ['z', 'theta', 'chord', 'ac', 'ao']:
+            d[k] = float(d[k])
+        return d
+
+    wingdef_tree = ET.parse(default_params['wingfile'])
+    default_params['wingdef'] = [namedtuple('Section', s.attrib.keys())(**fix(s.attrib))
+                                 for s in wingdef_tree.getroot()]
+    default_params['teC'] = default_params['teC_fac'] * default_params['te']
+    default_params['computed'] = {}
+
+    params = namedtuple('Params', default_params.keys())(**default_params)
     PrepareOutput(params)
+
+    SetProcessorCount(params.nprocs_mg)
 
     # create non-dimensional sections
     ndsections = []                            # the normalized wing sections
@@ -527,8 +438,7 @@ if __name__ == '__main__':
         s1 = 0.5 * st                     # Length of trailing edge modification
         ds1 = s1 / params.Nte                    # Grid spacing at trailing edge
 
-        # If shit is fucked up near the hub, try changing this number first
-        dx2 = 2.5e-3 if i >= 4 else 5e-2
+        dx2 = params.fe * sT
         r2, r3, _ = GradingTwoSided(sU-s1, ds1, dx2, params.Nback-1, params.Nfront-1,
                                     1.1, 0.9, 1.0e-12, 200)
         r4, r5, _ = GradingTwoSided(sT-sU-s1, dx2, ds1, params.Nfront-1, params.Nback-1,
@@ -584,7 +494,6 @@ if __name__ == '__main__':
     zcoord[-4:-1] = repeat(zcoord[-1], 3)
 
     coeffs = list(wing1)
-    Ntot = 2 * (params.Nte + params.Nback + params.Nfront)
 
     # Curve length parametrization
     p1, p2 = wing1.GetOrder()
@@ -594,7 +503,7 @@ if __name__ == '__main__':
         WriteG2('out/wing.g2', wing)
 
 
-    wingsecs = ResampleWing(wing, params, params.wingdef[params.addpt].z)
+    wingsecs = ResampleWing(wing, params)
 
     if params.debug:
         WriteG2('out/wingsecs.g2', wingsecs)
@@ -608,6 +517,7 @@ if __name__ == '__main__':
     # Generate circular sections
     thetapts = [Point(0, 0, th) for th in map(attrgetter('theta'), params.wingdef)]
     thetacurve = ip.CubicCurve(pts=thetapts, t=map(attrgetter('z'), params.wingdef), boundary=ip.NATURAL)
+    Ntot = 2 * (params.Nte + params.Nback + params.Nfront)
     circlesecs = []
     for ws in wingsecs:
         pt = ws.Evaluate(ws.GetKnots()[0])
@@ -653,7 +563,7 @@ if __name__ == '__main__':
 
         points3 = [c31.Evaluate(k) for k in knots3]
         c3 = ip.CubicCurve(pts=points3, t=knots3, boundary=ip.TANGENT, der=[n1, n2])
-        c3.InsertKnot(0.5 * (knots3[0] + knots3[1]))
+        # c3.InsertKnot(0.5 * (knots3[0] + knots3[1]))
 
         if params.debug:
             WriteG2('out/tfi/{:03}.g2'.format(i),
@@ -770,8 +680,12 @@ if __name__ == '__main__':
     cs = [o.Clone() for o in crossecs8[-16::2]]
     os = [o.Clone() for o in outersecs[-8:]]
 
-    tip = WingTip(wv, params)
-    # sphere = OMeshTip(params.wingdef[-1].z, params.R, cs, tip)
+    n_middle, n_along, n_across, tip = WingTip(wv, params)
+    params.computed['n_middle'] = n_middle
+    params.computed['n_along'] = n_along
+    params.computed['n_across'] = n_across
+
+    sphere = OMeshTip(cs, params)
     # tfi_surfaces = TipTFISurfaces(cs, tip, sphere, params)
     # tipvols = TipCircleVolumes(cs, tip, sphere, tfi_surfaces)
     # outervols = OuterVolumes(os, tipvols, params)

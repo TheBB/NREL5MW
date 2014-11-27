@@ -464,6 +464,7 @@ default_params = {
     'Nback': 28,                             # Cells for back part of wing
     'Nfront': 39,                            # Cells for front part of wing
 
+    'Grad': 1.11,                            # Grading factor in radial direction
     'Nrad': 72,                              # Number of elements radially in the o-mesh
     'NradSq': 8,                             # Number of elements radially outside the o-mesh
     'NradP': 4,                              # Number of patches radially
@@ -713,7 +714,7 @@ if __name__ == '__main__':
         c31 = ip.CubicCurve(pts=[x1, x2], boundary=ip.TANGENT, der=[n1, n2])
 
         s3 = c31.GetKnots()[-1]
-        r3 = 1.0/0.9
+        r3 = params.Grad
         coeff3 = (1.0 - pow(r3,params.Nrad)) / (1.0-r3)
         knots3 = GradedSpace(0.0, s3/coeff3, r3, params.Nrad) + [s3]
 

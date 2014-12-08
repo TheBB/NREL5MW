@@ -59,6 +59,7 @@ for sec, c in zip(wingdef, cols):
     plot(x, y, color=c)
 
 gca().set_aspect('equal')
+axis('off')
 savefig('out.pdf', bbox_inches='tight')
 show()
 

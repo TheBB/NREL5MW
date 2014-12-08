@@ -49,6 +49,23 @@ def GetEdge(vol, i):
             return vol.GetFaces()[f_idx].GetEdges()[e_idxs.index(i)]
 
 
+def GetParams(default):
+    ParseArgs(sys.argv[1:], default)
+
+    def fix(d):
+        for k in ['z', 'theta', 'chord', 'ac', 'ao']:
+            d[k] = float(d[k])
+        return d
+
+    wingdef_tree = ET.parse(default['wingfile'])
+    default_params['wingdef'] = [namedtuple('Section', s.attrib.keys())(**fix(s.attrib))
+                                 for s in wingdef_tree.getroot()]
+    default_params['teC'] = default['teC_fac'] * default['te']
+    default_params['computed'] = {}
+
+    return namedtuple('Params', default.keys())(**default)
+
+
 def PrepareOutput(params):
     shutil.rmtree('out', ignore_errors=True)
 
@@ -333,20 +350,7 @@ default_params = {
 
 if __name__ == '__main__':
 
-    ParseArgs(sys.argv[1:], default_params)
-
-    def fix(d):
-        for k in ['z', 'theta', 'chord', 'ac', 'ao']:
-            d[k] = float(d[k])
-        return d
-
-    wingdef_tree = ET.parse(default_params['wingfile'])
-    default_params['wingdef'] = [namedtuple('Section', s.attrib.keys())(**fix(s.attrib))
-                                 for s in wingdef_tree.getroot()]
-    default_params['teC'] = default_params['teC_fac'] * default_params['te']
-    default_params['computed'] = {}
-
-    params = namedtuple('Params', default_params.keys())(**default_params)
+    params = GetParams(params)
     PrepareOutput(params)
 
     SetProcessorCount(params.nprocs_mg)

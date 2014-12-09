@@ -1097,8 +1097,9 @@ if __name__ == '__main__':
 
     if params.back > 0:
         numberer.AddGroup('outflow', 'volume', backvols[1::2])
-        numberer.AddGroup('btm', 'volume', [backvols[i] for i in [0,1,4,5]])
-        numberer.AddGroup('top', 'volume', [backvols[i] for i in [2,3,6,7]])
+        N = params.NlenP
+        numberer.AddGroup('btm', 'volume', [backvols[i] for i in [0,1,2*N,2*N+1]])
+        numberer.AddGroup('top', 'volume', [backvols[i] for i in [2*N-2,2*N-1,4*N-2,4*N-1]])
         numberer.AddGroup('left_back', 'volume', backvols[:len(backvols)/2])
         numberer.AddGroup('right_back', 'volume', backvols[len(backvols)/2:])
     else:
@@ -1131,9 +1132,7 @@ if __name__ == '__main__':
                                                 ('right_back', 'face', [1])])
 
     if params.front > 0:
-        numberer.AddBoundary('inflow', [('inflow', 'face', [5]),
-                                        ('left_front', 'edge', [7]),
-                                        ('right_front', 'edge', [6])])
+        numberer.AddBoundary('inflow', [('inflow', 'face', [5])])
         numberer.AddBoundary('slipwall_left', [('left_front', 'face', [1]),
                                                ('in_left', 'edge', [7])])
         numberer.AddBoundary('slipwall_right', [('right_front', 'face', [0]),

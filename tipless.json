@@ -1,0 +1,7 @@
+{
+    "wingfile": "NREL_5_MW.xinp",
+    "tip": false,
+    "nprocs": 256,
+
+    "nprocs_mg": 4
+}

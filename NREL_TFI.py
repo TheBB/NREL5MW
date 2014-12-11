@@ -935,6 +935,9 @@ if __name__ == '__main__':
             iss += [ov.GetConstParSurf(k, 1) for k in ov.GetKnots()[1][1:]]
             vols_master.append(LoftSurfaces(iss, range(len(iss)), order=4))
 
+        for v in vols_master:
+            v.FlipParametrization(0)
+
         if params.tip:
             for iv, ov, flip in zip(tipvols[8:], outervols[8:], [False, True, False, True]):
                 ivs = [iv.GetConstParSurf(k, 2).LowerOrder(2,2) for k in iv.GetKnots()[2]]

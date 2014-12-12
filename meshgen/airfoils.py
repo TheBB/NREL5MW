@@ -44,7 +44,11 @@ def te_curve(pta, ptb, tnga, tngb):
 
 class AirFoil(object):
 
-    def __init__(self, params, wd):
+    def __init__(self, params=None, wd=None, curve=None):
+        if curve:
+            self.curve = curve
+            return
+
         if wd.foil == 'cylinder':
             center = Point(wd.chord * (.25 - wd.ao + wd.ac), 0, wd.z)
             self.curve = mkcircle(center, .5 * wd.chord, wd.theta, 200)
@@ -53,6 +57,16 @@ class AirFoil(object):
             self.len_upper = 0.5 * self.len_total
         else:
             self.init_normal(params, wd)
+
+
+    @classmethod
+    def average(cls, afa, afb):
+        assert(afa.curve.GetKnots() == afb.curve.GetKnots())
+
+        pts = [(pta + ptb) / 2 for pta, ptb in zip(GetCurvePoints(afa.curve),
+                                                   GetCurvePoints(afb.curve))]
+        curve = ip.CubicCurve(pts=pts, t=afa.curve.GetKnots(), boundary=ip.PERIODIC)
+        return cls(curve=curve)
 
 
     def objects(self):
@@ -68,41 +82,40 @@ class AirFoil(object):
         tangents = [(pts_gap[1] - pts_gap[0]).Normalize(),
                     (pts_gap[-1] - pts_gap[-2]).Normalize()]
         pts_te = te_curve(pts_gap[0], pts_gap[-1], tangents[0], tangents[1])
-        
+
         imid = (len(pts_te) - 1) / 2
         pts = pts_te[imid:-1] + pts_gap + pts_te[1:imid+1]
         self.curve = ip.CubicCurve(pts=pts, boundary=ip.PERIODIC)
 
-        knots = self.curve.GetKnots()
         self.len_te = CurveLengthParametrization(pts_te)[-1]
-        self.len_total = knots[-1]
-        self.len_upper = knots[(len(knots) - 1) / 2]
 
 
-    def resample(self, params):
-        ds_back  = self.len_te / params.n_te / 2
+    def resample(self, n_te, n_back, n_front):
+        knots = self.curve.GetKnots()
+        len_total = knots[-1]
+        len_upper = knots[(len(knots) - 1) / 2]
+
+        ds_back  = self.len_te / n_te / 2
         ds_front = ds_back
 
-        r2, r3 = grading_twosided(self.len_upper - self.len_te / 2,
-                                   ds_back, ds_front, params.n_back-1, params.n_front-1)
-        r4, r5 = grading_twosided(self.len_total - self.len_upper - self.len_te / 2,
-                                   ds_front, ds_back, params.n_front-1, params.n_back-1)
+        r2, r3 = grading_twosided(len_upper - self.len_te / 2,
+                                  ds_back, ds_front, n_back-1, n_front-1)
+        r4, r5 = grading_twosided(len_total - len_upper - self.len_te / 2,
+                                  ds_front, ds_back, n_front-1, n_back-1)
 
         knots = []
         last_ds = lambda: knots[-1] - knots[-2]
         last = lambda: knots[-1]
 
-        knots += list(np.linspace(0, self.len_te / 2, params.n_te + 1))
-        knots += gradspace(last(), ds_back, 1./r2, params.n_back  + 1)[1:]
-        knots += gradspace(last(), last_ds(), r3,    params.n_front + 1)[1:]
-        knots += gradspace(last(), last_ds(), 1./r4, params.n_front + 1)[1:]
-        knots += gradspace(last(), last_ds(), r5,    params.n_back  + 1)[1:]
-        knots += list(np.linspace(last(), self.len_total, params.n_te + 1))[1:]
+        knots += list(np.linspace(0, self.len_te / 2, n_te + 1))
+        knots += gradspace(last(), last_ds(), 1./r2, n_back  + 1)[1:]
+        knots += gradspace(last(), last_ds(), r3,    n_front + 1)[1:]
+        knots += gradspace(last(), last_ds(), 1./r4, n_front + 1)[1:]
+        knots += gradspace(last(), last_ds(), r5,    n_back  + 1)[1:]
+        knots += list(np.linspace(last(), len_total, n_te + 1))[1:]
 
         pts = [self.curve.Evaluate(k) for k in knots]
-        self.curve = ip.CubicCurve(pts=pts, t=list(np.linspace(0, 1, len(pts))), boundary=ip.PERIODIC)
+        params = list(np.linspace(0, 1, len(pts)))
+        self.curve = ip.CubicCurve(pts=pts, t=params, boundary=ip.PERIODIC)
 
-        length = CurveLengthParametrization(pts)
-        self.len_te = length[params.n_te]
-        self.len_upper = length[params.n_te + params.n_back + params.n_front]
-        self.len_total = length[-1]
+        del self.len_te

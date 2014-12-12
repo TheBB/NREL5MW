@@ -21,6 +21,10 @@ defaults = {
     # Global mesh parameters
     'order': 2,
 
+    # Join
+    'join_adds': 4,
+    'join_index': 4,
+
     # Trailing edge
     'len_te': 2e-2,
     'len_te_cyl_fac': 50,

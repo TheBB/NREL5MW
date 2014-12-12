@@ -6,3 +6,4 @@ gen = MeshGen(params)
 
 gen.load_airfoils()
 gen.resample_airfoils()
+gen.resolve_join()

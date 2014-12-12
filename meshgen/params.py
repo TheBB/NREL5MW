@@ -24,6 +24,11 @@ defaults = {
     # Trailing edge
     'len_te': 2e-2,
     'len_te_cyl_fac': 50,
+
+    # Angular resolution
+    'n_te': 9,
+    'n_back': 28,
+    'n_front': 39,
 }
 
 

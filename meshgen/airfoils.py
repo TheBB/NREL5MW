@@ -7,18 +7,7 @@ from GeoUtils.CurveUtils import CurveLengthParametrization, GetCurvePoints
 import GeoUtils.Interpolate as ip
 from GeoUtils.Refinement import UniformCurve
 
-
-ez = Point(0, 0, 1)
-
-
-def mkcircle(center, radius, angle, nelems):
-    alpha = angle * pi / 180
-    thetas = np.linspace(0, 2*pi, nelems+1)
-    pts = [center + Point(radius * cos(t + alpha),
-                          radius * sin(t + alpha), 0)
-           for t in thetas]
-
-    return ip.CubicCurve(pts=pts, boundary=ip.PERIODIC).ReParametrize(0, 2*pi*radius)
+from utils import ez, mkcircle, grading_twosided, gradspace
 
 
 def load_airfoil(filename, gap):
@@ -65,6 +54,11 @@ class AirFoil(object):
         else:
             self.init_normal(params, wd)
 
+
+    def objects(self):
+        return self.curve
+
+
     def init_normal(self, params, wd):
         xs, ys = load_airfoil(wd.foil, params.len_te / wd.chord)
         xs = wd.chord * (xs - (.25 + wd.ao - wd.ac))
@@ -84,7 +78,31 @@ class AirFoil(object):
         self.len_total = knots[-1]
         self.len_upper = knots[(len(knots) - 1) / 2]
 
-        WriteG2('out/test.g2', [self.curve])
 
-    def objects(self):
-        return self.curve
+    def resample(self, params):
+        ds_back  = self.len_te / params.n_te / 2
+        ds_front = ds_back
+
+        r2, r3 = grading_twosided(self.len_upper - self.len_te / 2,
+                                   ds_back, ds_front, params.n_back-1, params.n_front-1)
+        r4, r5 = grading_twosided(self.len_total - self.len_upper - self.len_te / 2,
+                                   ds_front, ds_back, params.n_front-1, params.n_back-1)
+
+        knots = []
+        last_ds = lambda: knots[-1] - knots[-2]
+        last = lambda: knots[-1]
+
+        knots += list(np.linspace(0, self.len_te / 2, params.n_te + 1))
+        knots += gradspace(last(), ds_back, 1./r2, params.n_back  + 1)[1:]
+        knots += gradspace(last(), last_ds(), r3,    params.n_front + 1)[1:]
+        knots += gradspace(last(), last_ds(), 1./r4, params.n_front + 1)[1:]
+        knots += gradspace(last(), last_ds(), r5,    params.n_back  + 1)[1:]
+        knots += list(np.linspace(last(), self.len_total, params.n_te + 1))[1:]
+
+        pts = [self.curve.Evaluate(k) for k in knots]
+        self.curve = ip.CubicCurve(pts=pts, t=list(np.linspace(0, 1, len(pts))), boundary=ip.PERIODIC)
+
+        length = CurveLengthParametrization(pts)
+        self.len_te = length[params.n_te]
+        self.len_upper = length[params.n_te + params.n_back + params.n_front]
+        self.len_total = length[-1]

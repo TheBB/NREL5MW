@@ -7,7 +7,7 @@ from GeoUtils.CurveUtils import CurveLengthParametrization, GetCurvePoints
 import GeoUtils.Interpolate as ip
 from GeoUtils.Refinement import UniformCurve
 
-from utils import ez, mkcircle, grading_twosided, gradspace
+from utils import ez, mkcircle, grading_double, gradspace
 
 
 def load_airfoil(filename, gap):
@@ -44,19 +44,31 @@ def te_curve(pta, ptb, tnga, tngb):
 
 class AirFoil(object):
 
-    def __init__(self, params=None, wd=None, curve=None):
-        if curve:
-            self.curve = curve
-            return
+    def __init__(self):
+        pass
+
+
+    @classmethod
+    def from_wd(params, wd):
+        obj = cls()
+        obj.theta = wd.theta
 
         if wd.foil == 'cylinder':
             center = Point(wd.chord * (.25 - wd.ao + wd.ac), 0, wd.z)
-            self.curve = mkcircle(center, .5 * wd.chord, wd.theta, 200)
-            self.len_te = params.len_te_cyl
-            self.len_total = self.curve.GetKnots()[-1]
-            self.len_upper = 0.5 * self.len_total
+            obj.curve = mkcircle(center, .5 * wd.chord, wd.theta, 200)
+            obj.len_te = params.len_te_cyl
+            obj.len_total = self.curve.GetKnots()[-1]
+            obj.len_upper = 0.5 * self.len_total
         else:
-            self.init_normal(params, wd)
+            obj.init_normal(params, wd)
+        
+
+
+    @classmethod
+    def from_pts(cls, pts, theta):
+        obj = cls()
+        obj._from_pts(pts)
+        obj.theta = theta
 
 
     @classmethod
@@ -65,12 +77,15 @@ class AirFoil(object):
 
         pts = [(pta + ptb) / 2 for pta, ptb in zip(GetCurvePoints(afa.curve),
                                                    GetCurvePoints(afb.curve))]
-        curve = ip.CubicCurve(pts=pts, t=afa.curve.GetKnots(), boundary=ip.PERIODIC)
-        return cls(curve=curve)
+        return cls(pts=pts, theta=(afa.theta + afb.theta) / 2)
 
 
     def objects(self):
         return self.curve
+
+
+    def z(self):
+        return self.curve.Evaluate(self.curve.GetKnots()[0])[2]
 
 
     def init_normal(self, params, wd):
@@ -98,10 +113,10 @@ class AirFoil(object):
         ds_back  = self.len_te / n_te / 2
         ds_front = ds_back
 
-        r2, r3 = grading_twosided(len_upper - self.len_te / 2,
-                                  ds_back, ds_front, n_back-1, n_front-1)
-        r4, r5 = grading_twosided(len_total - len_upper - self.len_te / 2,
-                                  ds_front, ds_back, n_front-1, n_back-1)
+        r2, r3 = grading_double(len_upper - self.len_te / 2,
+                                ds_back, ds_front, n_back-1, n_front-1)
+        r4, r5 = grading_double(len_total - len_upper - self.len_te / 2,
+                                ds_front, ds_back, n_front-1, n_back-1)
 
         knots = []
         last_ds = lambda: knots[-1] - knots[-2]
@@ -115,7 +130,28 @@ class AirFoil(object):
         knots += list(np.linspace(last(), len_total, n_te + 1))[1:]
 
         pts = [self.curve.Evaluate(k) for k in knots]
-        params = list(np.linspace(0, 1, len(pts)))
-        self.curve = ip.CubicCurve(pts=pts, t=params, boundary=ip.PERIODIC)
+        self._from_pts(pts)
 
         del self.len_te
+
+
+    def prepare_tfi(self, radius):
+        x, y, _ = self.curve.Evaluate(0)
+        print x, y
+
+        theta = np.arctan(y / x)
+        print 180 * theta / pi
+        # self.circle = mkcircle(Point(0, 0, self.z()),
+        #                        radius, self.theta/2,
+        #                        len(self.curve.GetKnots()) - 1)
+        # self.curve = mkcircle(center, .5 * wd.chord, wd.theta, 200)
+
+
+    # def tfi(self):
+    #     pts = [Point(x,0,0) for x in np.linspace(0,1,10000)]
+    #     return ip.LinearCurve(pts=pts)
+
+
+    def _from_pts(self, pts):
+        params = list(np.linspace(0, 1, len(pts)))
+        self.curve = ip.CubicCurve(pts=pts, t=params, boundary=ip.PERIODIC)

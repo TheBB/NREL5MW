@@ -21,7 +21,32 @@ def mkcircle(center, radius, angle, nelems):
     return ip.CubicCurve(pts=pts, boundary=ip.PERIODIC).ReParametrize(0, 2*pi*radius)
 
 
-def F(s, dx1, dx2, n1, n2, r10, r20):
+def grading(length, ds, n, tol=1e-12, maxiters=1000):
+    fr = lambda s, ds, n, r: s - ds*(1.0 - r**n) / (1.-r)
+    dfrdr = lambda ds, n, r: ds * (r**(n-1) * (n*(1.-r) + r) - 1.0) / (1.-r)**2
+
+    # cell size for uniform mesh
+    ds_unif = length / n
+
+    # Find start guess for refinement factor
+    r = 0.9 if ds_unif <= ds else 1.1
+
+    # Newton loop
+    its = 0
+    eps = 10 * tol
+
+    for it in xrange(1, maxiters + 1):
+        if eps <= tol:
+            break
+
+        fval = fr(length, ds, n, r)
+        r -= fval / dfrdr(ds, n, r)
+        eps  = abs(fval)
+
+    return r if it < maxiters else 0.0
+
+
+def _F(s, dx1, dx2, n1, n2, r10, r20):
     r2 = r20
     n1i = 1.0 / n1
     coeff1 = dx1 / dx2
@@ -32,7 +57,7 @@ def F(s, dx1, dx2, n1, n2, r10, r20):
     return s - dx * ((1.0-pow(r1,n1+1)) / (1.0-r1) + (1.0-pow(r2,n2+1)) / (1.0-r2))
 
 
-def dFdr2(dx1, dx2, n1, n2, r10, r20):
+def _dFdr2(dx1, dx2, n1, n2, r10, r20):
     r2 = r20
     r2n2 = pow(r2, n2)
     r2n2p1 = pow(r2, n2+1)
@@ -54,7 +79,7 @@ def dFdr2(dx1, dx2, n1, n2, r10, r20):
     return - dxdr2*(c1 + c2) - dx*(dc1dr1*dr1dr2 + dc2dr2)
 
 
-def grading_twosided(length, dx1, dx2, n1, n2, r1=1.1, r2=.9, tol=1e-12, maxiters=200):
+def grading_double(length, dx1, dx2, n1, n2, r1=1.1, r2=.9, tol=1e-12, maxiters=200):
     rf = lambda r2: pow(dx1 / dx2 * pow(r2, n2), 1./n1)
 
     eps = 10.0 * tol
@@ -64,16 +89,13 @@ def grading_twosided(length, dx1, dx2, n1, n2, r1=1.1, r2=.9, tol=1e-12, maxiter
         if eps <= tol:
             break
 
-        P = F(length, dx1, dx2, n1, n2, r1, r2)
-        dP = dFdr2(dx1, dx2, n1, n2, r1, r2)
+        P = _F(length, dx1, dx2, n1, n2, r1, r2)
+        dP = _dFdr2(dx1, dx2, n1, n2, r1, r2)
         r2 -= P / dP
         r1 = rf(r2)
         eps = abs(P)
 
-    if it == maxiters:
-        r1, r2 = 0., 0.
-
-    return r1, r2
+    return (r1, r2) if it < maxiters else (0., 0.)
 
 
 def gradspace(start, step, factor, N):

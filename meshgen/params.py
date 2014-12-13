@@ -40,6 +40,9 @@ defaults = {
 
     # Radial resolution
     'radius': 10.0,
+    'Re': 10000.0,
+    'n_bndlayer': 4,
+    'n_circle': 72,
 }
 
 
@@ -54,16 +57,16 @@ class Params(object):
     def __init__(self, args=[]):
         ParseArgs(args, defaults)
 
-        wingdefs = xml.parse(defaults['wingfile'])
+        wingdef = xml.parse(defaults['wingfile'])
         defaults['wingdef'] = [
             namedtuple('Section', s.attrib.keys())(**fix_floats(s.attrib))
-            for s in wingdefs.getroot()
+            for s in wingdef.getroot()
         ]
 
-        for key, value in defaults.iteritems():
-            setattr(self, key, value)
+        self.__dict__.update(defaults)
 
         self.len_te_cyl = self.len_te_cyl_fac * self.len_te
+        self.len_char = min(wd.chord for wd in self.wingdef)
 
         self.sanity_check()
 

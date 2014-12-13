@@ -1,13 +1,14 @@
 import numpy as np
 
-from math import pi, sin, cos
+from math import pi, sin, cos, sqrt
 
-from GoTools import Point, WriteG2
+from GoTools import Point, WriteG2, Curve
 from GeoUtils.CurveUtils import CurveLengthParametrization, GetCurvePoints
+from GeoUtils.Refinement import UniformCurve, GeometricRefineCurve
 import GeoUtils.Interpolate as ip
-from GeoUtils.Refinement import UniformCurve
+import GeoUtils.TFI as tfi
 
-from utils import ez, mkcircle, grading_double, gradspace
+from utils import ez, add_if_has, mkcircle, grading, grading_double, gradspace
 
 
 def load_airfoil(filename, gap):
@@ -49,7 +50,7 @@ class AirFoil(object):
 
 
     @classmethod
-    def from_wd(params, wd):
+    def from_wd(cls, params, wd):
         obj = cls()
         obj.theta = wd.theta
 
@@ -57,11 +58,12 @@ class AirFoil(object):
             center = Point(wd.chord * (.25 - wd.ao + wd.ac), 0, wd.z)
             obj.curve = mkcircle(center, .5 * wd.chord, wd.theta, 200)
             obj.len_te = params.len_te_cyl
-            obj.len_total = self.curve.GetKnots()[-1]
-            obj.len_upper = 0.5 * self.len_total
+            obj.len_total = obj.curve.GetKnots()[-1]
+            obj.len_upper = 0.5 * obj.len_total
         else:
             obj.init_normal(params, wd)
-        
+
+        return obj
 
 
     @classmethod
@@ -70,6 +72,8 @@ class AirFoil(object):
         obj._from_pts(pts)
         obj.theta = theta
 
+        return obj
+
 
     @classmethod
     def average(cls, afa, afb):
@@ -77,11 +81,16 @@ class AirFoil(object):
 
         pts = [(pta + ptb) / 2 for pta, ptb in zip(GetCurvePoints(afa.curve),
                                                    GetCurvePoints(afb.curve))]
-        return cls(pts=pts, theta=(afa.theta + afb.theta) / 2)
+        return cls.from_pts(pts, (afa.theta + afb.theta) / 2)
 
 
     def objects(self):
-        return self.curve
+        objects = []
+
+        for s in ['curve', 'circle', 'trailing', 'inner']:
+            add_if_has(self, s, objects)
+
+        return objects
 
 
     def z(self):
@@ -135,21 +144,47 @@ class AirFoil(object):
         del self.len_te
 
 
-    def prepare_tfi(self, radius):
-        x, y, _ = self.curve.Evaluate(0)
-        print x, y
-
-        theta = np.arctan(y / x)
-        print 180 * theta / pi
-        # self.circle = mkcircle(Point(0, 0, self.z()),
-        #                        radius, self.theta/2,
-        #                        len(self.curve.GetKnots()) - 1)
-        # self.curve = mkcircle(center, .5 * wd.chord, wd.theta, 200)
+    def prepare_tfi(self, params):
+        self.radius = params.radius
+        self.n_bndlayer = params.n_bndlayer
+        self.n_circle = params.n_circle
+        self.len_char = params.len_char
+        self.Re = params.Re
 
 
-    # def tfi(self):
-    #     pts = [Point(x,0,0) for x in np.linspace(0,1,10000)]
-    #     return ip.LinearCurve(pts=pts)
+    def tfi(self):
+        circle = mkcircle(Point(0, 0, self.z()),
+                          self.radius, self.theta/2,
+                          len(self.curve.GetKnots()) - 1)
+
+        k = self.curve.GetKnots()[0]
+        p_inner = self.curve.Evaluate(k)
+        n_inner = self.curve.EvaluateTangent(k).Rotate(ez, -pi/2).Normalize()
+
+        k = circle.GetKnots()[0]
+        p_outer = circle.Evaluate(k)
+        n_outer = circle.EvaluateTangent(k).Rotate(ez, -pi/2).Normalize()
+
+        trailing = ip.CubicCurve(pts=[p_inner, p_outer], boundary=ip.TANGENT,
+                                 der=[n_inner, n_outer])
+
+        n_layers = float(self.n_circle) / self.n_bndlayer
+        length = trailing.GetKnots()[-1]
+        bndlayer = self.len_char / sqrt(self.Re)
+        fac = grading(length, bndlayer, n_layers) ** (1. / self.n_bndlayer)
+        GeometricRefineCurve(trailing, fac, self.n_circle - 1)
+
+        normalf = lambda _, crv, kts: [crv.EvaluateTangent(k)
+                                          .Rotate(ez, -pi/2)
+                                          .Normalize()
+                                       for k in kts]
+        init_normalf = lambda crv, kts: normalf(None, crv, kts)
+
+        inner = tfi.OrthogonalSurface([self.curve, circle, trailing, trailing],
+                                      init_normalf, normalf, fac_blend=.9,
+                                      bnd_layer=self.n_bndlayer)
+
+        return {'circle': circle, 'trailing': trailing, 'inner': inner}
 
 
     def _from_pts(self, pts):

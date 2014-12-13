@@ -11,6 +11,11 @@ ey = Point(0, 1, 0)
 ez = Point(0, 0, 1)
 
 
+def add_if_has(obj, attrib, lst):
+    if hasattr(obj, attrib):
+        lst.append(getattr(obj, attrib))
+
+
 def mkcircle(center, radius, angle, nelems):
     alpha = angle * pi / 180
     thetas = np.linspace(0, 2*pi, nelems+1)
@@ -44,6 +49,7 @@ def grading(length, ds, n, tol=1e-12, maxiters=1000):
         eps  = abs(fval)
 
     return r if it < maxiters else 0.0
+
 
 
 def _F(s, dx1, dx2, n1, n2, r10, r20):

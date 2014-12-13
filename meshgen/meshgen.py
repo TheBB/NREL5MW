@@ -1,5 +1,7 @@
+from itertools import izip, repeat
 import multiprocessing as mp
 from operator import methodcaller
+import sys
 
 import numpy as np
 
@@ -12,6 +14,15 @@ from airfoils import AirFoil
 
 def tfi_runner(af):
     return af.tfi()
+
+
+def progress(title, i, tot):
+    args = (title, i, tot, 100 * float(i) / tot)
+    s = '\r%s: %i/%i (%.2f%%)' % args
+    if i == tot:
+        s += '\n'
+    sys.stdout.write(s)
+    sys.stdout.flush()
 
 
 class MeshGen(object):
@@ -28,7 +39,7 @@ class MeshGen(object):
     def resample_airfoils(self):
         for af in self.airfoils:
             af.resample(self.p.n_te, self.p.n_back, self.p.n_front)
-        self.p.dump_g2files('airfoils_resampled', self.airfoils)
+        self.p.dump_g2files('airfoils_resampled_radial', self.airfoils)
 
 
     def resolve_join(self):
@@ -57,7 +68,9 @@ class MeshGen(object):
         curves = [af.curve for af in self.airfoils]
         zvals = [af.z() for af in self.airfoils]
         wing = LoftCurves(curves, zvals, order=4)
-        theta = ip.CubicCurve(pts=Point(af.theta, 0, 0) 
+        thetas = ip.CubicCurve(x=[af.theta for af in self.airfoils],
+                               t=zvals, boundary=ip.NATURAL)
+        theta = lambda z: thetas.Evaluate(z)[0]
 
         if self.p.length_mode == 'uniform':
             zvals = self._resample_length_uniform(zvals[0], zvals[-1])
@@ -70,18 +83,22 @@ class MeshGen(object):
         kus, _ = wing.GetKnots()
         for z in zvals:
             pts = [wing.Evaluate(ku, z) for ku in kus]
-            self.airfoils.append(AirFoil.from_pts(pts=pts))
+            self.airfoils.append(AirFoil.from_pts(pts, theta(z)))
 
-        self.p.dump_g2files('airfoils_final', self.airfoils)
+        self.p.dump_g2files('airfoils_resampled_length', self.airfoils)
 
 
     def length_tfi(self):
         for af in self.airfoils:
-            af.prepare_tfi(self.p.radius)
-        
-        # pool = mp.Pool(self.p.nprocs_mg)
-        # res = [pool.map(runner, self.airfoils)]
-        # print res
+            af.prepare_tfi(self.p)
+
+        progress('TFI', 0, len(self.airfoils))
+        pool = mp.Pool(self.p.nprocs_mg)
+        for i, (result, af) in enumerate(izip(pool.imap(tfi_runner, self.airfoils), self.airfoils)):
+            af.__dict__.update(result)
+            progress('TFI', i+1, len(self.airfoils))
+
+        self.p.dump_g2files('airfoils_tfi', self.airfoils)
         
 
     def _resample_length_uniform(self, za, zb):

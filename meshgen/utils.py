@@ -51,7 +51,6 @@ def grading(length, ds, n, tol=1e-12, maxiters=1000):
     return r if it < maxiters else 0.0
 
 
-
 def _F(s, dx1, dx2, n1, n2, r10, r20):
     r2 = r20
     n1i = 1.0 / n1

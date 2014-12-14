@@ -2,10 +2,13 @@ import os
 import xml.etree.ElementTree as xml
 
 from collections import namedtuple
+from math import sqrt
 from shutil import rmtree
 
 from GoTools import WriteG2
 from GeoUtils.IO import ParseArgs
+
+from utils import grading, gradspace
 
 
 defaults = {
@@ -43,6 +46,8 @@ defaults = {
     'Re': 10000.0,
     'n_bndlayer': 4,
     'n_circle': 72,
+    'n_square': 10,
+    'smoothing': True,
 }
 
 
@@ -52,21 +57,24 @@ def fix_floats(dct, keys=['z', 'theta', 'chord', 'ac', 'ao']):
     return dct
 
 
+Section = namedtuple('Section', ['z', 'theta', 'chord', 'ac', 'ao', 'foil'])
+
+
 class Params(object):
 
     def __init__(self, args=[]):
         ParseArgs(args, defaults)
 
         wingdef = xml.parse(defaults['wingfile'])
-        defaults['wingdef'] = [
-            namedtuple('Section', s.attrib.keys())(**fix_floats(s.attrib))
-            for s in wingdef.getroot()
-        ]
+        defaults['wingdef'] = [Section(**fix_floats(s.attrib))
+                               for s in wingdef.getroot()]
 
         self.__dict__.update(defaults)
 
         self.len_te_cyl = self.len_te_cyl_fac * self.len_te
         self.len_char = min(wd.chord for wd in self.wingdef)
+        self.len_bndlayer = self.len_char / sqrt(self.Re)
+        self.n_bndlayers = float(self.n_circle) / self.n_bndlayer
 
         self.sanity_check()
 
@@ -75,6 +83,8 @@ class Params(object):
 
 
     def sanity_check(self):
+        assert((self.n_te + self.n_back + self.n_front) % 4 == 0)
+
         assert(self.length_mode in ['extruded', 'uniform', 'double', 'triple'])
 
         if self.length_mode == 'extruded':
@@ -93,6 +103,21 @@ class Params(object):
             assert(self.n_length > self.n_base)
             assert((self.n_length - self.n_base) % 2 == 0)
             assert(self.join_index > 0)
+
+
+    def radial_grading(self, length):
+        fac = grading(length, self.len_bndlayer, self.n_bndlayers)
+        return fac ** (1. / self.n_bndlayer)
+
+
+    def angular_splits(self):
+        n_quarter = (self.n_te + self.n_back + self.n_front) / 2
+        n_small = n_quarter / 2
+        n_large = n_quarter - n_small
+
+        return [0, n_small, n_quarter, n_quarter + n_large, 2*n_quarter,
+                2*n_quarter + n_small, 3*n_quarter, 3*n_quarter + n_large,
+                4*n_quarter]
 
 
     def make_folder(self, folder):

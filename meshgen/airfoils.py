@@ -3,12 +3,13 @@ import numpy as np
 from math import pi, sin, cos, sqrt
 
 from GoTools import Point, WriteG2, Curve
+from GoTools.CurveFactory import Circle, IntersectCurve, LineSegment, NonRationalCurve
 from GeoUtils.CurveUtils import CurveLengthParametrization, GetCurvePoints
 from GeoUtils.Refinement import UniformCurve, GeometricRefineCurve
 import GeoUtils.Interpolate as ip
 import GeoUtils.TFI as tfi
 
-from utils import ez, add_if_has, mkcircle, grading, grading_double, gradspace
+from utils import ex, ez, mkcircle, grading, grading_double, gradspace
 
 
 def load_airfoil(filename, gap):
@@ -87,8 +88,10 @@ class AirFoil(object):
     def objects(self):
         objects = []
 
-        for s in ['curve', 'circle', 'trailing', 'inner']:
-            add_if_has(self, s, objects)
+        if hasattr(self, 'split_inner'):
+            objects += self.split_inner + self.split_middle
+        else:
+            objects.append(self.curve)
 
         return objects
 
@@ -120,7 +123,7 @@ class AirFoil(object):
         len_upper = knots[(len(knots) - 1) / 2]
 
         ds_back  = self.len_te / n_te / 2
-        ds_front = ds_back
+        ds_front = len_total / (n_te + n_back + n_front) / 2 * 1e-1
 
         r2, r3 = grading_double(len_upper - self.len_te / 2,
                                 ds_back, ds_front, n_back-1, n_front-1)
@@ -144,35 +147,51 @@ class AirFoil(object):
         del self.len_te
 
 
-    def prepare_tfi(self, params):
-        self.radius = params.radius
-        self.n_bndlayer = params.n_bndlayer
-        self.n_circle = params.n_circle
-        self.len_char = params.len_char
-        self.Re = params.Re
+    def prepare_fill(self, params):
+        self.p = params
 
 
-    def tfi(self):
-        circle = mkcircle(Point(0, 0, self.z()),
-                          self.radius, self.theta/2,
-                          len(self.curve.GetKnots()) - 1)
+    def fill(self):
+        trailing = self._make_trailing()
+        inner = self._make_inner(trailing)
+        split_inner = self._split_inner(inner)
+        split_middle = self._make_middle(split_inner)
 
+        self.split_inner = split_inner
+        self.split_middle = split_middle
+
+
+    def _make_trailing(self):
         k = self.curve.GetKnots()[0]
         p_inner = self.curve.Evaluate(k)
         n_inner = self.curve.EvaluateTangent(k).Rotate(ez, -pi/2).Normalize()
 
-        k = circle.GetKnots()[0]
-        p_outer = circle.Evaluate(k)
-        n_outer = circle.EvaluateTangent(k).Rotate(ez, -pi/2).Normalize()
+        p_outer = Point(2 * self.p.radius, 0, self.z())
 
-        trailing = ip.CubicCurve(pts=[p_inner, p_outer], boundary=ip.TANGENT,
-                                 der=[n_inner, n_outer])
+        trailing = ip.CubicCurve(pts=[p_inner, p_outer], der=[n_inner, ex],
+                                 boundary=ip.TANGENT)
 
-        n_layers = float(self.n_circle) / self.n_bndlayer
-        length = trailing.GetKnots()[-1]
-        bndlayer = self.len_char / sqrt(self.Re)
-        fac = grading(length, bndlayer, n_layers) ** (1. / self.n_bndlayer)
-        GeometricRefineCurve(trailing, fac, self.n_circle - 1)
+        circle = Circle(ez * self.z(), self.p.radius, ez)
+        point = IntersectCurve(trailing, circle)[1][0]
+        knot = trailing.GetParameterAtPoint(point)[0]
+
+        trailing.InsertKnot(knot)
+        trailing = trailing.GetSubCurve(0, knot)
+        fac = self.p.radial_grading(knot)
+        GeometricRefineCurve(trailing, fac, self.p.n_circle - 1)
+
+        self.inner_fac = fac
+
+        return trailing
+
+
+    def _make_inner(self, trailing):
+        point = trailing.Evaluate(trailing.GetKnots()[-1])
+        theta = np.arctan(point[1] / point[0]) * 180 / pi
+        radius = abs(trailing.Evaluate(trailing.GetKnots()[-1]) - ez * self.z())
+        
+        circle =  mkcircle(ez * self.z(), radius, theta,
+                           len(self.curve.GetKnots()) - 1)
 
         normalf = lambda _, crv, kts: [crv.EvaluateTangent(k)
                                           .Rotate(ez, -pi/2)
@@ -180,11 +199,68 @@ class AirFoil(object):
                                        for k in kts]
         init_normalf = lambda crv, kts: normalf(None, crv, kts)
 
-        inner = tfi.OrthogonalSurface([self.curve, circle, trailing, trailing],
-                                      init_normalf, normalf, fac_blend=.9,
-                                      bnd_layer=self.n_bndlayer)
+        kwargs = {}
+        if self.p.smoothing:
+            kwargs = {'fac_smooth': .98,
+                      'nsweeps': 1,
+                      'ranges': [(0,2*self.p.n_te), (-2*self.p.n_te,0)]}
 
-        return {'circle': circle, 'trailing': trailing, 'inner': inner}
+        return tfi.OrthogonalSurface(
+            [self.curve, circle, trailing, trailing],
+            init_normalf, normalf, fac_blend=.9, bnd_layer=self.p.n_bndlayer,
+            **kwargs
+        )
+
+
+    def _split_inner(self, inner):
+        ksu, ksv = inner.GetKnots()
+        ksu_split = [ksu[i] for i in self.p.angular_splits()]
+
+        splits = []
+        for kp, kn in zip(ksu_split[:-1], ksu_split[1:]):
+            splits.append(inner.GetSubSurf((kp, ksv[0]), (kn, ksv[-1])))
+
+        return splits
+
+
+    def _make_middle(self, inners):
+        radius = 2 * self.p.radius
+        z = self.z()
+
+        outer_pts = [Point(radius, 0, z),
+                     Point(radius, radius, z),
+                     Point(0, radius, z),
+                     Point(-radius, radius, z),
+                     Point(-radius, 0, z),
+                     Point(-radius, -radius, z),
+                     Point(0, -radius, z),
+                     Point(radius, -radius, z),
+                     Point(radius, 0, z)]
+
+        kus, kvs = inners[0].GetKnots()
+        ipt = inners[0].Evaluate(kus[0], kvs[-1])
+        length = abs(ipt - outer_pts[0])
+        ds = abs(ipt - inners[0].Evaluate(kus[0], kvs[-2])) * self.inner_fac
+        fac = grading(length, ds, self.p.n_square)
+
+        outers = []
+        for opp, opn, inner in zip(outer_pts[:-1], outer_pts[1:], inners):
+            kus, kvs = inner.GetKnots()
+
+            ipp = inner.Evaluate(kus[0], kvs[-1])
+            prv = NonRationalCurve(LineSegment(ipp, opp)).RaiseOrder(2)
+            GeometricRefineCurve(prv, fac, self.p.n_square)
+
+            ipn = inner.Evaluate(kus[-1], kvs[-1])
+            nxt = NonRationalCurve(LineSegment(ipn, opn)).RaiseOrder(2)
+            GeometricRefineCurve(nxt, fac, self.p.n_square)
+
+            out = NonRationalCurve(LineSegment(opp, opn))
+            UniformCurve(out, len(kus) - 2)
+
+            outers.append(tfi.LinearSurface([inner.GetEdges()[2], out, prv, nxt]))
+
+        return outers
 
 
     def _from_pts(self, pts):

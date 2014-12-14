@@ -12,8 +12,9 @@ from utils import grading, grading_double, gradspace
 from airfoils import AirFoil
 
 
-def tfi_runner(af):
-    return af.tfi()
+def fill_runner(af):
+    af.fill()
+    return af
 
 
 def progress(title, i, tot):
@@ -44,6 +45,7 @@ class MeshGen(object):
 
     def resolve_join(self):
         n = self.p.join_adds
+
         idx = self.p.join_index
 
         if n == 0:
@@ -88,18 +90,20 @@ class MeshGen(object):
         self.p.dump_g2files('airfoils_resampled_length', self.airfoils)
 
 
-    def length_tfi(self):
+    def fill_airfoils(self):
         for af in self.airfoils:
-            af.prepare_tfi(self.p)
+            af.prepare_fill(self.p)
 
-        progress('TFI', 0, len(self.airfoils))
+        progress('Filling slices', 0, len(self.airfoils))
         pool = mp.Pool(self.p.nprocs_mg)
-        for i, (result, af) in enumerate(izip(pool.imap(tfi_runner, self.airfoils), self.airfoils)):
-            af.__dict__.update(result)
-            progress('TFI', i+1, len(self.airfoils))
+        result = []
+        for i, af in enumerate(pool.imap(fill_runner, self.airfoils)):
+            result.append(af)
+            progress('Filling slices', i+1, len(self.airfoils))
 
-        self.p.dump_g2files('airfoils_tfi', self.airfoils)
-        
+        self.airfoils = result
+        self.p.dump_g2files('airfoils_filled', self.airfoils)
+
 
     def _resample_length_uniform(self, za, zb):
         return np.linspace(za, zb, self.p.n_length + 1)

@@ -5,7 +5,8 @@ from math import pi, sin, cos, sqrt
 from GoTools import Point, WriteG2, Curve
 from GoTools.CurveFactory import Circle, IntersectCurve, LineSegment, NonRationalCurve
 from GeoUtils.CurveUtils import CurveLengthParametrization, GetCurvePoints
-from GeoUtils.Refinement import UniformCurve, GeometricRefineCurve
+from GeoUtils.Factory import LoftBetween
+from GeoUtils.Refinement import UniformCurve, GeometricRefineCurve, GeometricRefineSurface
 import GeoUtils.Interpolate as ip
 import GeoUtils.TFI as tfi
 
@@ -247,18 +248,13 @@ class AirFoil(object):
         for opp, opn, inner in zip(outer_pts[:-1], outer_pts[1:], inners):
             kus, kvs = inner.GetKnots()
 
-            ipp = inner.Evaluate(kus[0], kvs[-1])
-            prv = NonRationalCurve(LineSegment(ipp, opp)).RaiseOrder(2)
-            GeometricRefineCurve(prv, fac, self.p.n_square)
-
-            ipn = inner.Evaluate(kus[-1], kvs[-1])
-            nxt = NonRationalCurve(LineSegment(ipn, opn)).RaiseOrder(2)
-            GeometricRefineCurve(nxt, fac, self.p.n_square)
-
-            out = NonRationalCurve(LineSegment(opp, opn))
+            out = NonRationalCurve(LineSegment(opp, opn)).RaiseOrder(2)
             UniformCurve(out, len(kus) - 2)
 
-            outers.append(tfi.LinearSurface([inner.GetEdges()[2], out, prv, nxt]))
+            surface = LoftBetween(inner.GetEdges()[2], out).RaiseOrder(0, 2)
+            GeometricRefineSurface(surface, 2, fac, self.p.n_square - 1)
+
+            outers.append(surface)
 
         return outers
 

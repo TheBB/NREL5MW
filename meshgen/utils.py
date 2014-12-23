@@ -2,7 +2,7 @@ import numpy as np
 
 from math import pi, sin, cos
 
-from GoTools import Point
+from GoTools import Point, Surface
 import GeoUtils.Interpolate as ip
 
 
@@ -14,6 +14,13 @@ ez = Point(0, 0, 1)
 def add_if_has(obj, attrib, lst):
     if hasattr(obj, attrib):
         lst.append(getattr(obj, attrib))
+
+
+def surface_curve(srf, k, dirc):
+
+
+def merge_surfaces(srfa, srfb, dirc):
+
 
 
 def mkcircle(center, radius, angle, nelems):

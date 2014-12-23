@@ -10,7 +10,7 @@ from GeoUtils.Refinement import UniformCurve, GeometricRefineCurve, GeometricRef
 import GeoUtils.Interpolate as ip
 import GeoUtils.TFI as tfi
 
-from utils import ex, ez, mkcircle, grading, grading_double, gradspace
+from utils import ex, ez, merge_surfaces, mkcircle, grading, grading_double, gradspace
 
 
 def load_airfoil(filename, gap):
@@ -89,8 +89,8 @@ class AirFoil(object):
     def objects(self):
         objects = []
 
-        if hasattr(self, 'split_inner'):
-            objects += self.split_inner + self.split_middle
+        if hasattr(self, 'split'):
+            objects += self.split
         else:
             objects.append(self.curve)
 
@@ -157,9 +157,11 @@ class AirFoil(object):
         inner = self._make_inner(trailing)
         split_inner = self._split_inner(inner)
         split_middle = self._make_middle(split_inner)
+        split = self._merge(split_inner, split_middle)
 
-        self.split_inner = split_inner
-        self.split_middle = split_middle
+        self.split = split
+        # self.split_inner = split_inner
+        # self.split_middle = split_middle
 
 
     def _make_trailing(self):
@@ -257,6 +259,11 @@ class AirFoil(object):
             outers.append(surface)
 
         return outers
+
+
+    def _merge(self, inner, middle):
+        # print inner[0].GetKnots(), middle[0].GetKnots()
+        return [merge_surfaces(i, m, 1) for i, m in zip(inner, middle)]
 
 
     def _from_pts(self, pts):

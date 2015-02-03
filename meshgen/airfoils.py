@@ -160,8 +160,6 @@ class AirFoil(object):
         split = self._merge(split_inner, split_middle)
 
         self.split = split
-        # self.split_inner = split_inner
-        # self.split_middle = split_middle
 
 
     def _make_trailing(self):
@@ -250,11 +248,15 @@ class AirFoil(object):
         for opp, opn, inner in zip(outer_pts[:-1], outer_pts[1:], inners):
             kus, kvs = inner.GetKnots()
 
-            out = NonRationalCurve(LineSegment(opp, opn)).RaiseOrder(2)
-            UniformCurve(out, len(kus) - 2)
+            temp_curve = LineSegment(opp, opn)
+            UniformCurve(temp_curve, len(kus) - 2)
+            out = ip.CubicCurve(pts=GetCurvePoints(temp_curve), boundary=ip.NATURAL, t=kus)
 
             surface = LoftBetween(inner.GetEdges()[2], out).RaiseOrder(0, 2)
             GeometricRefineSurface(surface, 2, fac, self.p.n_square - 1)
+
+            diff = surface.GetKnots()[1][1]
+            surface.ReParametrize(kus[0], kus[-1], kvs[-1], kvs[-1] + 1/diff)
 
             outers.append(surface)
 
@@ -262,7 +264,6 @@ class AirFoil(object):
 
 
     def _merge(self, inner, middle):
-        # print inner[0].GetKnots(), middle[0].GetKnots()
         return [merge_surfaces(i, m, 1) for i, m in zip(inner, middle)]
 
 

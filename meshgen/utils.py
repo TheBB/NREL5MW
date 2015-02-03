@@ -1,8 +1,11 @@
 import numpy as np
 
+from itertools import chain
 from math import pi, sin, cos
+from numpy import matrix
 
-from GoTools import Point, Surface
+from GoTools import Point, Curve, Surface, WriteG2
+from GeoUtils.CurveUtils import GetCurvePoints
 import GeoUtils.Interpolate as ip
 
 
@@ -11,16 +14,61 @@ ey = Point(0, 1, 0)
 ez = Point(0, 0, 1)
 
 
+def extend_knots(knots):
+    return [knots[0], (knots[0]+knots[1])/2.] + knots[1:-1] + [(knots[-2]+knots[-1])/2., knots[-1]]
+
+
+def standardize(obj):
+    old_knots = obj.GetKnots() if type(obj) is Surface else [obj.GetKnots()]
+    evl_knots = map(extend_knots, old_knots)
+    param_knots = [extend_knots(range(len(kts))) for kts in old_knots]
+    param_knots += [[0]*3 + range(len(kts)) + [len(kts)-1]*3 for kts in old_knots]
+
+    pts = obj.EvaluateGrid(*evl_knots)
+    if type(obj) is Curve:
+        pts = matrix(pts)
+
+    interpolator = ip.InterpolateCurve if type(obj) is Curve else ip.InterpolateSurface
+    return interpolator(pts, *param_knots)
+
+
 def add_if_has(obj, attrib, lst):
     if hasattr(obj, attrib):
         lst.append(getattr(obj, attrib))
 
 
-def surface_curve(srf, k, dirc):
-
-
 def merge_surfaces(srfa, srfb, dirc):
+    if dirc == 1:
+        srfa.SwapParametrization()
+        srfb.SwapParametrization()
 
+    kua, kva = srfa.GetKnots(with_multiplicities=True)
+    kub, _ = srfb.GetKnots(with_multiplicities=True)
+    coeffsa = list(srfa)
+    coeffsb = list(srfb)
+
+    num = len(kva) - 4
+    numa, numb = len(kua) - 4, len(kub) - 4
+
+    coeffs = []
+    final = None
+    for i in xrange(num):
+        crva = Curve(4, kua, coeffsa[numa*i:numa*(i+1)], False)
+        crvb = Curve(4, kub, coeffsb[numb*i:numb*(i+1)], False)
+
+        crva.AppendCurve(crvb, continuity=2, reparam=False)
+        crv = standardize(crva)
+        coeffs += list(crv)
+
+        if final is None:
+            final = crv.GetKnots(with_multiplicities=True)
+
+    srf = Surface(4, 4, final, kva, coeffs, False)
+
+    if dirc == 1:
+        srf.SwapParametrization()
+
+    return srf
 
 
 def mkcircle(center, radius, angle, nelems):

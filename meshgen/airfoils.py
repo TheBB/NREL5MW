@@ -2,7 +2,7 @@ import numpy as np
 
 from math import pi, sin, cos, sqrt
 
-from GoTools import Point, WriteG2, Curve
+from GoTools import Point, Curve, Surface, WriteG2
 from GoTools.CurveFactory import Circle, IntersectCurve, LineSegment, NonRationalCurve
 from GeoUtils.CurveUtils import CurveLengthParametrization, GetCurvePoints
 from GeoUtils.Factory import LoftBetween
@@ -10,7 +10,7 @@ from GeoUtils.Refinement import UniformCurve, GeometricRefineCurve, GeometricRef
 import GeoUtils.Interpolate as ip
 import GeoUtils.TFI as tfi
 
-from utils import ex, ez, merge_surfaces, mkcircle, grading, grading_double, gradspace
+from utils import ex, ey, ez, merge_surfaces, mkcircle, grading, grading_double, gradspace, extend
 
 
 def load_airfoil(filename, gap):
@@ -48,7 +48,7 @@ def te_curve(pta, ptb, tnga, tngb):
 class AirFoil(object):
 
     def __init__(self):
-        pass
+        self.filled = False
 
 
     @classmethod
@@ -87,12 +87,13 @@ class AirFoil(object):
 
 
     def objects(self):
-        objects = []
+        if not self.filled:
+            return [self.curve]
 
-        if hasattr(self, 'split'):
-            objects += self.split
-        else:
-            objects.append(self.curve)
+        objects = []
+        for attr in ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right']:
+            if hasattr(self, attr):
+                objects += getattr(self, attr)
 
         return objects
 
@@ -159,7 +160,33 @@ class AirFoil(object):
         split_middle = self._make_middle(split_inner)
         split = self._merge(split_inner, split_middle)
 
-        self.split = split
+        for p in split:
+            p.FlipParametrization(0)
+
+        self.inner_left = split[-1:3:-1]
+        self.inner_right = split[:4]
+        self.filled = True
+
+
+    def fill_sides(self):
+        ext = lambda ps, direc, dist, n: [extend(p.GetEdges()[2] if type(p) is Surface else p,
+                                                 direc, dist, n) for p in ps]
+
+        if self.p.sides > 0:
+            self.left  = ext(self.inner_left[1:3], -ey, self.p.sides, self.p.n_sides)
+            self.right = ext(self.inner_right[1:3], ey, self.p.sides, self.p.n_sides)
+        if self.p.behind > 0:
+            edges = [self.inner_left[0], self.inner_right[0]]
+            if self.p.sides > 0:
+                edges.insert(0, self.left[0].GetEdges()[3])
+                edges.append(self.right[0].GetEdges()[1].FlipParametrization())
+            self.behind = ext(edges, ex, self.p.behind, self.p.n_behind)
+        if self.p.ahead > 0:
+            edges = [self.inner_left[-1], self.inner_right[-1]]
+            if self.p.sides > 0:
+                edges.insert(0, self.left[-1].GetEdges()[1].FlipParametrization())
+                edges.append(self.right[-1].GetEdges()[3])
+            self.ahead = ext(edges, -ex, self.p.ahead, self.p.n_ahead)
 
 
     def _make_trailing(self):
@@ -190,7 +217,7 @@ class AirFoil(object):
         point = trailing.Evaluate(trailing.GetKnots()[-1])
         theta = np.arctan(point[1] / point[0]) * 180 / pi
         radius = abs(trailing.Evaluate(trailing.GetKnots()[-1]) - ez * self.z())
-        
+
         circle =  mkcircle(ez * self.z(), radius, theta,
                            len(self.curve.GetKnots()) - 1)
 

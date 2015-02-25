@@ -48,6 +48,14 @@ defaults = {
     'n_circle': 72,
     'n_square': 10,
     'smoothing': True,
+
+    # Sides
+    'behind': 4.0,
+    'ahead': 0.2,
+    'sides': 0.2,
+    'n_behind': 36,
+    'n_ahead': 2,
+    'n_sides': 2,
 }
 
 
@@ -75,6 +83,10 @@ class Params(object):
         self.len_char = min(wd.chord for wd in self.wingdef)
         self.len_bndlayer = self.len_char / sqrt(self.Re)
         self.n_bndlayers = float(self.n_circle) / self.n_bndlayer
+
+        self.behind *= self.radius
+        self.ahead *= self.radius
+        self.sides *= self.radius
 
         self.sanity_check()
 

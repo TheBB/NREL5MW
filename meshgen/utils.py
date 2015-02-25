@@ -6,6 +6,9 @@ from numpy import matrix
 
 from GoTools import Point, Curve, Surface, WriteG2
 from GeoUtils.CurveUtils import GetCurvePoints
+from GeoUtils.Elementary import Translate
+from GeoUtils.Factory import LoftBetween
+from GeoUtils.Refinement import UniformSurface
 import GeoUtils.Interpolate as ip
 
 
@@ -165,3 +168,10 @@ def gradspace(start, step, factor, N):
             start += step
             step *= factor
     return list(gen(float(start), float(step), float(factor), N))
+
+
+def extend(edge, direction, distance, elements):
+    other = Translate(edge, direction * distance)
+    surface = LoftBetween(edge, other)
+    UniformSurface(surface, 2, elements-1)
+    return surface

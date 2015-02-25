@@ -105,6 +105,13 @@ class MeshGen(object):
         self.p.dump_g2files('airfoils_filled', self.airfoils)
 
 
+    def fill_sides(self):
+        for af in self.airfoils:
+            af.fill_sides()
+
+        self.p.dump_g2files('airfoils_sides', self.airfoils)
+
+
     def _resample_length_uniform(self, za, zb):
         return np.linspace(za, zb, self.p.n_length + 1)
 

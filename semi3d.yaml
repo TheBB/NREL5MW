@@ -1,0 +1,10 @@
+debug: true
+nprocs_mg: 8
+length_mode: uniform
+n_base: 0
+n_length: 20
+p_ahead: 2
+p_sides: 2
+p_behind: 2
+order: 4
+walldistance: false

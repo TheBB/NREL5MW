@@ -18,13 +18,13 @@ from utils import grading, gradspace
 
 defaults = {
     # Input and output
-    'wingfile': 'NREL_5_MW.xinp',
+    'wingfile': 'wingdefs/NREL_5_MW.xinp',
     'out': 'NREL',
     'nprocs': 8,
 
     # Mesh generator
     'debug': False,
-    'nprocs_mg': 6,
+    'nprocs_mg': 4,
     'walldistance': False,
     'mesh_mode': 'semi3d',
 
@@ -61,8 +61,8 @@ defaults = {
 
     # Sides
     'behind': 4.0,
-    'ahead': 0.2,
-    'sides': 0.2,
+    'ahead': 0.0,
+    'sides': 0.0,
     'n_behind': 36,
     'n_ahead': 2,
     'n_sides': 2,

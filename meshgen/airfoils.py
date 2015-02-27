@@ -1,4 +1,5 @@
 import numpy as np
+import os
 
 from math import pi, sin, cos, sqrt
 
@@ -15,6 +16,7 @@ from utils import *
 
 
 def load_airfoil(filename, gap):
+    filename = os.path.join(os.path.dirname(__file__), '../airfoils', filename)
     data = np.loadtxt(filename)
 
     angles = np.arctan(data[:,3])

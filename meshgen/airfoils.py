@@ -231,24 +231,6 @@ class AirFoil(object):
         self._bnd_flow(n, 'inflow')
         self._bnd_flow(n, 'outflow')
 
-        if self.p.behind > 0:
-            n.AddBoundary('outflow', ([q[0] for q in self.behind], 'edge', 2))
-        else:
-            n.AddBoundary('outflow', ([self.inner_left[0][-1], self.inner_right[0][-1]], 'edge', 3))
-
-        if self.p.ahead > 0:
-            n.AddBoundary('inflow', ([q[-1] for q in self.ahead], 'edge', 3))
-        else:
-            n.AddBoundary('inflow', ([self.inner_left[-1][-1], self.inner_right[-1][-1]], 'edge', 3))
-
-        if self.p.behind > 0 and self.p.sides > 0:
-            n.AddBoundary('outflow', ([q[0] for c in self.corners_behind for q in c], 'edge', 2))
-
-        if self.p.ahead > 0 and self.p.sides > 0:
-            n.AddBoundary('slipwall_left', (self.corners_ahead[0][0], 'edge', 0))
-            n.AddBoundary('slipwall_right', (self.corners_ahead[-1][-1], 'edge', 1))
-            n.AddBoundary('inflow', ([q[-1] for c in self.corners_ahead for q in c], 'edge', 3))
-
         n.WriteBoundary('wing', path + '-wing.g2')
         n.WriteBoundary('slipwall_left', path + '-slipwall_left.g2')
         n.WriteBoundary('slipwall_right', path + '-slipwall_right.g2')
@@ -411,8 +393,8 @@ class AirFoil(object):
         # In case of open inflow, ensure the corner vertices belong to the slipwall
         if not self.p.closed_inflow:
             if self.p.ahead == 0 and self.p.sides == 0:
-                vx('left', [self.inner_left[3][-1]], 2)
-                vx('right', [self.inner_right[3][-1]], 3)
+                vx('left', self.inner_left[3][-1], 2)
+                vx('right', self.inner_right[3][-1], 3)
             else:
                 if self.p.ahead > 0 and self.p.sides == 0:
                     l, r = self.ahead[0][-1], self.ahead[1][-1]
@@ -420,14 +402,14 @@ class AirFoil(object):
                     l, r = self.left[1][0], self.right[1][-1]
                 elif self.p.ahead > 0 and self.p.sides > 0:
                     l, r = self.corners_ahead[0][0][-1], self.corners_ahead[1][-1][-1]
-                vx('left', [l], 2)
-                vx('right', [r], 2)
+                vx('left', l, 2)
+                vx('right', r, 3)
 
         # In case of open outflow, ensure the corner vertices belong to the slipwall
         if not self.p.closed_outflow:
             if self.p.behind == 0 and self.p.sides == 0:
-                vx('left', [self.inner_left[0][-1]], 3)
-                vx('right', [self.inner_right[0][-1]], 2)
+                vx('left', self.inner_left[0][-1], 3)
+                vx('right', self.inner_right[0][-1], 2)
             else:
                 if self.p.behind > 0 and self.p.sides == 0:
                     l, r = self.behind[0][0], self.behind[1][0]
@@ -435,8 +417,8 @@ class AirFoil(object):
                     l, r = self.left[0][0], self.right[0][-1]
                 elif self.p.behind > 0 and self.p.sides > 0:
                     l, r = self.corners_behind[0][0][0], self.corners_behind[1][-1][0]
-                vx('left', [l], 0)
-                vx('right', [r], 1)
+                vx('left', l, 0)
+                vx('right', r, 1)
 
 
     def _bnd_flow(self, n, name):
@@ -479,14 +461,14 @@ class AirFoil(object):
 
         # In case of sides and not extended, there are some vertices in the middle of the flow
         if self.p.sides > 0 and not extended:
-            vx([self.inner_left[i_nidx][-1]], i_or)
-            vx([self.inner_right[i_nidx][-1]], j_or)
+            vx(self.inner_left[i_nidx][-1], i_or)
+            vx(self.inner_right[i_nidx][-1], j_or)
 
         # In case of closed flow, ensure the corner vertices belong to the flow
         if closed:
             if not extended and self.p.sides == 0:
-                vx([self.inner_left[i_nidx][-1]], i_or)
-                vx([self.inner_right[i_nidx][-1]], j_or)
+                vx(self.inner_left[i_nidx][-1], i_or)
+                vx(self.inner_right[i_nidx][-1], j_or)
             else:
                 if extended and self.p.sides == 0:
                     l, r = ext_patches[0][v_idx], ext_patches[1][v_idx]
@@ -494,5 +476,5 @@ class AirFoil(object):
                     l, r = self.left[v_idx][0], self.right[v_idx][-1]
                 elif extended and self.p.sides > 0:
                     l, r = corners[0][0][v_idx], corners[1][-1][v_idx]
-                vx([l], l_vx)
-                vx([r], l_vx + 1)
+                vx(l, l_vx)
+                vx(r, l_vx + 1)

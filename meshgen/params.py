@@ -49,8 +49,7 @@ defaults = {
     'join_index': 4,
     'n_base': 20,
     'n_length': 160,
-    'd_join': 0.2
-    ,
+    'd_join': 0.2,
     'd_tip': 0.006,
 
     # Radial resolution

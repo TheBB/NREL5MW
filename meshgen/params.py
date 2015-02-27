@@ -194,7 +194,9 @@ class Params(object):
         print s
 
 
-    def out_yaml(self, filename):
+    def out_yaml(self):
+        filename = os.path.join(self.out, 'parameters.yaml')
+
         time = datetime.now().isoformat()
         proc = subprocess.Popen(['git', '-C', os.path.abspath(os.path.dirname(__file__)),
                                  'rev-parse', 'HEAD'], stdout=subprocess.PIPE)

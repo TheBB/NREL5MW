@@ -139,12 +139,14 @@ class MeshGen(object):
         beam = ip.LinearCurve(pts=[Point(z,0,0) for z in zvals])
         WriteG2(join(self.p.out, 'beam.g2'), beam)
 
-        self.p.out_yaml(join(self.p.out, 'parameters.yaml'))
+        self.p.out_yaml()
 
 
     def output_2d(self):
         path = abspath(join(self.p.out, self.p.out))
         self.airfoils[0].output(path)
+
+        self.p.out_yaml()
 
 
     def _resample_length_uniform(self, za, zb):

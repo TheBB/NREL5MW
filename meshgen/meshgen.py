@@ -65,9 +65,6 @@ class MeshGen(object):
 
 
     def resample_length(self):
-        if self.p.length_mode == 'extruded' or self.p.mesh_mode == '2d':
-            return
-
         curves = [af.curve for af in self.airfoils]
         zvals = [af.z() for af in self.airfoils]
         wing = LoftCurves(curves, zvals, order=4)

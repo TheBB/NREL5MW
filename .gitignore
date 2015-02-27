@@ -2,3 +2,7 @@ out/*
 *.g2
 *.3dm
 *.pyc
+*.xinp
+*.xml
+*.hdf5
+NREL_wing_mesh_3D/*

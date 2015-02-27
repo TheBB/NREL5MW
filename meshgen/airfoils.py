@@ -8,9 +8,10 @@ from GeoUtils.CurveUtils import CurveLengthParametrization, GetCurvePoints
 from GeoUtils.Factory import LoftBetween
 from GeoUtils.Refinement import UniformCurve, GeometricRefineCurve, GeometricRefineSurface
 import GeoUtils.Interpolate as ip
+from GeoUtils.IO import Numberer
 import GeoUtils.TFI as tfi
 
-from utils import ex, ey, ez, merge_surfaces, mkcircle, grading, grading_double, gradspace, extend
+from utils import *
 
 
 def load_airfoil(filename, gap):
@@ -91,9 +92,10 @@ class AirFoil(object):
             return [self.curve]
 
         objects = []
-        for attr in ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right']:
+        for attr in ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right',
+                     'corners_behind', 'corners_ahead']:
             if hasattr(self, attr):
-                objects += getattr(self, attr)
+                objects.extend(flatten_objects(getattr(self, attr)))
 
         return objects
 
@@ -163,7 +165,7 @@ class AirFoil(object):
         for p in split:
             p.FlipParametrization(0)
 
-        self.inner_left = split[-1:3:-1]
+        self.inner_left = split[4:][::-1]
         self.inner_right = split[:4]
         self.filled = True
 
@@ -175,18 +177,87 @@ class AirFoil(object):
         if self.p.sides > 0:
             self.left  = ext(self.inner_left[1:3], -ey, self.p.sides, self.p.n_sides)
             self.right = ext(self.inner_right[1:3], ey, self.p.sides, self.p.n_sides)
+            orient_patches(self.left, 'flipv', 'swap')
+            orient_patches(self.right, 'flipu', 'swap')
+
         if self.p.behind > 0:
             edges = [self.inner_left[0], self.inner_right[0]]
-            if self.p.sides > 0:
-                edges.insert(0, self.left[0].GetEdges()[3])
-                edges.append(self.right[0].GetEdges()[1].FlipParametrization())
             self.behind = ext(edges, ex, self.p.behind, self.p.n_behind)
+            orient_patches(self.behind, 'flipu', 'flipv')
+            if self.p.sides > 0:
+                edges = [self.left[0].GetEdges()[0], self.right[0].GetEdges()[0]]
+                self.corners_behind = ext(edges, ex, self.p.behind, self.p.n_behind)
+                orient_patches(self.corners_behind, 'flipv')
+
         if self.p.ahead > 0:
             edges = [self.inner_left[-1], self.inner_right[-1]]
-            if self.p.sides > 0:
-                edges.insert(0, self.left[-1].GetEdges()[1].FlipParametrization())
-                edges.append(self.right[-1].GetEdges()[3])
             self.ahead = ext(edges, -ex, self.p.ahead, self.p.n_ahead)
+            if self.p.sides > 0:
+                edges = [self.left[-1].GetEdges()[2], self.right[-1].GetEdges()[2]]
+                self.corners_ahead = ext(edges, -ex, self.p.ahead, self.p.n_ahead)
+
+
+    def subdivide(self):
+        self.inner_left = subdivide(self.inner_left, self.p.p_inner, 1)
+        self.inner_right = subdivide(self.inner_right, self.p.p_inner, 1)
+
+        if self.p.sides > 0:
+            self.left = subdivide(self.left, self.p.p_sides, 0)
+            self.right = subdivide(self.right, self.p.p_sides, 0)
+
+        if self.p.behind > 0:
+            self.behind = subdivide(self.behind, self.p.p_behind, 1)
+            if self.p.sides > 0:
+                temp = subdivide(self.corners_behind, self.p.p_sides, 0)
+                self.corners_behind = [subdivide(c, self.p.p_behind, 1) for c in temp]
+
+        if self.p.ahead > 0:
+            self.ahead = subdivide(self.ahead, self.p.p_ahead, 1)
+            if self.p.sides > 0:
+                temp = subdivide(self.corners_ahead, self.p.p_sides, 0)
+                self.corners_ahead = [subdivide(c, self.p.p_ahead, 1) for c in temp]
+
+
+    def output(self, path):
+        n = Numberer()
+
+        for attr in ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right',
+                     'corners_behind', 'corners_ahead']:
+            if hasattr(self, attr):
+                n.AddPatches(flatten_objects(getattr(self, attr)))
+
+        self._bnd_wing(n)
+        self._bnd_slipwall(n)
+        self._bnd_flow(n, 'inflow')
+        self._bnd_flow(n, 'outflow')
+
+        if self.p.behind > 0:
+            n.AddBoundary('outflow', ([q[0] for q in self.behind], 'edge', 2))
+        else:
+            n.AddBoundary('outflow', ([self.inner_left[0][-1], self.inner_right[0][-1]], 'edge', 3))
+
+        if self.p.ahead > 0:
+            n.AddBoundary('inflow', ([q[-1] for q in self.ahead], 'edge', 3))
+        else:
+            n.AddBoundary('inflow', ([self.inner_left[-1][-1], self.inner_right[-1][-1]], 'edge', 3))
+
+        if self.p.behind > 0 and self.p.sides > 0:
+            n.AddBoundary('outflow', ([q[0] for c in self.corners_behind for q in c], 'edge', 2))
+
+        if self.p.ahead > 0 and self.p.sides > 0:
+            n.AddBoundary('slipwall_left', (self.corners_ahead[0][0], 'edge', 0))
+            n.AddBoundary('slipwall_right', (self.corners_ahead[-1][-1], 'edge', 1))
+            n.AddBoundary('inflow', ([q[-1] for c in self.corners_ahead for q in c], 'edge', 3))
+
+        n.WriteBoundary('wing', path + '-wing.g2')
+        n.WriteBoundary('slipwall_left', path + '-slipwall_left.g2')
+        n.WriteBoundary('slipwall_right', path + '-slipwall_right.g2')
+        n.WriteBoundary('outflow', path + '-outflow.g2')
+        n.WriteBoundary('inflow', path + '-inflow.g2')
+
+        # Final output
+        n.Renumber(self.p.nprocs)
+        n.WriteEverything(path)
 
 
     def _make_trailing(self):
@@ -297,3 +368,131 @@ class AirFoil(object):
     def _from_pts(self, pts):
         params = list(np.linspace(0, 1, len(pts)))
         self.curve = ip.CubicCurve(pts=pts, t=params, boundary=ip.PERIODIC)
+
+
+    def _bnd_wing(self, n):
+        patches = [q[0] for q in self.inner_left + self.inner_right]
+        n.AddBoundary('wing', (patches, 'edge', 2))
+
+
+    def _bnd_slipwall(self, n):
+        edge = lambda side, patches, idx: n.AddBoundary('slipwall_%s' % side, (patches, 'edge', idx))
+        vx = lambda side, patches, idx: n.AddBoundary('slipwall_%s' % side, (patches, 'vertex', idx))
+
+        # Add the easy part
+        if self.p.sides > 0:
+            edge('left', [q[0] for q in self.left], 0)
+            edge('right', [q[-1] for q in self.right], 1)
+        else:
+            edge('left', [q[-1] for q in self.inner_left[1:3]], 3)
+            edge('right', [q[-1] for q in self.inner_right[1:3]], 3)
+
+        # Add the remainder of the edges, possibly corner patches
+        for e in ['behind', 'ahead']:
+            if getattr(self.p, e) == 0:
+                continue
+            if self.p.sides > 0:
+                corners = getattr(self, 'corners_' + e)
+                l, r = corners[0][0], corners[-1][-1]
+            else:
+                patches = getattr(self, e)
+                l, r = patches[0], patches[-1]
+            edge('left', l, 0)
+            edge('right', r, 1)
+
+        # In case of behind/ahead and no sides, there are some vertices in the middle of the slipwall
+        if self.p.ahead > 0 and self.p.sides == 0:
+            vx('left', [self.inner_left[-1][-1]], 2)
+            vx('right', [self.inner_right[-1][-1]], 3)
+        if self.p.behind > 0 and self.p.sides == 0:
+            vx('left', [self.inner_left[0][-1]], 3)
+            vx('right', [self.inner_right[0][-1]], 2)
+
+        # In case of open inflow, ensure the corner vertices belong to the slipwall
+        if not self.p.closed_inflow:
+            if self.p.ahead == 0 and self.p.sides == 0:
+                vx('left', [self.inner_left[3][-1]], 2)
+                vx('right', [self.inner_right[3][-1]], 3)
+            else:
+                if self.p.ahead > 0 and self.p.sides == 0:
+                    l, r = self.ahead[0][-1], self.ahead[1][-1]
+                elif self.p.ahead == 0 and self.p.sides > 0:
+                    l, r = self.left[1][0], self.right[1][-1]
+                elif self.p.ahead > 0 and self.p.sides > 0:
+                    l, r = self.corners_ahead[0][0][-1], self.corners_ahead[1][-1][-1]
+                vx('left', [l], 2)
+                vx('right', [r], 2)
+
+        # In case of open outflow, ensure the corner vertices belong to the slipwall
+        if not self.p.closed_outflow:
+            if self.p.behind == 0 and self.p.sides == 0:
+                vx('left', [self.inner_left[0][-1]], 3)
+                vx('right', [self.inner_right[0][-1]], 2)
+            else:
+                if self.p.behind > 0 and self.p.sides == 0:
+                    l, r = self.behind[0][0], self.behind[1][0]
+                elif self.p.behind == 0 and self.p.sides > 0:
+                    l, r = self.left[0][0], self.right[0][-1]
+                elif self.p.behind > 0 and self.p.sides > 0:
+                    l, r = self.corners_behind[0][0][0], self.corners_behind[1][-1][0]
+                vx('left', [l], 0)
+                vx('right', [r], 1)
+
+
+    def _bnd_flow(self, n, name):
+        out = name == 'outflow'
+
+        ext_name = 'behind' if out else 'ahead'      # Name of extension property
+        v_idx = 0 if out else -1                     # Index of patches in the v-direction
+        v_edge = 2 if out else 3                     # Patch-index of edge on appropriately oriented patch
+        l_vx = 0 if out else 2                       # Patch-index of left vertex on A.O.P.
+        i_fidx = 0 if out else 3                     # Index of far patch in inner arrays
+        i_nidx = 1 if out else 2                     # Index of near patch in inner arrays
+        i_or = 2 if out else 3                       # Patch-index of the vertex closest to the middle
+                                                     # on the left side of an inner patch
+    
+        edge = lambda patches, idx: n.AddBoundary(name, (patches, 'edge', idx))
+        vx = lambda patches, idx: n.AddBoundary(name, (patches, 'vertex', idx))
+
+        closed = getattr(self.p, 'closed_' + name)
+        extended = getattr(self.p, ext_name)
+        if extended:
+            ext_patches = getattr(self, ext_name)
+        if extended and self.p.sides > 0:
+            corners = getattr(self, 'corners_' + ext_name)
+
+        j_or = 5 - i_or
+
+        # Add the easy part
+        if extended:
+            edge([q[v_idx] for q in ext_patches], v_edge)
+        else:
+            edge([self.inner_left[i_fidx][-1], self.inner_right[i_fidx][-1]], 3)
+
+        # Add the remainder of the edges, possibly corner patches
+        if self.p.sides > 0:
+            if extended:
+                p = [q[v_idx] for c in corners for q in c]
+            else:
+                p = self.left[v_idx] + self.right[v_idx]
+            edge(p, v_edge)
+
+        # In case of sides and not extended, there are some vertices in the middle of the flow
+        if self.p.sides > 0 and not extended:
+            vx([self.inner_left[i_nidx][-1]], i_or)
+            vx([self.inner_right[i_nidx][-1]], j_or)
+
+        # In case of closed flow, ensure the corner vertices belong to the flow
+        if closed:
+            if not extended and self.p.sides == 0:
+                vx([self.inner_left[i_nidx][-1]], i_or)
+                vx([self.inner_right[i_nidx][-1]], j_or)
+            else:
+                if extended and self.p.sides == 0:
+                    l, r = ext_patches[0][v_idx], ext_patches[1][v_idx]
+                elif not extended and self.p.sides > 0:
+                    l, r = self.left[v_idx][0], self.right[v_idx][-1]
+                elif extended and self.p.sides > 0:
+                    l, r = corners[0][0][v_idx], corners[1][-1][v_idx]
+                vx([l], l_vx)
+                vx([r], l_vx + 1)

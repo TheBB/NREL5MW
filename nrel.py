@@ -12,3 +12,7 @@ gen.resolve_join()
 gen.resample_length()
 gen.fill_airfoils()
 gen.fill_sides()
+
+if params.mesh_mode == 'semi3d':
+    gen.subdivide_airfoils()
+    gen.output_planes()

@@ -1,6 +1,7 @@
 from itertools import izip, repeat
 import multiprocessing as mp
 from operator import methodcaller
+from os.path import abspath, join
 import sys
 
 import numpy as np
@@ -110,6 +111,19 @@ class MeshGen(object):
             af.fill_sides()
 
         self.p.dump_g2files('airfoils_sides', self.airfoils)
+
+
+    def subdivide_airfoils(self):
+        for af in self.airfoils:
+            af.subdivide()
+
+        self.p.dump_g2files('airfoils_subdivided', self.airfoils)
+
+
+    def output_planes(self):
+        for i, af in enumerate(self.airfoils):
+            path = abspath(join(self.p.out, 'slice-%03i' % i))
+            af.output(path)
 
 
     def _resample_length_uniform(self, za, zb):

@@ -3,8 +3,9 @@ import numpy as np
 from itertools import chain
 from math import pi, sin, cos
 from numpy import matrix
+from operator import *
 
-from GoTools import Point, Curve, Surface, WriteG2
+from GoTools import Point, Curve, Surface, Volume, WriteG2
 from GeoUtils.CurveUtils import GetCurvePoints
 from GeoUtils.Elementary import Translate
 from GeoUtils.Factory import LoftBetween
@@ -173,5 +174,52 @@ def gradspace(start, step, factor, N):
 def extend(edge, direction, distance, elements):
     other = Translate(edge, direction * distance)
     surface = LoftBetween(edge, other)
+    surface.RaiseOrder(0, 2)
     UniformSurface(surface, 2, elements-1)
     return surface
+
+
+def subdivide(patches, n, direction=0):
+    typ = type(patches[0])
+    if typ is Curve:
+        sub = lambda p, f, t: p.GetSubCurve(f[0], t[0])
+    elif typ is Surface:
+        sub = lambda p, f, t: p.GetSubSurf(f, t)
+    elif typ is Volume:
+        sub = lambda p, f, t: p.GetSubVol(f, t)
+
+    nkts = len(patches[0].GetKnots()[direction])
+    indices = [i * (nkts - 1) / n for i in xrange(0, n+1)]
+
+    ret = []
+    for p in patches:
+        kts = [p.GetKnots()] if typ is Curve else p.GetKnots()
+        from_par = [k[0] for k in kts]
+        to_par = [k[-1] for k in kts]
+        parts = []
+        for a, b in zip(indices[:-1], indices[1:]):
+            from_par[direction] = kts[direction][a]
+            to_par[direction] = kts[direction][b]
+            parts.append(sub(p, from_par, to_par))
+        ret.append(parts)
+
+    return ret
+
+
+def flatten_objects(patches):
+    ret = []
+    for p in patches:
+        if type(p) in [Curve, Surface, Volume]:
+            ret.append(p)
+        elif type(p) is list:
+            ret.extend(flatten_objects(p))
+    return ret
+
+
+def orient_patches(patches, *args):
+    for a in args:
+        if a[:4] == 'flip':
+            direction = 'uvw'.index(a[4])
+            map(methodcaller('FlipParametrization', direction), patches)
+        elif a == 'swap':
+            map(methodcaller('SwapParametrization'), patches)

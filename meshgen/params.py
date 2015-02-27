@@ -15,6 +15,8 @@ defaults = {
     # Input and output
     'wingfile': 'NREL_5_MW.xinp',
     'out': 'NREL',
+    'nprocs': 8,
+    'mesh_mode': 'semi3d',
 
     # Mesh generator
     'debug': False,
@@ -22,6 +24,8 @@ defaults = {
 
     # Global mesh parameters
     'order': 2,
+    'closed_inflow': True,
+    'closed_outflow': False,
 
     # Trailing edge
     'len_te': 2e-2,
@@ -56,6 +60,12 @@ defaults = {
     'n_behind': 36,
     'n_ahead': 2,
     'n_sides': 2,
+
+    # Patches
+    'p_inner':  2,
+    'p_behind': 1,
+    'p_ahead':  1,
+    'p_sides':  1,
 }
 
 
@@ -93,10 +103,17 @@ class Params(object):
         rmtree('out', ignore_errors=True)
         self.make_folder('out')
 
+        rmtree(self.out, ignore_errors=True)
+        self.make_folder(self.out)
+
+        if self.mesh_mode == 'semi3d':
+            print 'Semi3D mode (%i planes)' % (self.n_length + 1)
+
 
     def sanity_check(self):
         assert((self.n_te + self.n_back + self.n_front) % 4 == 0)
 
+        assert(self.mesh_mode in ['semi3d'])
         assert(self.length_mode in ['extruded', 'uniform', 'double', 'triple'])
 
         if self.length_mode == 'extruded':
@@ -115,6 +132,14 @@ class Params(object):
             assert(self.n_length > self.n_base)
             assert((self.n_length - self.n_base) % 2 == 0)
             assert(self.join_index > 0)
+
+        assert(self.sides >= 0)
+        assert(self.behind >= 0)
+        assert(self.ahead >= 0)
+        assert(self.sides == 0 or 0 < self.p_sides <= self.n_sides)
+        assert(self.behind == 0 or 0 < self.p_behind <= self.n_behind)
+        assert(self.ahead == 0 or 0 < self.p_ahead <= self.n_ahead)
+        assert(0 < self.p_inner <= self.n_circle + self.n_square)
 
 
     def radial_grading(self, length):

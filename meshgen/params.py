@@ -35,7 +35,7 @@ defaults = {
 
     # Trailing edge
     'len_te': 2e-2,
-    'len_te_cyl_fac': 50,
+    'len_te_cyl_fac': 50.0,
 
     # Angular resolution
     'n_te': 9,
@@ -44,11 +44,13 @@ defaults = {
 
     # Lengthwise resolution
     'length_mode': 'triple',
+    'length': 0.0,
     'join_adds': 4,
     'join_index': 4,
     'n_base': 20,
     'n_length': 160,
-    'd_join': 0.2,
+    'd_join': 0.2
+    ,
     'd_tip': 0.006,
 
     # Radial resolution
@@ -88,7 +90,9 @@ def usage():
     - nprocs_mg: Number of processors to use in mesh generation
     - walldistance: Set to true to compute wall distances
     - mesh_mode: Which kind of mesh to produce
-      So far the only supported mode is semi3d
+      * 2d: 2D mesh of a single airfoil
+        Make sure join_adds is zero, any other length parameter will be ignored
+      * semi3d: Layered 2D meshes with a beam
 
     GLOBAL MESH PARAMETERS
     - order: Spline geometry order (2, 3 or 4)
@@ -113,6 +117,7 @@ def usage():
         size at the root and at the tip
       * triple: Triple-sided geometrically distributed airfoils, by giving the element
         size at the join (see below) and at the tip
+    - length: Length of wing (in case of length mode extrude)
     - join_adds: Number of intermediate linear interpolation steps to perform at the
       join. The join is any airfoil with a sharp transition requiring this step to avoid
       self intersection. Set this to zero to disable
@@ -181,9 +186,10 @@ class Params(object):
         rmtree(self.out, ignore_errors=True)
         self.make_folder(self.out)
 
-        s = ''
-        if self.mesh_mode == 'semi3d':
-            s += 'Semi3D mode (%i planes)' % (self.n_length + 1)
+        if self.mesh_mode == '2d':
+            s = '2D mode'
+        elif self.mesh_mode == 'semi3d':
+            s = 'Semi3D mode (%i planes)' % (self.n_length + 1)
         s += ' -- ' + {2: 'linear', 3: 'quadratic', 4: 'cubic'}[self.order] + ' geometry'
         print s
 
@@ -203,26 +209,32 @@ class Params(object):
     def sanity_check(self):
         assert((self.n_te + self.n_back + self.n_front) % 4 == 0)
 
-        assert(self.mesh_mode in {'semi3d'})
+        assert(self.mesh_mode in {'semi3d', '2d'})
         assert(self.length_mode in {'extruded', 'uniform', 'double', 'triple'})
         assert(self.order in {2, 3, 4})
 
-        if self.length_mode == 'extruded':
+        if self.mesh_mode != '2d':
+            if self.length_mode == 'extruded':
+                assert(len(self.wingdef) == 1)
+                assert(self.n_base == 0)
+                assert(self.join_adds == 0)
+                assert(self.length > 0)
+            elif self.length_mode == 'uniform':
+                assert(len(self.wingdef) > 1)
+                assert(self.n_base == 0)
+            elif self.length_mode == 'double':
+                assert(len(self.wingdef) > 1)
+                assert(self.n_base == 0)
+                assert(self.n_length % 2 == 0)
+            elif self.length_mode == 'triple':
+                assert(len(self.wingdef) > 1)
+                assert(self.n_base > 0)
+                assert(self.n_length > self.n_base)
+                assert((self.n_length - self.n_base) % 2 == 0)
+                assert(self.join_index > 0)
+        else:
             assert(len(self.wingdef) == 1)
-            assert(self.n_base == 0)
-        elif self.length_mode == 'uniform':
-            assert(len(self.wingdef) > 1)
-            assert(self.n_base == 0)
-        elif self.length_mode == 'double':
-            assert(len(self.wingdef) > 1)
-            assert(self.n_base == 0)
-            assert(self.n_length % 2 == 0)
-        elif self.length_mode == 'triple':
-            assert(len(self.wingdef) > 1)
-            assert(self.n_base > 0)
-            assert(self.n_length > self.n_base)
-            assert((self.n_length - self.n_base) % 2 == 0)
-            assert(self.join_index > 0)
+            assert(self.join_adds == 0)
 
         assert(self.sides >= 0)
         assert(self.behind >= 0)

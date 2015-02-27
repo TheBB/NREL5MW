@@ -1,0 +1,9 @@
+mesh_mode: semi3d
+wingfile: wingdefs/NACA_0015.xinp
+length_mode: extruded
+length: 62.9
+join_adds: 0
+n_base: 0
+n_length: 20
+p_behind: 2
+order: 4

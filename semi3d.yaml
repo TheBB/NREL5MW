@@ -1,3 +1,5 @@
+mesh_mode: semi3d
+wingfile: wingdefs/NREL_5_MW.xinp
 length_mode: uniform
 n_base: 0
 n_length: 20

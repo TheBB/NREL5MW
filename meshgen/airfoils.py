@@ -89,6 +89,22 @@ class AirFoil(object):
         return cls.from_pts(pts, (afa.theta + afb.theta) / 2)
 
 
+    def translate(self, pt):
+        assert(self.filled)
+
+        new = AirFoil()
+        new.filled = True
+        new.p = self.p
+        new.curve = deep_translate(self.curve, pt)
+
+        for attr in ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right',
+                     'corners_behind', 'corners_ahead']:
+            if hasattr(self, attr):
+                setattr(new, attr, deep_translate(getattr(self, attr), pt))
+
+        return new
+
+
     def objects(self):
         if not self.filled:
             return [self.curve]

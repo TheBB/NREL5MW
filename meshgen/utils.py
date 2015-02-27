@@ -223,3 +223,10 @@ def orient_patches(patches, *args):
             map(methodcaller('FlipParametrization', direction), patches)
         elif a == 'swap':
             map(methodcaller('SwapParametrization'), patches)
+
+
+def deep_translate(patches, pt):
+    if type(patches) in [Curve, Surface, Volume]:
+        return Translate(patches, pt)
+    elif type(patches) is list:
+        return [deep_translate(obj, pt) for obj in patches]

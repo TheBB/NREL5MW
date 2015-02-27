@@ -1,0 +1,3 @@
+mesh_mode: 2d
+wingfile: wingdefs/NACA_0015.xinp
+join_adds: 0

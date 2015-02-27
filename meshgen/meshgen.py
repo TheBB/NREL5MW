@@ -65,7 +65,7 @@ class MeshGen(object):
 
 
     def resample_length(self):
-        if self.p.length_mode == 'extruded':
+        if self.p.length_mode == 'extruded' or self.p.mesh_mode == '2d':
             return
 
         curves = [af.curve for af in self.airfoils]
@@ -113,6 +113,14 @@ class MeshGen(object):
         self.p.dump_g2files('airfoils_sides', self.airfoils)
 
 
+    def extrude(self):
+        assert(self.p.length_mode == 'extruded')
+
+        zvals = np.linspace(0, self.p.length, self.p.n_length + 1)
+        airfoil = self.airfoils[0]
+        self.airfoils = [airfoil.translate(Point(0,0,z)) for z in zvals]
+
+
     def subdivide_airfoils(self):
         for af in self.airfoils:
             af.subdivide()
@@ -125,7 +133,7 @@ class MeshGen(object):
             af.lower_order(self.p.order)
 
 
-    def output_planes(self):
+    def output_semi3d(self):
         for i, af in enumerate(self.airfoils):
             path = abspath(join(self.p.out, 'slice-%03i' % (i+1)))
             af.output(path)
@@ -135,6 +143,11 @@ class MeshGen(object):
         WriteG2(join(self.p.out, 'beam.g2'), beam)
 
         self.p.out_yaml(join(self.p.out, 'parameters.yaml'))
+
+
+    def output_2d(self):
+        path = abspath(join(self.p.out, self.p.out))
+        self.airfoils[0].output(path)
 
 
     def _resample_length_uniform(self, za, zb):

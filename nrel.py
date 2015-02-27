@@ -17,8 +17,13 @@ gen.resample_length()
 gen.fill_airfoils()
 gen.fill_sides()
 
-if params.mesh_mode == 'semi3d':
-    gen.subdivide_airfoils()
-    gen.lower_order()
-    gen.output_planes()
+gen.subdivide_airfoils()
+gen.lower_order()
 
+if params.length_mode == 'extruded':
+    gen.extrude()
+
+if params.mesh_mode == 'semi3d':
+    gen.output_semi3d()
+elif params.mesh_mode == '2d':
+    gen.output_2d()

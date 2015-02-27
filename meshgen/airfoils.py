@@ -218,6 +218,21 @@ class AirFoil(object):
                 self.corners_ahead = [subdivide(c, self.p.p_ahead, 1) for c in temp]
 
 
+    def lower_order(self, target, objs=None):
+        def lower(objs):
+            if type(objs) in [Surface, Volume]:
+                orders = [order - target for order in objs.GetOrder()]
+                objs.LowerOrder(*orders)
+            elif type(objs) is list:
+                for obj in objs:
+                    lower(obj)
+
+        for attr in ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right',
+                     'corners_behind', 'corners_ahead']:
+            if hasattr(self, attr):
+                lower(getattr(self, attr))
+
+
     def output(self, path):
         n = Numberer()
 
@@ -231,13 +246,17 @@ class AirFoil(object):
         self._bnd_flow(n, 'inflow')
         self._bnd_flow(n, 'outflow')
 
-        n.WriteBoundary('wing', path + '-wing.g2')
-        n.WriteBoundary('slipwall_left', path + '-slipwall_left.g2')
-        n.WriteBoundary('slipwall_right', path + '-slipwall_right.g2')
-        n.WriteBoundary('outflow', path + '-outflow.g2')
-        n.WriteBoundary('inflow', path + '-inflow.g2')
+        if self.p.debug:
+            n.WriteBoundaries(path)
+
+        if self.p.walldistance:
+            n.AddWallGroup('wing')
 
         # Final output
+        def progress(s):
+            sys.stdout.write('\r' + s)
+            sys.stdout.flush()
+
         n.Renumber(self.p.nprocs)
         n.WriteEverything(path)
 

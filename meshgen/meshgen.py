@@ -6,6 +6,7 @@ import sys
 
 import numpy as np
 
+from GoTools import Point, WriteG2
 from GoTools.SurfaceFactory import LoftCurves
 import GeoUtils.Interpolate as ip
 
@@ -46,7 +47,6 @@ class MeshGen(object):
 
     def resolve_join(self):
         n = self.p.join_adds
-
         idx = self.p.join_index
 
         if n == 0:
@@ -120,10 +120,21 @@ class MeshGen(object):
         self.p.dump_g2files('airfoils_subdivided', self.airfoils)
 
 
+    def lower_order(self):
+        for af in self.airfoils:
+            af.lower_order(self.p.order)
+
+
     def output_planes(self):
         for i, af in enumerate(self.airfoils):
-            path = abspath(join(self.p.out, 'slice-%03i' % i))
+            path = abspath(join(self.p.out, 'slice-%03i' % (i+1)))
             af.output(path)
+
+        zvals = [af.z() for af in self.airfoils]
+        beam = ip.LinearCurve(pts=[Point(z,0,0) for z in zvals])
+        WriteG2(join(self.p.out, 'beam.g2'), beam)
+
+        self.p.out_yaml(join(self.p.out, 'parameters.yaml'))
 
 
     def _resample_length_uniform(self, za, zb):

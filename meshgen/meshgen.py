@@ -112,8 +112,6 @@ class MeshGen(object):
 
 
     def extrude(self):
-        assert(self.p.length_mode == 'extruded')
-
         zvals = np.linspace(0, self.p.length, self.p.n_length + 1)
         airfoil = self.airfoils[0]
         self.airfoils = [airfoil.translate(Point(0,0,z)) for z in zvals]

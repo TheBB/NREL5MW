@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import os
+import sys
 import xml.etree.ElementTree as xml
 
+from itertools import product
 from collections import namedtuple
 from datetime import datetime
 from math import sqrt
@@ -46,9 +48,9 @@ defaults = {
     'len_te_cyl_fac': 50.0,
 
     # Angular resolution
-    'n_te': 9,
-    'n_back': 28,
-    'n_front': 39,
+    'n_te': 10,
+    'n_back': 29,
+    'n_front': 41,
 
     # Lengthwise resolution
     'length_mode': 'triple',
@@ -178,6 +180,23 @@ def fix_floats(dct, keys=['z', 'theta', 'chord', 'ac', 'ao']):
     return dct
 
 
+class Colors(object):
+    WARNING = '\033[93m\033[1m'
+    ERROR = '\033[91m\033[1m'
+    END = '\033[0m'
+
+
+def check_warn(test, msg):
+    if not test:
+        print Colors.WARNING + "WARNING: " + Colors.END + msg
+
+
+def check_error(test, msg):
+    if not test:
+        print Colors.ERROR + "ERROR: " + Colors.END + msg
+        sys.exit(0)
+
+
 Section = namedtuple('Section', ['z', 'theta', 'chord', 'ac', 'ao', 'foil'])
 
 
@@ -233,51 +252,52 @@ class Params(object):
 
 
     def sanity_check(self):
-        assert((self.n_te + self.n_back + self.n_front) % 4 == 0)
+        sum_elems = self.n_te + self.n_back + self.n_front
+        check_error(sum_elems % 4 == 0, "Number of radial elements must be a multiple of four")
+        check_warn(sum_elems % 8 == 0, "Number of radial elements should be a multiple of eight")
 
-        assert(self.mesh_mode in {'2d', 'semi3d', '3d'})
-        assert(self.length_mode in {'extruded', 'uniform', 'double', 'triple'})
-        assert(self.order in {2, 3, 4})
+        check_error(self.mesh_mode in {'2d', 'semi3d', '3d'},
+                    "Invalid value for mesh_mode (valid: 2d, semi3d, 3d)")
+        check_error(self.length_mode in {'extruded', 'uniform', 'double', 'triple'},
+                    "Invalid value for length_mode (valid: extruded, uniform, double, triple)")
+        check_error(self.order in {2, 3, 4}, "Order must be 2, 3 or 4")
 
         if self.mesh_mode != '2d':
             if self.length_mode == 'extruded':
-                assert(len(self.wingdef) == 1)
-                assert(self.n_base == 0)
-                assert(self.join_adds == 0)
-                assert(self.length > 0)
+                check_error(len(self.wingdef) == 1, "More than one wing definition in extruded mode")
+                check_warn(self.n_base == 0, "n_base > 0 has no effect in extruded mode")
+                check_warn(self.join_adds == 0, "join_adds > 0 has no effect in extruded mode")
+                check_error(self.length > 0, "length must be positive in extruded mode")
             elif self.length_mode == 'uniform':
-                assert(len(self.wingdef) > 1)
-                assert(self.n_base == 0)
+                check_error(len(self.wingdef) > 1, "Less than two wing definitions in uniform mode")
+                check_warn(self.n_base == 0, "n_base > 0 has no effect in uniform mode")
             elif self.length_mode == 'double':
-                assert(len(self.wingdef) > 1)
-                assert(self.n_base == 0)
-                assert(self.n_length % 2 == 0)
+                check_error(len(self.wingdef) > 1, "Less than two wing definitions in double mode")
+                check_error(self.n_length % 2 == 0, "n_length must be even in double mode")
+                check_warn(self.n_base == 0, "n_base > 0 has no effect in double mode")
             elif self.length_mode == 'triple':
-                assert(len(self.wingdef) > 1)
-                assert(self.n_base > 0)
-                assert(self.n_length > self.n_base)
-                assert((self.n_length - self.n_base) % 2 == 0)
-                assert(self.join_index > 0)
+                check_error(len(self.wingdef) > 1, "Less than two wing definitions in triple mode")
+                check_error(self.n_base > 0, "n_base should be positive in triple mode")
+                check_error(self.n_length > self.n_base, "n_length <= n_base in triple mode")
+                check_error((self.n_length - self.n_base) % 2 == 0,
+                            "n_length - n_base should be even in triple mode")
         else:
-            assert(len(self.wingdef) == 1)
-            assert(self.join_adds == 0)
+            check_error(len(self.wingdef) == 1, "More than one wing definition in 2D mode")
+            check_warn(self.join_adds == 0, "join_adds > 0 has no effect in extruded mode")
 
-        assert(self.sides >= 0)
-        assert(self.behind >= 0)
-        assert(self.ahead >= 0)
-        assert(self.sides == 0 or 0 < self.p_sides <= self.n_sides)
-        assert(self.behind == 0 or 0 < self.p_behind <= self.n_behind)
-        assert(self.ahead == 0 or 0 < self.p_ahead <= self.n_ahead)
-        assert(0 < self.p_inner <= self.n_circle + self.n_square)
+        for attr in ['sides', 'behind', 'ahead']:
+            check_error(getattr(self, attr) >= 0, attr + ' < 0')
+            check_error(getattr(self, attr) == 0 or
+                        0 < getattr(self, 'p_' + attr) <= getattr(self, 'n_' + attr),
+                        'Condition broken: 0 < p_' + attr + ' <= n_' + attr)
+        check_error(0 < self.p_inner <= self.n_circle + self.n_square,
+                    "Condition broken: 0 < p_inner < n_circle + n_square")
 
-        assert(self.in_slip in ['in', 'slip'])
-        assert(self.in_hub in ['in', 'hub'])
-        assert(self.in_antihub in ['in', 'antihub'])
-        assert(self.out_slip in ['out', 'slip'])
-        assert(self.out_hub in ['out', 'hub'])
-        assert(self.out_antihub in ['out', 'antihub'])
-        assert(self.slip_hub in ['slip', 'hub'])
-        assert(self.slip_antihub in ['slip', 'antihub'])
+        for a, b in product(['in', 'out', 'hub', 'antihub', 'slip'], repeat=2):
+            attr = a + '_' + b
+            if hasattr(self, attr):
+                check_error(getattr(self, attr) in [a, b],
+                            "Invalid value for %s (valid: %s, %s)" % (attr, a, b))
 
 
     def radial_grading(self, length):

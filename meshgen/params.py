@@ -30,8 +30,16 @@ defaults = {
 
     # Global mesh parameters
     'order': 2,
-    'closed_inflow': True,
-    'closed_outflow': False,
+
+    # Boundary conditions
+    'in_slip': 'in',
+    'in_hub': 'in',
+    'in_antihub': 'in',
+    'out_slip': 'slip',
+    'out_hub': 'hub',
+    'out_antihub': 'antihub',
+    'slip_hub': 'hub',
+    'slip_antihub': 'antihub',
 
     # Trailing edge
     'len_te': 2e-2,
@@ -99,6 +107,18 @@ def usage():
     - order: Spline geometry order (2, 3 or 4)
     - closed_inflow: True if the inflow corners should be part of the inflow
     - closed_outflow: True if the outflow corners should be part of the outflow
+
+    BOUNDARY CONDITIONS
+    Each xxx_yyy determines whether the interface between boundaries xxx and yyy should
+    belong to xxx or yyy.  Those are the only valid values.
+    - in_slip: Inflow and slipwall
+    - in_hub: Inflow and hub
+    - in_antihub: Inflow and antihub
+    - out_slip: Outflow and slipwall
+    - out_hub: Inflow and hub
+    - out_antihub: Inflow and antihub
+    - slip_hub: Slipwall and hub
+    - slip_antihub: Slipwall and antihub
 
     TRAILING EDGE
     - len_te: Size of the trailing edge modification
@@ -249,6 +269,15 @@ class Params(object):
         assert(self.behind == 0 or 0 < self.p_behind <= self.n_behind)
         assert(self.ahead == 0 or 0 < self.p_ahead <= self.n_ahead)
         assert(0 < self.p_inner <= self.n_circle + self.n_square)
+
+        assert(self.in_slip in ['in', 'slip'])
+        assert(self.in_hub in ['in', 'hub'])
+        assert(self.in_antihub in ['in', 'antihub'])
+        assert(self.out_slip in ['out', 'slip'])
+        assert(self.out_hub in ['out', 'hub'])
+        assert(self.out_antihub in ['out', 'antihub'])
+        assert(self.slip_hub in ['slip', 'hub'])
+        assert(self.slip_antihub in ['slip', 'antihub'])
 
 
     def radial_grading(self, length):

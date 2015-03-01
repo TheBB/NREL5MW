@@ -253,3 +253,8 @@ def deep_index(patches, idx):
         return patches[idx]
     else:
         return [deep_index(p, idx) for p in patches]
+
+
+def test_obj(obj, msg):
+    if str(obj) == '(empty)':
+        print msg

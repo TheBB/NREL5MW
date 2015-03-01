@@ -279,15 +279,7 @@ class AirFoil(object):
 
     def output(self, path):
         n = Numberer()
-
-        for attr in COMPONENTS:
-            if hasattr(self, attr):
-                n.AddPatches(flatten_objects(getattr(self, attr)))
-
-        self._bnd_wing(n)
-        self._bnd_slipwall(n)
-        self._bnd_flow(n, 'inflow')
-        self._bnd_flow(n, 'outflow')
+        self.put_to_numberer(n)
 
         if self.p.debug:
             n.WriteBoundaries(path)
@@ -302,6 +294,25 @@ class AirFoil(object):
 
         n.Renumber(self.p.nprocs)
         n.WriteEverything(path)
+
+
+    def put_to_numberer(self, n):
+        for attr in COMPONENTS:
+            if hasattr(self, attr):
+                n.AddPatches(flatten_objects(getattr(self, attr)))
+
+        self._bnd_wing(n)
+        self._bnd_slipwall(n)
+        self._bnd_flow(n, 'inflow')
+        self._bnd_flow(n, 'outflow')
+
+
+    def hub_to_numberer(self, n):
+        self._bnd_hub(n, 'hub')
+
+
+    def antihub_to_numberer(self, n):
+        self._bnd_hub(n, 'antihub')
 
 
     def _make_trailing(self):
@@ -416,12 +427,20 @@ class AirFoil(object):
 
     def _bnd_wing(self, n):
         patches = [q[0] for q in self.inner_left + self.inner_right]
-        n.AddBoundary('wing', (patches, 'edge', 2))
+        kind = 'face' if self.volumetric else 'edge'
+        n.AddBoundary('wing', (patches, kind, 2))
 
 
     def _bnd_slipwall(self, n):
-        edge = lambda side, patches, idx: n.AddBoundary('slipwall_%s' % side, (patches, 'edge', idx))
-        vx = lambda side, patches, idx: n.AddBoundary('slipwall_%s' % side, (patches, 'vertex', idx))
+        edge_kind = 'face' if self.volumetric else 'edge'
+        vx_kind = 'edge' if self.volumetric else 'vertex'
+        vx_add = 8 if self.volumetric else 0
+
+        def edge(side, patches, idx):
+            n.AddBoundary('slipwall_%s' % side, (patches, edge_kind, idx))
+
+        def vx(side, patches, idx):
+            n.AddBoundary('slipwall_%s' % side, (patches, vx_kind, idx + vx_add))
 
         # Add the easy part
         if self.p.sides > 0:
@@ -453,7 +472,7 @@ class AirFoil(object):
             vx('right', [self.inner_right[0][-1]], 2)
 
         # In case of open inflow, ensure the corner vertices belong to the slipwall
-        if not self.p.closed_inflow:
+        if self.p.in_slip == 'slip':
             if self.p.ahead == 0 and self.p.sides == 0:
                 vx('left', self.inner_left[3][-1], 2)
                 vx('right', self.inner_right[3][-1], 3)
@@ -468,7 +487,7 @@ class AirFoil(object):
                 vx('right', r, 3)
 
         # In case of open outflow, ensure the corner vertices belong to the slipwall
-        if not self.p.closed_outflow:
+        if self.p.out_slip == 'slip':
             if self.p.behind == 0 and self.p.sides == 0:
                 vx('left', self.inner_left[0][-1], 3)
                 vx('right', self.inner_right[0][-1], 2)
@@ -494,11 +513,18 @@ class AirFoil(object):
         i_nidx = 1 if out else 2                     # Index of near patch in inner arrays
         i_or = 2 if out else 3                       # Patch-index of the vertex closest to the middle
                                                      # on the left side of an inner patch
-    
-        edge = lambda patches, idx: n.AddBoundary(name, (patches, 'edge', idx))
-        vx = lambda patches, idx: n.AddBoundary(name, (patches, 'vertex', idx))
 
-        closed = getattr(self.p, 'closed_' + name)
+        edge_kind = 'face' if self.volumetric else 'edge'
+        vx_kind = 'edge' if self.volumetric else 'vertex'
+        vx_add = 8 if self.volumetric else 0
+
+        def edge(patches, idx):
+            n.AddBoundary(name, (patches, edge_kind, idx))
+
+        def vx(patches, idx):
+            n.AddBoundary(name, (patches, vx_kind, idx + vx_add))
+    
+        closed = getattr(self.p, name[:-4] + '_slip') != 'slip'
         extended = getattr(self.p, ext_name)
         if extended:
             ext_patches = getattr(self, ext_name)
@@ -540,3 +566,63 @@ class AirFoil(object):
                     l, r = corners[0][0][v_idx], corners[1][-1][v_idx]
                 vx(l, l_vx)
                 vx(r, l_vx + 1)
+
+
+    def _bnd_hub(self, n, hub):
+        face = 4 if hub == 'hub' else 5
+
+        # The easy part
+        for attr in COMPONENTS:
+            if hasattr(self, attr):
+                n.AddBoundary(hub, (flatten_objects(getattr(self, attr)), 'face', face))
+
+        edge_add = 2 if hub == 'antihub' else 0
+        def edge(patches, target, idx):
+            if patches:
+                n.AddBoundary(target, (patches, 'edge', idx + edge_add))
+
+        # Add edges on the inflow interface to the correct boundary
+        target = hub if getattr(self.p, 'in_' + hub) == hub else 'inflow'
+        if self.p.ahead > 0:
+            patches = [q[-1] for q in self.ahead]
+            if self.p.sides > 0:
+                patches += [q[-1] for q in c for c in self.corners_ahead]
+        else:
+            patches = [self.inner_left[3][-1], self.inner_right[3][-1]]
+            if self.p.sides > 0:
+                patches += self.left[-1] + self.right[-1]
+        edge(patches, target, 1)
+
+        # Add edges on the outflow interface to the correct boundary
+        target = hub if getattr(self.p, 'out_' + hub) == hub else 'outflow'
+        patches = []
+        if self.p.behind > 0:
+            patches += [q[0] for q in self.behind]
+            if self.p.sides > 0:
+                patches += [q[0] for q in c for c in self.corners_behind]
+        else:
+            edge([self.inner_left[0][-1], self.inner_right[0][-1]], target, 1)
+            if self.p.sides > 0:
+                patches += self.left[0] + self.right[0]
+        edge(patches, target, 0)
+
+        # # Add edges on the slipwall interfaces to the correct boundaries
+        target_l = hub if getattr(self.p, 'slip_' + hub) == hub else 'slipwall_left'
+        target_r = hub if getattr(self.p, 'slip_' + hub) == hub else 'slipwall_right'
+        patches_l, patches_r = [], []
+        if self.p.sides > 0:
+            patches_l += [q[0] for q in self.left]
+            patches_r += [q[-1] for q in self.right]
+            for attr in ['behind', 'ahead']:
+                if getattr(self.p, attr) > 0:
+                    patches_l += getattr(self, 'corners_' + attr)[0][0]
+                    patches_r += getattr(self, 'corners_' + attr)[1][-1]
+        else:
+            edge([q[-1] for q in self.inner_left[1:3]], target_l, 1)
+            edge([q[-1] for q in self.inner_right[1:3]], target_r, 1)
+            for attr in ['behind', 'ahead']:
+                if getattr(self.p, attr) > 0:
+                    patches_l += getattr(self, attr)[0]
+                    patches_r += getattr(self, attr)[1]
+        edge(patches_l, target_l, 4)
+        edge(patches_r, target_r, 5)

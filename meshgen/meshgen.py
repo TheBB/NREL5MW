@@ -9,6 +9,7 @@ import numpy as np
 from GoTools import Point, WriteG2
 from GoTools.SurfaceFactory import LoftCurves
 import GeoUtils.Interpolate as ip
+from GeoUtils.IO import Numberer
 
 from utils import grading, grading_double, gradspace
 from airfoils import AirFoil
@@ -122,7 +123,6 @@ class MeshGen(object):
         temp = AirFoil.loft_volumetric(self.airfoils)
         self.airfoils = temp.subdivide_volumetric(self.p.p_length)
 
-        # self.p.dump_g2file('lofted', temp.objects())
         self.p.dump_g2files('airfoils_volumetric', self.airfoils)
 
 
@@ -138,7 +138,17 @@ class MeshGen(object):
             af.lower_order(self.p.order)
 
 
-    def output_semi3d(self):
+    def output(self):
+        getattr(self, '_output_' + self.p.mesh_mode)()
+        self.p.out_yaml()
+
+
+    def _output_2d(self):
+        path = abspath(join(self.p.out, self.p.out))
+        self.airfoils[0].output(path)
+
+
+    def _output_semi3d(self):
         for i, af in enumerate(self.airfoils):
             path = abspath(join(self.p.out, 'slice-%03i' % (i+1)))
             af.output(path)
@@ -147,14 +157,21 @@ class MeshGen(object):
         beam = ip.LinearCurve(pts=[Point(z,0,0) for z in zvals])
         WriteG2(join(self.p.out, 'beam.g2'), beam)
 
-        self.p.out_yaml()
 
-
-    def output_2d(self):
+    def _output_3d(self):
         path = abspath(join(self.p.out, self.p.out))
-        self.airfoils[0].output(path)
+        n = Numberer()
 
-        self.p.out_yaml()
+        for af in self.airfoils:
+            af.put_to_numberer(n)
+        self.airfoils[0].hub_to_numberer(n)
+        self.airfoils[-1].antihub_to_numberer(n)
+
+        if self.p.debug:
+            n.WriteBoundaries(path)
+
+        n.Renumber(self.p.nprocs)
+        n.WriteEverything(path)
 
 
     def _resample_length_uniform(self, za, zb):

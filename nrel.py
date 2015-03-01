@@ -29,8 +29,4 @@ if params.mesh_mode == '3d':
     gen.loft_airfoils()
 
 gen.lower_order()
-
-if params.mesh_mode == 'semi3d':
-    gen.output_semi3d()
-elif params.mesh_mode == '2d':
-    gen.output_2d()
+gen.output()

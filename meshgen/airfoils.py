@@ -15,6 +15,10 @@ import GeoUtils.TFI as tfi
 from utils import *
 
 
+COMPONENTS = ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right',
+              'corners_behind', 'corners_ahead']
+
+
 def load_airfoil(filename, gap):
     filename = os.path.join(os.path.dirname(__file__), '../airfoils', filename)
     data = np.loadtxt(filename)
@@ -50,13 +54,16 @@ def te_curve(pta, ptb, tnga, tngb):
 
 class AirFoil(object):
 
-    def __init__(self):
-        self.filled = False
+    def __init__(self, filled=False, volumetric=False, params=None):
+        self.filled = filled
+        self.volumetric = volumetric
+        if params:
+            self.p = params
 
 
     @classmethod
     def from_wd(cls, params, wd):
-        obj = cls()
+        obj = cls(filled=False, volumetric=False)
         obj.theta = wd.theta
 
         if wd.foil == 'cylinder':
@@ -73,7 +80,7 @@ class AirFoil(object):
 
     @classmethod
     def from_pts(cls, pts, theta):
-        obj = cls()
+        obj = cls(filled=False, volumetric=False)
         obj._from_pts(pts)
         obj.theta = theta
 
@@ -89,29 +96,49 @@ class AirFoil(object):
         return cls.from_pts(pts, (afa.theta + afb.theta) / 2)
 
 
+    @classmethod
+    def loft_volumetric(cls, airfoils):
+        new = cls(filled=True, volumetric=True, params=airfoils[0].p)
+
+        for attr in COMPONENTS:
+            if hasattr(airfoils[0], attr):
+                setattr(new, attr, deep_loft([getattr(af, attr) for af in airfoils]))
+
+        return new
+
+
     def translate(self, pt):
         assert(self.filled)
 
-        new = AirFoil()
-        new.filled = True
-        new.p = self.p
+        new = AirFoil(filled=True, volumetric=False, params=self.p)
         new.curve = deep_translate(self.curve, pt)
 
-        for attr in ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right',
-                     'corners_behind', 'corners_ahead']:
+        for attr in COMPONENTS:
             if hasattr(self, attr):
                 setattr(new, attr, deep_translate(getattr(self, attr), pt))
 
         return new
 
 
+    def subdivide_volumetric(self, n):
+        new = [AirFoil(filled=True, volumetric=True, params=self.p)
+               for _ in xrange(n)]
+
+        for attr in COMPONENTS:
+            if hasattr(self, attr):
+                temp = deep_subdivide(getattr(self, attr), n, 2)
+                for i, af in enumerate(new):
+                    setattr(af, attr, deep_index(temp, i))
+
+        return new
+
+
     def objects(self):
-        if not self.filled:
+        if not self.filled and not self.volumetric:
             return [self.curve]
 
         objects = []
-        for attr in ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right',
-                     'corners_behind', 'corners_ahead']:
+        for attr in COMPONENTS:
             if hasattr(self, attr):
                 objects.extend(flatten_objects(getattr(self, attr)))
 
@@ -245,8 +272,7 @@ class AirFoil(object):
                 for obj in objs:
                     lower(obj)
 
-        for attr in ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right',
-                     'corners_behind', 'corners_ahead']:
+        for attr in COMPONENTS:
             if hasattr(self, attr):
                 lower(getattr(self, attr))
 
@@ -254,8 +280,7 @@ class AirFoil(object):
     def output(self, path):
         n = Numberer()
 
-        for attr in ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right',
-                     'corners_behind', 'corners_ahead']:
+        for attr in COMPONENTS:
             if hasattr(self, attr):
                 n.AddPatches(flatten_objects(getattr(self, attr)))
 

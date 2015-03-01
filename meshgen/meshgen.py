@@ -118,6 +118,14 @@ class MeshGen(object):
         self.airfoils = [airfoil.translate(Point(0,0,z)) for z in zvals]
 
 
+    def loft_airfoils(self):
+        temp = AirFoil.loft_volumetric(self.airfoils)
+        self.airfoils = temp.subdivide_volumetric(self.p.p_length)
+
+        # self.p.dump_g2file('lofted', temp.objects())
+        self.p.dump_g2files('airfoils_volumetric', self.airfoils)
+
+
     def subdivide_airfoils(self):
         for af in self.airfoils:
             af.subdivide()

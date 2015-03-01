@@ -26,7 +26,7 @@ defaults = {
     'debug': False,
     'nprocs_mg': 4,
     'walldistance': False,
-    'mesh_mode': 'semi3d',
+    'mesh_mode': '3d',
 
     # Global mesh parameters
     'order': 2,
@@ -73,6 +73,7 @@ defaults = {
     'p_behind': 1,
     'p_ahead': 1,
     'p_sides': 1,
+    'p_length': 20,
 }
 
 
@@ -92,6 +93,7 @@ def usage():
       * 2d: 2D mesh of a single airfoil
         Make sure join_adds is zero, any other length parameter will be ignored
       * semi3d: Layered 2D meshes with a beam
+      * 3d: 3D model with cut-off tip
 
     GLOBAL MESH PARAMETERS
     - order: Spline geometry order (2, 3 or 4)
@@ -146,7 +148,8 @@ def usage():
     - p_inner: Number of patches radially in the square
     - p_behind: Number of patches behind
     - p_ahead: Number of patches ahead
-    - p_sides: Number of patches on the sides"""
+    - p_sides: Number of patches on the sides
+    - p_length: Number of patches lengthwise"""
 
 
 def fix_floats(dct, keys=['z', 'theta', 'chord', 'ac', 'ao']):
@@ -189,6 +192,8 @@ class Params(object):
             s = '2D mode'
         elif self.mesh_mode == 'semi3d':
             s = 'Semi3D mode (%i planes)' % (self.n_length + 1)
+        elif self.mesh_mode == '3d':
+            s = '3D mode'
         s += ' -- ' + {2: 'linear', 3: 'quadratic', 4: 'cubic'}[self.order] + ' geometry'
         print s
 
@@ -210,7 +215,7 @@ class Params(object):
     def sanity_check(self):
         assert((self.n_te + self.n_back + self.n_front) % 4 == 0)
 
-        assert(self.mesh_mode in {'semi3d', '2d'})
+        assert(self.mesh_mode in {'2d', 'semi3d', '3d'})
         assert(self.length_mode in {'extruded', 'uniform', 'double', 'triple'})
         assert(self.order in {2, 3, 4})
 

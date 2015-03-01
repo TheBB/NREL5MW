@@ -6,6 +6,7 @@ from numpy import matrix
 from operator import *
 
 from GoTools import Point, Curve, Surface, Volume, WriteG2
+from GoTools.VolumeFactory import LoftSurfaces
 from GeoUtils.CurveUtils import GetCurvePoints
 from GeoUtils.Elementary import Translate
 from GeoUtils.Factory import LoftBetween
@@ -206,6 +207,13 @@ def subdivide(patches, n, direction=0):
     return ret
 
 
+def deep_subdivide(patches, n, direction=0):
+    if type(patches[0]) in [Curve, Surface, Volume]:
+        return subdivide(patches, n, direction)
+    else:
+        return [deep_subdivide(p, n, direction) for p in patches]
+
+
 def flatten_objects(patches):
     ret = []
     for p in patches:
@@ -230,3 +238,18 @@ def deep_translate(patches, pt):
         return Translate(patches, pt)
     elif type(patches) is list:
         return [deep_translate(obj, pt) for obj in patches]
+
+
+def deep_loft(patches):
+    if type(patches[0]) is Surface:
+        return LoftSurfaces(patches, range(len(patches)), 4)
+    else:
+        lists = [list(q) for q in zip(*patches)]
+        return [deep_loft(p) for p in lists]
+
+
+def deep_index(patches, idx):
+    if type(patches[0]) is not list:
+        return patches[idx]
+    else:
+        return [deep_index(p, idx) for p in patches]

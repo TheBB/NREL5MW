@@ -21,10 +21,14 @@ gen.fill_airfoils()
 gen.fill_sides()
 
 gen.subdivide_airfoils()
-gen.lower_order()
 
 if params.length_mode == 'extruded':
     gen.extrude()
+
+if params.mesh_mode == '3d':
+    gen.loft_airfoils()
+
+gen.lower_order()
 
 if params.mesh_mode == 'semi3d':
     gen.output_semi3d()

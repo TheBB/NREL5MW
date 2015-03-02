@@ -168,6 +168,9 @@ class MeshGen(object):
         if self.p.debug:
             n.WriteBoundaries(path)
 
+        if self.p.walldistance:
+            n.AddWallGroup('wing')
+
         n.Renumber(self.p.nprocs)
         n.WriteEverything(path)
 

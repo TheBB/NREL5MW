@@ -89,89 +89,7 @@ defaults = {
 
 
 def usage():
-    print """The following parameters are recognized:
-
-    INPUT AND OUTPUT
-    - wingfile: Path to XML file for wing definition
-    - out: Path for writing output (will be deleted if exists)
-    - format: Output format (IFEM or OpenFOAM)
-    - nprocs: Number of processors to optimize for
-
-    MESH GENERATOR
-    - debug: Set to true for outputting intermediate geometry
-    - nprocs_mg: Number of processors to use in mesh generation
-    - walldistance: Set to true to compute wall distances
-    - mesh_mode: Which kind of mesh to produce
-      * 2d: 2D mesh of a single airfoil
-        Make sure join_adds is zero, any other length parameter will be ignored
-      * semi3d: Layered 2D meshes with a beam
-      * 3d: 3D model with cut-off tip
-
-    GLOBAL MESH PARAMETERS
-    - order: Spline geometry order (2, 3 or 4)
-
-    BOUNDARY CONDITIONS
-    Each xxx_yyy determines whether the interface between boundaries xxx and yyy should
-    belong to xxx or yyy.  Those are the only valid values.
-    - in_slip: Inflow and slipwall
-    - in_hub: Inflow and hub
-    - in_antihub: Inflow and antihub
-    - out_slip: Outflow and slipwall
-    - out_hub: Inflow and hub
-    - out_antihub: Inflow and antihub
-    - slip_hub: Slipwall and hub
-    - slip_antihub: Slipwall and antihub
-
-    TRAILING EDGE
-    - len_te: Size of the trailing edge modification
-    - len_te_cyl_fac: How large should the “trailing edge” be in cylindrical
-      airfoils (in terms of len_te)
-
-    ANGULAR RESOLUTION
-    - n_te: Number of elements for the trailing edge
-    - n_back: Number of elements for the back of the airfoil
-    - n_front: Number of elements for the front of the airfoil
-
-    LENGTHWISE RESOLUTION
-    - length_mode: How to distribute the airfoils in the z-direction
-      * extruded: Only one airfoil should be specificed in the wing definition file
-      * uniform: Uniformly distributed in the z-direction
-      * double: Double-sided geometrically distributed airfoils, by giving the element
-        size at the root and at the tip
-      * triple: Triple-sided geometrically distributed airfoils, by giving the element
-        size at the join (see below) and at the tip
-    - length: Length of wing (in case of length mode extrude)
-    - join_adds: Number of intermediate linear interpolation steps to perform at the
-      join. The join is any airfoil with a sharp transition requiring this step to avoid
-      self intersection. Set this to zero to disable
-    - join_index: Index of the airfoil at the join, if any
-    - n_base: Number of elements in the base (in case of length mode triple)
-    - n_length: Number of lengthwise elements in total
-    - d_join: Element size at the join or base (in case of length mode double or triple)
-    - d_tip: Element size at the tip (in case of length mode double or triple)
-
-    RADIAL RESOLUTION
-    - radius: Radius of O-mesh
-    - Re: Reynold's number
-    - n_bndlayer: Number of elements in the boundary layer
-    - n_circle: Number of elements in the O-mesh
-    - n_square: Number of elements outside the O-mesh in the square
-    - smoothing: True to turn on Laplacian smoothing during TFI
-
-    EXTENSION PATCHES
-    - behind: Distance to extend the outflow, in terms of radius
-    - ahead: Distance to extend the inflow, in terms of radius
-    - sides: Distance to extend the slipwalls, in terms of radius
-    - n_behind: Number of elements behind
-    - n_ahead: Number of elements ahead
-    - n_sides: Number of elements on the sides
-
-    SUBDIVISION
-    - p_inner: Number of patches radially in the square
-    - p_behind: Number of patches behind
-    - p_ahead: Number of patches ahead
-    - p_sides: Number of patches on the sides
-    - p_length: Number of patches lengthwise"""
+    print "Please study README.md for instructions."
 
 
 def fix_floats(dct, keys=['z', 'theta', 'chord', 'ac', 'ao']):
@@ -266,7 +184,7 @@ class Params(object):
         if self.format == 'OpenFOAM':
             check_warn(self.mesh_mode != 'semi3d', "Semi3D output for OpenFOAM is incomplete (no beam)")
             check_error(self.order == 2, "OpenFOAM format requires order=2")
-            check_error(!self.walldistance, "OpenFOAM format does not support wall distances")
+            check_error(not self.walldistance, "OpenFOAM format does not support wall distances")
 
         if self.mesh_mode != '2d':
             if self.length_mode == 'extruded':

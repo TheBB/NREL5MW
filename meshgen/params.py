@@ -252,7 +252,6 @@ class Params(object):
     def sanity_check(self):
         sum_elems = self.n_te + self.n_back + self.n_front
         check_error(sum_elems % 4 == 0, "Number of radial elements must be a multiple of four")
-        check_warn(sum_elems % 8 == 0, "Number of radial elements should be a multiple of eight")
 
         check_error(self.mesh_mode in {'2d', 'semi3d', '3d'},
                     "Invalid value for mesh_mode (valid: 2d, semi3d, 3d)")

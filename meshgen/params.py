@@ -22,6 +22,7 @@ defaults = {
     # Input and output
     'wingfile': 'wingdefs/NREL_5_MW.xinp',
     'out': 'NREL',
+    'format': 'IFEM',
     'nprocs': 8,
 
     # Mesh generator
@@ -93,6 +94,7 @@ def usage():
     INPUT AND OUTPUT
     - wingfile: Path to XML file for wing definition
     - out: Path for writing output (will be deleted if exists)
+    - format: Output format (IFEM or OpenFOAM)
     - nprocs: Number of processors to optimize for
 
     MESH GENERATOR
@@ -253,11 +255,18 @@ class Params(object):
         sum_elems = self.n_te + self.n_back + self.n_front
         check_error(sum_elems % 4 == 0, "Number of angular elements must be a multiple of four")
 
+        check_error(self.format in {'IFEM', 'OpenFOAM'},
+                    "Invalid value for format (valid: IFEM, OpenFOAM)")
         check_error(self.mesh_mode in {'2d', 'semi3d', '3d'},
                     "Invalid value for mesh_mode (valid: 2d, semi3d, 3d)")
         check_error(self.length_mode in {'extruded', 'uniform', 'double', 'triple'},
                     "Invalid value for length_mode (valid: extruded, uniform, double, triple)")
         check_error(self.order in {2, 3, 4}, "Order must be 2, 3 or 4")
+
+        if self.format == 'OpenFOAM':
+            check_warn(self.mesh_mode != 'semi3d', "Semi3D output for OpenFOAM is incomplete (no beam)")
+            check_error(self.order == 2, "OpenFOAM format requires order=2")
+            check_error(!self.walldistance, "OpenFOAM format does not support wall distances")
 
         if self.mesh_mode != '2d':
             if self.length_mode == 'extruded':

@@ -5,11 +5,12 @@ from math import pi, sin, cos, sqrt
 
 from GoTools import Point, Curve, Surface, WriteG2
 from GoTools.CurveFactory import Circle, IntersectCurve, LineSegment, NonRationalCurve
+from GoTools.VolumeFactory import ExtrudeSurface
 from GeoUtils.CurveUtils import CurveLengthParametrization, GetCurvePoints
 from GeoUtils.Factory import LoftBetween
 from GeoUtils.Refinement import UniformCurve, GeometricRefineCurve, GeometricRefineSurface
 import GeoUtils.Interpolate as ip
-from GeoUtils.IO import Numberer
+from GeoUtils.IO import Numberer, InputFile
 import GeoUtils.TFI as tfi
 
 from utils import *
@@ -105,6 +106,21 @@ class AirFoil(object):
                 setattr(new, attr, deep_loft([getattr(af, attr) for af in airfoils]))
 
         return new
+
+
+    def dummy_volumetric(self):
+        def deep_extrude(objs):
+            if type(objs) is Surface:
+                vol = ExtrudeSurface(objs, ez, 1.0)
+                return vol
+            else:
+                return [deep_extrude(q) for q in objs]
+
+        for attr in COMPONENTS:
+            if hasattr(self, attr):
+                setattr(self, attr, deep_extrude(getattr(self, attr)))
+
+        self.volumetric = True
 
 
     def translate(self, pt):
@@ -281,6 +297,10 @@ class AirFoil(object):
         n = Numberer()
         self.put_to_numberer(n)
 
+        if self.volumetric:
+            self._bnd_hub(n, 'hub')
+            self._bnd_hub(n, 'antihub')
+
         if self.p.debug:
             n.WriteBoundaries(path)
 
@@ -294,6 +314,13 @@ class AirFoil(object):
 
         n.Renumber(self.p.nprocs)
         n.WriteEverything(path)
+
+        if self.p.format == 'OpenFOAM':
+            f = InputFile('%s.xinp' % path)
+            f.writeOpenFOAM(os.path.dirname(path))
+
+            for postfix in ['.xinp', '.g2', '_nodenumbers.hdf5', '_nodenumbers.xml']:
+                os.remove(path + postfix)
 
 
     def put_to_numberer(self, n):

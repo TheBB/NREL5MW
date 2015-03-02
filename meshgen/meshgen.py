@@ -2,14 +2,14 @@ from itertools import izip, repeat
 import multiprocessing as mp
 from operator import methodcaller
 from os.path import abspath, join
-import sys
+import os, sys
 
 import numpy as np
 
 from GoTools import Point, WriteG2
 from GoTools.SurfaceFactory import LoftCurves
 import GeoUtils.Interpolate as ip
-from GeoUtils.IO import Numberer
+from GeoUtils.IO import Numberer, InputFile
 
 from utils import grading, grading_double, gradspace
 from airfoils import AirFoil
@@ -137,6 +137,10 @@ class MeshGen(object):
 
 
     def output(self):
+        if self.p.format == 'OpenFOAM' and self.p.mesh_mode in {'2d', 'semi3d'}:
+            for af in self.airfoils:
+                af.dummy_volumetric()
+
         getattr(self, '_output_' + self.p.mesh_mode)()
         self.p.out_yaml()
 
@@ -149,6 +153,12 @@ class MeshGen(object):
     def _output_semi3d(self):
         for i, af in enumerate(self.airfoils):
             path = abspath(join(self.p.out, 'slice-%03i' % (i+1)))
+            if self.p.format == 'OpenFOAM':
+                try:
+                    os.makedirs(path)
+                except OSError:
+                    pass
+                path = join(path, 'out')
             af.output(path)
 
         zvals = [af.z() for af in self.airfoils]
@@ -173,6 +183,13 @@ class MeshGen(object):
 
         n.Renumber(self.p.nprocs)
         n.WriteEverything(path)
+
+        if self.p.format == 'OpenFOAM':
+            f = InputFile('%s.xinp' % path)
+            f.writeOpenFOAM(os.path.dirname(path))
+
+            for postfix in ['.xinp', '.g2', '_nodenumbers.hdf5', '_nodenumbers.xml']:
+                os.remove(path + postfix)
 
 
     def _resample_length_uniform(self, za, zb):

@@ -205,17 +205,26 @@ class Params(object):
                 check_error(self.n_length > self.n_base, "n_length <= n_base in triple mode")
                 check_error((self.n_length - self.n_base) % 2 == 0,
                             "n_length - n_base should be even in triple mode")
+
+            check_warn(self.n_length % self.p_length == 0,
+                       "n_length should be a multiple of p_length for load balancing purposes")
         else:
             check_error(len(self.wingdef) == 1, "More than one wing definition in 2D mode")
             check_warn(self.join_adds == 0, "join_adds > 0 has no effect in extruded mode")
 
         for attr in ['sides', 'behind', 'ahead']:
+            pn, nn = 'p_' + attr, 'n_' + attr
             check_error(getattr(self, attr) >= 0, attr + ' < 0')
             check_error(getattr(self, attr) == 0 or
-                        0 < getattr(self, 'p_' + attr) <= getattr(self, 'n_' + attr),
-                        'Condition broken: 0 < p_' + attr + ' <= n_' + attr)
+                        0 < getattr(self, pn) <= getattr(self, nn),
+                        "Condition broken: 0 < %s <= %s" % (pn, nn))
+            check_warn(getattr(self, nn) % getattr(self, pn) == 0,
+                       "%s should be a mulitple of %s for load balancing purposes" % (nn, pn))
+
         check_error(0 < self.p_inner <= self.n_circle + self.n_square,
                     "Condition broken: 0 < p_inner <= n_circle + n_square")
+        check_warn((self.n_circle + self.n_square) % self.p_inner == 0,
+                   "n_circle + n_square should be a multiple of p_inner for load balancing purposes")
 
         for a, b in product(['in', 'out', 'hub', 'antihub', 'slip'], repeat=2):
             attr = a + '_' + b

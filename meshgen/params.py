@@ -107,8 +107,6 @@ def usage():
 
     GLOBAL MESH PARAMETERS
     - order: Spline geometry order (2, 3 or 4)
-    - closed_inflow: True if the inflow corners should be part of the inflow
-    - closed_outflow: True if the outflow corners should be part of the outflow
 
     BOUNDARY CONDITIONS
     Each xxx_yyy determines whether the interface between boundaries xxx and yyy should

@@ -155,6 +155,7 @@ class Params(object):
         elif self.mesh_mode == '3d':
             s = '3D mode'
         s += ' -- ' + {2: 'linear', 3: 'quadratic', 4: 'cubic'}[self.order] + ' geometry'
+        s += ' -- ' + self.format + ' format'
         print s
 
 

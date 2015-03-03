@@ -12,7 +12,7 @@ from shutil import rmtree
 import subprocess
 import yaml
 
-from GoTools import WriteG2
+from GoTools import WriteG2, SetProcessorCount
 from GeoUtils.IO import ParseArgs
 
 from utils import grading, gradspace
@@ -139,8 +139,11 @@ class Params(object):
 
         self.sanity_check()
 
-        rmtree('out', ignore_errors=True)
-        self.make_folder('out')
+        SetProcessorCount(self.nprocs_mg)
+
+        if self.debug:
+            rmtree('out', ignore_errors=True)
+            self.make_folder('out')
 
         rmtree(self.out, ignore_errors=True)
         self.make_folder(self.out)

@@ -151,6 +151,7 @@ class MeshGen(object):
 
 
     def _output_semi3d(self):
+        progress('Writing planes', 0, len(self.airfoils))
         for i, af in enumerate(self.airfoils):
             path = abspath(join(self.p.out, 'slice-%03i' % (i+1)))
             if self.p.format == 'OpenFOAM':
@@ -160,6 +161,7 @@ class MeshGen(object):
                     pass
                 path = join(path, 'out')
             af.output(path)
+            progress('Writing planes', i+1, len(self.airfoils))
 
         zvals = [af.z() for af in self.airfoils]
         beam = ip.LinearCurve(pts=[Point(z,0,0) for z in zvals])
@@ -182,7 +184,7 @@ class MeshGen(object):
             n.AddWallGroup('wing')
 
         n.Renumber(self.p.nprocs)
-        n.WriteEverything(path)
+        n.WriteEverything(path, display=True)
 
         if self.p.format == 'OpenFOAM':
             f = InputFile('%s.xinp' % path)

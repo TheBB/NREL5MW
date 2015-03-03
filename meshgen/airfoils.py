@@ -313,7 +313,7 @@ class AirFoil(object):
             sys.stdout.flush()
 
         n.Renumber(self.p.nprocs)
-        n.WriteEverything(path)
+        n.WriteEverything(path, display=False)
 
         if self.p.format == 'OpenFOAM':
             f = InputFile('%s.xinp' % path)

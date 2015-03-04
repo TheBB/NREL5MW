@@ -238,17 +238,17 @@ class AirFoil(object):
         if self.p.sides > 0:
             self.left  = ext(self.inner_left[1:3], -ey, self.p.sides, self.p.n_sides)
             self.right = ext(self.inner_right[1:3], ey, self.p.sides, self.p.n_sides)
-            orient_patches(self.left, 'flipv', 'swap')
-            orient_patches(self.right, 'flipu', 'swap')
+            deep_orient(self.left, 'flipv', 'swap')
+            deep_orient(self.right, 'flipu', 'swap')
 
         if self.p.behind > 0:
             edges = [self.inner_left[0], self.inner_right[0]]
             self.behind = ext(edges, ex, self.p.behind, self.p.n_behind)
-            orient_patches(self.behind, 'flipu', 'flipv')
+            deep_orient(self.behind, 'flipu', 'flipv')
             if self.p.sides > 0:
                 edges = [self.left[0].GetEdges()[0], self.right[0].GetEdges()[0]]
                 self.corners_behind = ext(edges, ex, self.p.behind, self.p.n_behind)
-                orient_patches(self.corners_behind, 'flipv')
+                deep_orient(self.corners_behind, 'flipv')
 
         if self.p.ahead > 0:
             edges = [self.inner_left[-1], self.inner_right[-1]]
@@ -259,24 +259,24 @@ class AirFoil(object):
 
 
     def subdivide(self):
-        self.inner_left = subdivide(self.inner_left, self.p.p_inner, 1)
-        self.inner_right = subdivide(self.inner_right, self.p.p_inner, 1)
+        self.inner_left = deep_subdivide(self.inner_left, self.p.p_inner, 1)
+        self.inner_right = deep_subdivide(self.inner_right, self.p.p_inner, 1)
 
         if self.p.sides > 0:
-            self.left = subdivide(self.left, self.p.p_sides, 0)
-            self.right = subdivide(self.right, self.p.p_sides, 0)
+            self.left = deep_subdivide(self.left, self.p.p_sides, 0)
+            self.right = deep_subdivide(self.right, self.p.p_sides, 0)
 
         if self.p.behind > 0:
-            self.behind = subdivide(self.behind, self.p.p_behind, 1)
+            self.behind = deep_subdivide(self.behind, self.p.p_behind, 1)
             if self.p.sides > 0:
-                temp = subdivide(self.corners_behind, self.p.p_sides, 0)
-                self.corners_behind = [subdivide(c, self.p.p_behind, 1) for c in temp]
+                temp = deep_subdivide(self.corners_behiond, self.p.p_sides, 0)
+                self.corners_behind = deep_subdivide(temp, self.p.p_behind, 1)
 
         if self.p.ahead > 0:
             self.ahead = subdivide(self.ahead, self.p.p_ahead, 1)
             if self.p.sides > 0:
-                temp = subdivide(self.corners_ahead, self.p.p_sides, 0)
-                self.corners_ahead = [subdivide(c, self.p.p_ahead, 1) for c in temp]
+                temp = deep_subdivide(self.corners_ahead, self.p.p_sides, 0)
+                self.corners_ahead = deep_subdivide(temp, self.p.p_ahead, 1)
 
 
     def lower_order(self, target, objs=None):

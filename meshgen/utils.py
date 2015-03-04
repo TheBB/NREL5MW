@@ -180,8 +180,22 @@ def extend(edge, direction, distance, elements):
     return surface
 
 
-def subdivide(patches, n, direction=0):
-    typ = type(patches[0])
+is_patch = lambda p: type(p) in [Curve, Surface, Volume]
+is_list_of_patch = lambda p: type(p) is list and is_patch(p[0])
+
+
+def flatten_objects(patches):
+    ret = []
+    for p in patches:
+        if is_patch(p):
+            ret.append(p)
+        elif type(p) is list:
+            ret.extend(flatten_objects(p))
+    return ret
+
+
+def subdivide(patch, n, direction=0):
+    typ = type(patch)
     if typ is Curve:
         sub = lambda p, f, t: p.GetSubCurve(f[0], t[0])
     elif typ is Surface:
@@ -189,55 +203,66 @@ def subdivide(patches, n, direction=0):
     elif typ is Volume:
         sub = lambda p, f, t: p.GetSubVol(f, t)
 
-    nkts = len(patches[0].GetKnots()[direction])
+    if typ is Curve:
+        nkts = len(patch.GetKnots())
+    else:
+        nkts = len(patch.GetKnots()[direction])
     indices = [i * (nkts - 1) / n for i in xrange(0, n+1)]
 
-    ret = []
-    for p in patches:
-        kts = [p.GetKnots()] if typ is Curve else p.GetKnots()
-        from_par = [k[0] for k in kts]
-        to_par = [k[-1] for k in kts]
-        parts = []
-        for a, b in zip(indices[:-1], indices[1:]):
-            from_par[direction] = kts[direction][a]
-            to_par[direction] = kts[direction][b]
-            parts.append(sub(p, from_par, to_par))
-        ret.append(parts)
+    kts = [patch.GetKnots()] if typ is Curve else patch.GetKnots()
+    from_par = [k[0] for k in kts]
+    to_par = [k[-1] for k in kts]
+    parts = []
+    for a, b in zip(indices[:-1], indices[1:]):
+        from_par[direction] = kts[direction][a]
+        to_par[direction] = kts[direction][b]
+        parts.append(sub(patch, from_par, to_par))
 
-    return ret
+    return parts
 
 
-def deep_subdivide(patches, n, direction=0):
-    if type(patches[0]) in [Curve, Surface, Volume]:
-        return subdivide(patches, n, direction)
-    else:
-        return [deep_subdivide(p, n, direction) for p in patches]
-
-
-def flatten_objects(patches):
-    ret = []
-    for p in patches:
-        if type(p) in [Curve, Surface, Volume]:
-            ret.append(p)
-        elif type(p) is list:
-            ret.extend(flatten_objects(p))
-    return ret
-
-
-def orient_patches(patches, *args):
+def orient(patch, *args):
     for a in args:
         if a[:4] == 'flip':
             direction = 'uvw'.index(a[4])
-            map(methodcaller('FlipParametrization', direction), patches)
+            patch.FlipParametrization(direction)
         elif a == 'swap':
-            map(methodcaller('SwapParametrization'), patches)
+            patch.SwapParametrization()
+
+
+def deep(predicate, function):
+    def deep_function(objs):
+        if predicate(objs):
+            return function(objs)
+        else:
+            return [deep_function(obj) for obj in objs]
+    return deep_function
+
+
+def deep_noret(predicate, function):
+    def deep_function(objs):
+        if predicate(objs):
+            function(objs)
+        else:
+            for obj in objs:
+                deep_function(obj)
+    return deep_function
+
+
+def deep_subdivide(patches, n, direction):
+    return deep(is_patch, lambda p: subdivide(p, n, direction))(patches)
+
+
+def deep_orient(patches, *args):
+    deep_noret(is_patch, lambda p: orient(p, *args))(patches)
 
 
 def deep_translate(patches, pt):
-    if type(patches) in [Curve, Surface, Volume]:
-        return Translate(patches, pt)
-    elif type(patches) is list:
-        return [deep_translate(obj, pt) for obj in patches]
+    return deep(is_patch, lambda p: Translate(p, pt))(patches)
+
+
+def deep_index(patches, idx):
+    return deep(is_list_of_patch, itemgetter(idx))(patches)
 
 
 def deep_loft(patches):
@@ -246,15 +271,3 @@ def deep_loft(patches):
     else:
         lists = [list(q) for q in zip(*patches)]
         return [deep_loft(p) for p in lists]
-
-
-def deep_index(patches, idx):
-    if type(patches[0]) is not list:
-        return patches[idx]
-    else:
-        return [deep_index(p, idx) for p in patches]
-
-
-def test_obj(obj, msg):
-    if str(obj) == '(empty)':
-        print msg

@@ -17,16 +17,16 @@ gen.resolve_join()
 if params.length_mode != 'extruded' and params.mesh_mode != '2d':
     gen.resample_length()
 
-gen.fill_airfoils()
-gen.fill_sides()
+gen.make_slices()
+gen.extend()
 
-gen.subdivide_airfoils()
+gen.subdivide_slices()
 
 if params.length_mode == 'extruded':
     gen.extrude()
 
 if params.mesh_mode == '3d':
-    gen.loft_airfoils()
+    gen.loft_slices()
 
 gen.lower_order()
 gen.output()

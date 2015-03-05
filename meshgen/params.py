@@ -4,7 +4,7 @@ import os
 import sys
 import xml.etree.ElementTree as xml
 
-from itertools import product
+from itertools import product, combinations, permutations, chain
 from collections import namedtuple
 from datetime import datetime
 from math import sqrt
@@ -137,6 +137,22 @@ class Params(object):
         self.ahead *= self.radius
         self.sides *= self.radius
 
+        for base_attrs in chain(*(combinations(['behind', 'ahead', 'sides'], n) for n in xrange(1, 4))):
+            for attrs in permutations(base_attrs):
+                for pattern in product([True, False], repeat=len(attrs)):
+                    on = [attr[0] for attr, flip in zip(attrs, pattern) if flip]
+                    off = [attr[0] for attr, flip in zip(attrs, pattern) if not flip]
+
+                    short = 'ext'
+                    if on:
+                        short += '_' + ''.join(attr for attr in on)
+                    if off:
+                        short += '_not_' + ''.join(attr for attr in off)
+
+                    val = all((getattr(self, attr) > 0) == flip
+                              for attr, flip in zip(attrs, pattern))
+                    setattr(self, short, val)
+
         self.sanity_check()
 
         SetProcessorCount(self.nprocs_mg)
@@ -268,7 +284,7 @@ class Params(object):
 
         fn += '/{:03}.g2'
         for i, p in enumerate(patches):
-            WriteG2(fn.format(i+1), p.objects())
+            WriteG2(fn.format(i+1), list(p.objects()))
 
 
     def dump_g2file(self, name, patches, always=False):

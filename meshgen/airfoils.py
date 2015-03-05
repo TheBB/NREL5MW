@@ -20,39 +20,6 @@ COMPONENTS = ['inner_left', 'inner_right', 'behind', 'ahead', 'left', 'right',
               'corners_behind', 'corners_ahead']
 
 
-def load_airfoil(filename, gap):
-    filename = os.path.join(os.path.dirname(__file__), '../airfoils', filename)
-    data = np.loadtxt(filename)
-
-    angles = np.arctan(data[:,3])
-    x_up = data[:,0] - .5 * data[:,1] * np.sin(angles)
-    y_up = data[:,2] + .5 * data[:,1] * np.cos(angles)
-    x_dn = data[:,0] + .5 * data[:,1] * np.sin(angles)
-    y_dn = data[:,2] - .5 * data[:,1] * np.cos(angles)
-
-    midpoints = [Point(x, y, 0) for x, y in zip((x_up + x_dn)/2, (y_up + y_dn)/2)]
-    coeffs = np.array(CurveLengthParametrization(midpoints, normalize=True))
-
-    diff = (y_up[-1] - y_dn[-1] - gap) / 2
-    y_up -= coeffs * diff
-    y_dn += coeffs * diff
-
-    xs = np.hstack((np.flipud(x_up), x_dn[1:]))
-    ys = np.hstack((np.flipud(y_up), y_dn[1:]))
-    return xs, ys
-
-
-def te_curve(pta, ptb, tnga, tngb):
-    gap = abs(pta - ptb)
-    norm = (tngb - tnga).Normalize()
-    ptm = (pta + ptb + gap * norm) / 2
-
-    curve = ip.CubicCurve(pts=[ptb, ptm, pta], boundary=ip.TANGENT, der=[tngb, tnga])
-    UniformCurve(curve, n=5)
-
-    return GetCurvePoints(curve)
-
-
 class AirFoil(object):
 
     def __init__(self, filled=False, volumetric=False, params=None):

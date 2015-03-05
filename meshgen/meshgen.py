@@ -11,13 +11,14 @@ from GoTools.SurfaceFactory import LoftCurves
 import GeoUtils.Interpolate as ip
 from GeoUtils.IO import Numberer, InputFile
 
-from utils import grading, grading_double, gradspace
-from airfoils import AirFoil
+from utils import grading, grading_double, gradspace, convert_openfoam
+from airfoil import AirFoil
+from slice import Slice
+from volumetricslice import VolumetricSlice
 
 
 def fill_runner(af):
-    af.fill()
-    return af
+    return Slice(af)
 
 
 def progress(title, i, tot):
@@ -36,13 +37,13 @@ class MeshGen(object):
 
 
     def load_airfoils(self):
-        self.airfoils = [AirFoil.from_wd(self.p, wd) for wd in self.p.wingdef]
+        self.airfoils = [AirFoil.from_wingdef(self.p, wd) for wd in self.p.wingdef]
         self.p.dump_g2files('airfoils_raw', self.airfoils)
 
 
     def resample_airfoils(self):
         for af in self.airfoils:
-            af.resample(self.p.n_te, self.p.n_back, self.p.n_front)
+            af.resample()
         self.p.dump_g2files('airfoils_resampled_radial', self.airfoils)
 
 
@@ -54,11 +55,11 @@ class MeshGen(object):
             return
 
         for _ in xrange(n):
-            new = AirFoil.average(self.airfoils[idx], self.airfoils[idx+1])
+            new = AirFoil.from_mean(self.airfoils[idx], self.airfoils[idx+1])
             self.airfoils.insert(idx + 1, new)
 
         for i in xrange(n):
-            new = AirFoil.average(self.airfoils[idx+i-1], self.airfoils[idx+i])
+            new = AirFoil.from_mean(self.airfoils[idx+i-1], self.airfoils[idx+i])
             self.airfoils.insert(idx + i, new)
 
         del self.airfoils[idx + n]
@@ -84,31 +85,28 @@ class MeshGen(object):
         kus, _ = wing.GetKnots()
         for z in zvals:
             pts = [wing.Evaluate(ku, z) for ku in kus]
-            self.airfoils.append(AirFoil.from_pts(pts, theta(z)))
+            self.airfoils.append(AirFoil.from_pts(self.p, theta(z), pts))
 
         self.p.dump_g2files('airfoils_resampled_length', self.airfoils)
 
 
-    def fill_airfoils(self):
-        for af in self.airfoils:
-            af.prepare_fill(self.p)
-
-        progress('Filling slices', 0, len(self.airfoils))
+    def make_slices(self):
+        progress('Making slices', 0, len(self.airfoils))
         pool = mp.Pool(self.p.nprocs_mg)
         result = []
         for i, af in enumerate(pool.imap(fill_runner, self.airfoils)):
             result.append(af)
-            progress('Filling slices', i+1, len(self.airfoils))
+            progress('Making slices', i+1, len(self.airfoils))
 
-        self.airfoils = result
-        self.p.dump_g2files('airfoils_filled', self.airfoils)
+        del self.airfoils
+        self.slices = result
+        self.p.dump_g2files('slices_raw', self.slices)
 
 
-    def fill_sides(self):
-        for af in self.airfoils:
-            af.fill_sides()
-
-        self.p.dump_g2files('airfoils_sides', self.airfoils)
+    def extend(self):
+        for s in self.slices:
+            s.extend()
+        self.p.dump_g2files('slices_sides', self.slices)
 
 
     def extrude(self):
@@ -117,29 +115,26 @@ class MeshGen(object):
         self.airfoils = [airfoil.translate(Point(0,0,z)) for z in zvals]
 
 
-    def loft_airfoils(self):
-        temp = AirFoil.loft_volumetric(self.airfoils)
-        self.airfoils = temp.subdivide_volumetric(self.p.p_length)
+    def loft_slices(self):
+        temp = VolumetricSlice.from_slices(self.slices)
+        self.slices = temp.subdivide()
+        self.p.dump_g2files('slices_volumetric', self.slices)
 
-        self.p.dump_g2files('airfoils_volumetric', self.airfoils)
 
-
-    def subdivide_airfoils(self):
-        for af in self.airfoils:
-            af.subdivide()
-
-        self.p.dump_g2files('airfoils_subdivided', self.airfoils)
+    def subdivide_slices(self):
+        for s in self.slices:
+            s.subdivide()
+        self.p.dump_g2files('slices_subdivided', self.slices)
 
 
     def lower_order(self):
-        for af in self.airfoils:
-            af.lower_order(self.p.order)
+        for s in self.slices:
+            s.lower_order()
 
 
     def output(self):
         if self.p.format == 'OpenFOAM' and self.p.mesh_mode in {'2d', 'semi3d'}:
-            for af in self.airfoils:
-                af.dummy_volumetric()
+            self.slices = [VolumetricSlice.from_slice(s) for s in self.slices]
 
         getattr(self, '_output_' + self.p.mesh_mode)()
         self.p.out_yaml()
@@ -147,12 +142,12 @@ class MeshGen(object):
 
     def _output_2d(self):
         path = abspath(join(self.p.out, self.p.out))
-        self.airfoils[0].output(path)
+        self.slices[0].output(path)
 
 
     def _output_semi3d(self):
-        progress('Writing planes', 0, len(self.airfoils))
-        for i, af in enumerate(self.airfoils):
+        progress('Writing planes', 0, len(self.slices))
+        for i, s in enumerate(self.slices):
             path = abspath(join(self.p.out, 'slice-%03i' % (i+1)))
             if self.p.format == 'OpenFOAM':
                 try:
@@ -160,10 +155,10 @@ class MeshGen(object):
                 except OSError:
                     pass
                 path = join(path, 'out')
-            af.output(path)
-            progress('Writing planes', i+1, len(self.airfoils))
+            s.output(path)
+            progress('Writing planes', i+1, len(self.slices))
 
-        zvals = [af.z() for af in self.airfoils]
+        zvals = [s.z() for s in self.slices]
         beam = ip.LinearCurve(pts=[Point(z,0,0) for z in zvals])
         WriteG2(join(self.p.out, 'beam.g2'), beam)
 
@@ -172,10 +167,11 @@ class MeshGen(object):
         path = abspath(join(self.p.out, self.p.out))
         n = Numberer()
 
-        for af in self.airfoils:
-            af.put_to_numberer(n)
-        self.airfoils[0].hub_to_numberer(n)
-        self.airfoils[-1].antihub_to_numberer(n)
+        for s in self.slices:
+            s.push_patches(n)
+            s.push_boundaries(n)
+        self.slices[0].push_hub(n)
+        self.slices[-1].push_antihub(n)
 
         if self.p.debug:
             n.WriteBoundaries(path)
@@ -187,11 +183,7 @@ class MeshGen(object):
         n.WriteEverything(path, display=True)
 
         if self.p.format == 'OpenFOAM':
-            f = InputFile('%s.xinp' % path)
-            f.writeOpenFOAM(os.path.dirname(path))
-
-            for postfix in ['.xinp', '.g2', '_nodenumbers.hdf5', '_nodenumbers.xml']:
-                os.remove(path + postfix)
+            convert_openfoam(path)
 
 
     def _resample_length_uniform(self, za, zb):

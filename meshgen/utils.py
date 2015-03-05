@@ -4,12 +4,14 @@ from itertools import chain
 from math import pi, sin, cos
 from numpy import matrix
 from operator import *
+import os
 
 from GoTools import Point, Curve, Surface, Volume, WriteG2
-from GoTools.VolumeFactory import LoftSurfaces
+from GoTools.VolumeFactory import LoftSurfaces, ExtrudeSurface
 from GeoUtils.CurveUtils import GetCurvePoints
 from GeoUtils.Elementary import Translate
 from GeoUtils.Factory import LoftBetween
+from GeoUtils.IO import InputFile
 from GeoUtils.Refinement import UniformSurface
 import GeoUtils.Interpolate as ip
 
@@ -17,6 +19,18 @@ import GeoUtils.Interpolate as ip
 ex = Point(1, 0, 0)
 ey = Point(0, 1, 0)
 ez = Point(0, 0, 1)
+
+
+def convert_openfoam(path, subfolder=False):
+    f = InputFile('%s.xinp' % path)
+    f.writeOpenFOAM(os.path.dirname(path))
+
+    for postfix in ['.xinp', '.g2',
+                    '_nodenumbers.hdf5', '_nodenumbers.xml',
+                    '_walldist.hdf5', '_walldist.xml']:
+        filename = path + postfix
+        if os.path.exists(filename) and os.path.isfile(filename):
+            os.remove(filename)
 
 
 def extend_knots(knots):
@@ -230,6 +244,15 @@ def orient(patch, *args):
             patch.SwapParametrization()
 
 
+def lower_order(patch, target):
+    orders = [order - target for order in patch.GetOrder()]
+    patch.LowerOrder(*orders)
+
+
+def extrude(patch):
+    return ExtrudeSurface(patch, ez, 1.0)
+
+
 def deep(predicate, function):
     def deep_function(objs):
         if predicate(objs):
@@ -263,6 +286,14 @@ def deep_translate(patches, pt):
 
 def deep_index(patches, idx):
     return deep(is_list_of_patch, itemgetter(idx))(patches)
+
+
+def deep_lower_order(patches, target):
+    deep_noret(is_patch, lambda p: lower_order(p, target))(patches)
+
+
+def deep_extrude(patches):
+    return deep(is_patch, extrude)(patches)
 
 
 def deep_loft(patches):

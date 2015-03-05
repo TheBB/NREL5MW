@@ -123,14 +123,10 @@ class MeshGen(object):
 
 
     def loft_blade(self):
-        params = map(float, range(len(self.airfoils)))
+        params = extend_knots(map(float, range(len(self.airfoils))))
         airfoils = list(self.airfoils)
-
         airfoils.insert(1, AirFoil.from_mean(airfoils[0], airfoils[1]))
-        params.insert(1, 0.5)
-
         airfoils.insert(-1, AirFoil.from_mean(airfoils[-2], airfoils[-1]))
-        params.insert(-1, (params[-2] + params[-1])/2)
 
         self.blade = LoftCurves([af.curve for af in airfoils], params, 4)
 

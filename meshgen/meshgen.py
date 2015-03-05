@@ -217,10 +217,10 @@ class MeshGen(object):
         n = self.p.n_length / 2
         dj, dt = self.p.d_join, self.p.d_tip
 
-        r1, r2 = grading_double(zb - za, dj, dt, n-1, n-1)
+        r1, r2 = grading_double(zb - za, dj, dt, n, n)
 
-        zvals = gradspace(za, dj, 1./r1, n+1)
-        zvals += gradspace(zb, -dt, 1./r2, n)[::-1]
+        zvals = gradspace(za, dj, r1, n+1)
+        zvals += gradspace(zb, -dt, r2, n)[::-1]
         return zvals
 
 
@@ -232,8 +232,8 @@ class MeshGen(object):
         rz = grading(join - za, dj, nb)
         zvals = gradspace(join, -dj, rz, nb + 1)[::-1]
 
-        rz1, rz2 = grading_double(zb - zvals[-1], dj, dt, nl-1, nl-1)
-        zvals += gradspace(zvals[-1], dj, 1./rz1, nl+1)[1:]
-        zvals += gradspace(zb, -dt, 1./rz2, nl)[::-1]
+        rz1, rz2 = grading_double(zb - zvals[-1], dj, dt, nl, nl)
+        zvals += gradspace(zvals[-1], dj, rz1, nl+1)[1:]
+        zvals += gradspace(zb, -dt, rz2, nl)[::-1]
 
         return zvals

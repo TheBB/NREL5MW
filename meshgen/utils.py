@@ -123,56 +123,42 @@ def grading(length, ds, n, tol=1e-12, maxiters=1000):
     return r if it < maxiters else 0.0
 
 
-def _F(s, dx1, dx2, n1, n2, r10, r20):
-    r2 = r20
-    n1i = 1.0 / n1
-    coeff1 = dx1 / dx2
-    r2n2 = pow(r2, n2)
-    r1 = pow(coeff1*r2n2, n1i)
-    dx = dx2 / r2n2
+def _Ft_(r, d, N):
+    return d * (1.0 - r**N) / (1.0 - r)
 
-    return s - dx * ((1.0-pow(r1,n1+1)) / (1.0-r1) + (1.0-pow(r2,n2+1)) / (1.0-r2))
+def _F_(r1, r2, d1, d2, N1, N2, L):
+    return _Ft_(r1, d1, N1) + _Ft_(r2, d2, N2) - L
 
+def _dFt_(r, d, N):
+    return (_Ft_(r, d, N) - d*N*r**(N-1)) / (1.0 - r)
 
-def _dFdr2(dx1, dx2, n1, n2, r10, r20):
-    r2 = r20
-    r2n2 = pow(r2, n2)
-    r2n2p1 = pow(r2, n2+1)
-    c2 = (1.0-r2n2p1) / (1.0-r2)
-    dc2dr2 = (-(n2+1) * r2n2 * (1.0-r2) - (1.0-r2n2p1)) / pow(1.0-r2,2)
+def _dF_(r1, r2, d1, d2, N1, N2):
+    ret = _dFt_(r2, d2, N2)
+    ret *= pow(r1**(N1-N2) * d1/d2, 1/(N2-1.0)) * (N1-1) / (N2-2)
+    ret += _dFt_(r1, d1, N1)
+    return ret
 
-    n1i = 1.0 / n1
-    r1 = pow(dx1 / dx2 * r2n2, n1i)
+def grading_double(length, d1, d2, N1, N2, tol=1e-12, maxiters=200):
+    ds_unif = length / (N1 + N2)
+    r1 = 1.1 if ds_unif > d1 else 0.9
+    r2 = lambda r1: pow(r1**(N1-1) * d1 / d2, 1/(N2-1.0))
 
-    r1n1   = pow(r1, n1)
-    r1n1p1 = pow(r1, n1+1)
-    c1 = (1.0-r1n1p1) / (1.0-r1)
-    dc1dr1 = (-(n1+1) * r1n1 * (1.0-r1) - (1.0-r1n1p1)) / pow(1.0-r1,2)
-    dr1dr2 = n2 / n1 * pow(dx1/dx2, n1i) * pow(r2, n2/n1-1.0)
+    its = 0
+    eps = 10 * tol
+    for _ in xrange(maxiters):
+        f = _F_(r1, r2(r1), d1, d2, N1, N2, length)
+        df = _dF_(r1, r2(r1), d1, d2, N1, N2)
+        r1 -= f/df
 
-    dx = dx2 / r2n2
-    dxdr2 = -n2 * dx2 / r2n2p1
-
-    return - dxdr2*(c1 + c2) - dx*(dc1dr1*dr1dr2 + dc2dr2)
-
-
-def grading_double(length, dx1, dx2, n1, n2, r1=1.1, r2=.9, tol=1e-12, maxiters=200):
-    rf = lambda r2: pow(dx1 / dx2 * pow(r2, n2), 1./n1)
-
-    eps = 10.0 * tol
-    r1 = rf(r2)
-
-    for it in xrange(1, maxiters + 1):
-        if eps <= tol:
+        if abs(f) <= tol:
             break
 
-        P = _F(length, dx1, dx2, n1, n2, r1, r2)
-        dP = _dFdr2(dx1, dx2, n1, n2, r1, r2)
-        r2 -= P / dP
-        r1 = rf(r2)
-        eps = abs(P)
+        its += 1
 
-    return (r1, r2) if it < maxiters else (0., 0.)
+    if its == maxiters:
+        raise Exception("Maximal number of iterations reached")
+
+    return r1, r2(r1)
 
 
 def gradspace(start, step, factor, N):

@@ -109,19 +109,19 @@ class AirFoil(object):
         ds_front = len_total / (n_te + n_back + n_front) / 2 * 1e-1
 
         r2, r3 = grading_double(len_upper - self.len_te / 2,
-                                ds_back, ds_front, n_back-1, n_front-1)
+                                ds_back, ds_front, n_back, n_front)
         r4, r5 = grading_double(len_total - len_upper - self.len_te / 2,
-                                ds_front, ds_back, n_front-1, n_back-1)
+                                ds_front, ds_back, n_front, n_back)
 
         knots = []
         last_ds = lambda: knots[-1] - knots[-2]
         last = lambda: knots[-1]
 
         knots += list(np.linspace(0, self.len_te / 2, n_te + 1))
-        knots += gradspace(last(), last_ds(), 1./r2, n_back  + 1)[1:]
-        knots += gradspace(last(), last_ds(), r3,    n_front + 1)[1:]
-        knots += gradspace(last(), last_ds(), 1./r4, n_front + 1)[1:]
-        knots += gradspace(last(), last_ds(), r5,    n_back  + 1)[1:]
+        knots += gradspace(last(), last_ds(), r2,    n_back  + 1)[1:]
+        knots += gradspace(last(), last_ds(), 1./r3, n_front + 1)[1:]
+        knots += gradspace(last(), last_ds(), r4,    n_front + 1)[1:]
+        knots += gradspace(last(), last_ds(), 1./r5, n_back  + 1)[1:]
         knots += list(np.linspace(last(), len_total, n_te + 1))[1:]
 
         pts = [self.curve.Evaluate(k) for k in knots]

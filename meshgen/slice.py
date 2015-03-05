@@ -13,25 +13,33 @@ COMPONENTS = {'inner_left', 'inner_right',
 
 
 class Slice(object):
+    """This class represents a two-dimensional slice of the blade geometry."""
 
     def __init__(self, af=None):
+        """Constructs a slice from an airfoil. The parameters are inherited from the given
+        airfoil. The constructor will make all the TFI computations necessary to produce the
+        surrounding O-mesh.
+
+        Foreign code should not call this constructor without an airfoil."""
         if not af:
             return
 
         self.p = af.p
 
-        trailing = self._make_trailing(af.curve)
+        trailing, fac = self._make_trailing(af.curve)
         inner = self._make_inner(trailing, af.curve)
         split_inner = self._split_inner(inner)
-        split_outer = self._make_outer(split_inner)
+        split_outer = self._make_outer(split_inner, fac)
         split = [merge_surfaces(i, m, 1) for i, m in zip(split_inner, split_outer)]
 
+        # Ensure right-handedness
         deep_orient(split, 'flipu')
 
         self.inner_left = split[4:][::-1]
         self.inner_right = split[:4]
 
     def translate(self, pt):
+        """Create a new slice by translating this slice along a given vector."""
         new = Slice()
         new.p = self.p
         for attr in self.components():
@@ -39,44 +47,64 @@ class Slice(object):
         return new
 
     def components(self):
+        """Return the names of all the patch components in this slice, a (possibly proper) subset of
+        `COMPONENTS`."""
         return set(self.__dict__.keys()) & COMPONENTS
 
     def objects(self):
+        """Required for debug output."""
         return chain.from_iterable(flatten_objects(getattr(self, attr))
                                    for attr in self.components())
 
     def z(self):
+        """Returns the z-location of this slice."""
         return self.inner_left[0][0][0][2]
 
     def extend(self):
+        """Creates extension patches according to the given parameters (behind, ahead and side)."""
+
+        # Utility function for extending a list of surfaces or curves
         ext = lambda ps, direc, dist, n: [extend(p.GetEdges()[2] if type(p) is Surface else p,
                                                  direc, dist, n) for p in ps]
 
+        # Sides
         if self.p.ext_s:
             self.left  = ext(self.inner_left[1:3], -ey, self.p.sides, self.p.n_sides)
             self.right = ext(self.inner_right[1:3], ey, self.p.sides, self.p.n_sides)
             deep_orient(self.left, 'flipv', 'swap')
             deep_orient(self.right, 'flipu', 'swap')
 
+        # Behind
         if self.p.ext_b:
             edges = [self.inner_left[0], self.inner_right[0]]
             self.behind = ext(edges, ex, self.p.behind, self.p.n_behind)
             deep_orient(self.behind, 'flipu', 'flipv')
 
+        # Corners behind
         if self.p.ext_bs:
             edges = [self.left[0].GetEdges()[0], self.right[0].GetEdges()[0]]
             self.corners_behind = ext(edges, ex, self.p.behind, self.p.n_behind)
             deep_orient(self.corners_behind, 'flipv')
 
+        # Ahead
         if self.p.ext_a:
             edges = [self.inner_left[-1], self.inner_right[-1]]
             self.ahead = ext(edges, -ex, self.p.ahead, self.p.n_ahead)
 
+        # Corners ahead
         if self.p.ext_as:
             edges = [self.left[-1].GetEdges()[2], self.right[-1].GetEdges()[2]]
             self.corners_ahead = ext(edges, -ex, self.p.ahead, self.p.n_ahead)
 
     def subdivide(self):
+        """Subdivides the components according to the given parameters."""
+        # A list of all subdivisions to perform
+        # Each entry is tuple with:
+        # - The name of list of names of component(s) to subdivide
+        # - The subdivision or list of subdivisions to perform, in order.
+        # Each subdivision is a tuple with:
+        # - The name of a parameter giving the number of patches
+        # - The direction in which to do the subdivision
         SPEC = [(['inner_left', 'inner_right'], ('p_inner', 1)),
                 (['left', 'right'], ('p_sides', 0)),
                 ('behind', ('p_behind', 1)),
@@ -84,6 +112,7 @@ class Slice(object):
                 ('corners_behind', [('p_sides', 0), ('p_behind', 1)]),
                 ('corners_ahead', [('p_sides', 0), ('p_ahead', 1)])]
 
+        # Actually perform the subdivisions
         for attrs, divs in SPEC:
             if type(attrs) is str:
                 attrs = [attrs]
@@ -97,10 +126,12 @@ class Slice(object):
                 setattr(self, attr, temp)
 
     def lower_order(self):
+        """Lowers the order of all the components according to the parameters."""
         for attr in self.components():
             deep_lower_order(getattr(self, attr), self.p.order)
 
     def output(self, path):
+        """Outputs this slice by itself to the given path."""
         n = Numberer()
         self.push_patches(n)
         self.push_boundaries(n, complete=True)
@@ -118,20 +149,26 @@ class Slice(object):
             convert_openfoam(path)
 
     def push_patches(self, n):
+        """Adds all the patches to the numberer."""
         for attr in self.components():
             n.AddPatches(flatten_objects(getattr(self, attr)))
 
     def push_boundaries(self, n, complete=False):
+        """Adds the boundaries in this slice to the numberer (wing, inflow, outflow and
+        slipwalls). Call `push_patches` first."""
         self._bnd_wing(n)
         self._bnd_slipwall(n)
         self._bnd_flow(n, 'inflow')
         self._bnd_flow(n, 'outflow')
 
     def _bnd_wing(self, n, kind='edge', idx=2):
+        """Adds the wing boundary to the numberer."""
         patches = [q[0] for q in self.inner_left + self.inner_right]
         n.AddBoundary('wing', (patches, kind, idx))
 
     def _bnd_slipwall(self, n, edge_kind='edge', vx_kind='vertex', vx_add=0):
+        """Adds the slipwall boundaries to the numberer."""
+        # Utility functions for adding an edge or a vertex
         def edge(side, patches, idx):
             n.AddBoundary('slipwall_%s' % side, (patches, edge_kind, idx))
         def vx(side, patches, idx):
@@ -157,10 +194,10 @@ class Slice(object):
             edge('right', r, 1)
 
         # In case of behind/ahead and no sides, there are some vertices in the middle of the slipwall
-        if self.p.ext_a and not self.p.ext_s:
+        if self.p.ext_a_not_s:
             vx('left', [self.inner_left[-1][-1]], 2)
             vx('right', [self.inner_right[-1][-1]], 3)
-        if self.p.ext_b and not self.p.ext_s:
+        if self.p.ext_b_not_s:
             vx('left', [self.inner_left[0][-1]], 3)
             vx('right', [self.inner_right[0][-1]], 2)
 
@@ -193,8 +230,11 @@ class Slice(object):
                 vx('right', r, 1)
 
     def _bnd_flow(self, n, flow, edge_kind='edge', vx_kind='vertex', vx_add=0):
+        """Adds the in- or outflow boundary to the numberer."""
+        # True if outflow, false if inflow
         out = flow == 'outflow'
 
+        # All the things that are different between the outflow and the inflow
         ext_name = 'behind' if out else 'ahead'      # Name of extension property
         v_idx = 0 if out else -1                     # Index of patches in the v-direction
         v_edge = 2 if out else 3                     # Patch-index of edge on appropriately oriented patch
@@ -205,13 +245,17 @@ class Slice(object):
                                                      # on the left side of an inner patch
         j_or = 5 - i_or
 
+        # Utility functions for adding edges and vertices
         def edge(patches, idx):
             n.AddBoundary(flow, (patches, edge_kind, idx))
         def vx(patches, idx):
             n.AddBoundary(flow, (patches, vx_kind, idx + vx_add))
 
+        # Whether this boundary is closed, or has an extension
         closed = getattr(self.p, flow[:-4] + '_slip') != 'slip'
         extended = getattr(self.p, 'ext_' + ext_name[0])
+
+        # Grab the extension patches and the corner patches, if needed
         if extended:
             ext_patches = getattr(self, ext_name)
         if extended and self.p.ext_s:
@@ -249,30 +293,36 @@ class Slice(object):
                 vx(r, l_vx + 1)
 
     def _make_trailing(self, curve):
+        """Returns a curve from the trailing edge to the O-mesh circle. Also returns the geometric
+        grading factor used to refine it."""
+        # Get the z-value, the point and the normal at the trailing edge
         z = curve[0][2]
         k = curve.GetKnots()[0]
         p_inner = curve.Evaluate(k)
         n_inner = curve.EvaluateTangent(k).Rotate(ez, -pi/2).Normalize()
 
+        # The corresponding point on the square (not the circle)
         p_outer = Point(2 * self.p.radius, 0, z)
 
+        # A suitable curve connecting the two
         trailing = ip.CubicCurve(pts=[p_inner, p_outer], der=[n_inner, ex],
                                  boundary=ip.TANGENT)
 
+        # Find the intersection point on the circle
         circle = Circle(ez * z, self.p.radius, ez)
         point = IntersectCurve(trailing, circle)[1][0]
         knot = trailing.GetParameterAtPoint(point)[0]
 
+        # Get the subcurve and geometrically refine
         trailing.InsertKnot(knot)
         trailing = trailing.GetSubCurve(0, knot)
         fac = self.p.radial_grading(knot)
         GeometricRefineCurve(trailing, fac, self.p.n_circle - 1)
 
-        self.inner_fac = fac
-
-        return trailing
+        return trailing, fac
 
     def _make_inner(self, trailing, curve):
+        """Creates the inner part of the O-mesh (the circle)."""
         z = trailing[0][2]
         point = trailing.Evaluate(trailing.GetKnots()[-1])
         theta = np.arctan(point[1] / point[0]) * 180 / pi
@@ -300,6 +350,7 @@ class Slice(object):
         )
 
     def _split_inner(self, inner):
+        """Splits the inner O-mesh in eight patches."""
         ksu, ksv = inner.GetKnots()
         ksu_split = [ksu[i] for i in self.p.angular_splits()]
 
@@ -309,10 +360,12 @@ class Slice(object):
 
         return splits
 
-    def _make_outer(self, inners):
+    def _make_outer(self, inners, inner_fac):
+        """Creates the outer part of the O-mesh (the square)."""
         z = inners[0][0][2]
         radius = 2 * self.p.radius
 
+        # Connecting points on the square
         outer_pts = [Point(radius, 0, z),
                      Point(radius, radius, z),
                      Point(0, radius, z),
@@ -323,23 +376,27 @@ class Slice(object):
                      Point(radius, -radius, z),
                      Point(radius, 0, z)]
 
+        # Grading of the space inbetween
         kus, kvs = inners[0].GetKnots()
         ipt = inners[0].Evaluate(kus[0], kvs[-1])
         length = abs(ipt - outer_pts[0])
-        ds = abs(ipt - inners[0].Evaluate(kus[0], kvs[-2])) * self.inner_fac
+        ds = abs(ipt - inners[0].Evaluate(kus[0], kvs[-2])) * inner_fac
         fac = grading(length, ds, self.p.n_square)
 
         outers = []
         for opp, opn, inner in zip(outer_pts[:-1], outer_pts[1:], inners):
             kus, kvs = inner.GetKnots()
 
+            # Create the outer curve
             temp_curve = LineSegment(opp, opn)
             UniformCurve(temp_curve, len(kus) - 2)
             out = ip.CubicCurve(pts=GetCurvePoints(temp_curve), boundary=ip.NATURAL, t=kus)
 
+            # Perform the lofting and refinement
             surface = LoftBetween(inner.GetEdges()[2], out).RaiseOrder(0, 2)
             GeometricRefineSurface(surface, 2, fac, self.p.n_square - 1)
 
+            # Useful for merging later
             diff = surface.GetKnots()[1][1]
             surface.ReParametrize(kus[0], kus[-1], kvs[-1], kvs[-1] + 1/diff)
 

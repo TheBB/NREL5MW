@@ -2,12 +2,16 @@ from utils import *
 from slice import Slice
 
 class VolumetricSlice(Slice):
+    """This class represents a three-dimensional slice of the blade geometry. It is subclassed from
+    Slice since much of the functionality is shared."""
 
     def __init__(self, params):
+        """Private constructor. Foreign code should use `from_slices` or `from_slice`."""
         self.p = params
 
     @classmethod
     def from_slices(cls, slices):
+        """Creates a volumetric slice by lofting slices."""
         new = cls(slices[0].p)
         for attr in slices[0].components():
             setattr(new, attr, deep_loft([getattr(s, attr) for s in slices]))
@@ -15,6 +19,7 @@ class VolumetricSlice(Slice):
 
     @classmethod
     def from_slice(cls, s):
+        """Creates a volumetric slice by extruding a single slice by unit distance."""
         new = cls(s.p)
         for attr in s.components():
             setattr(new, attr, deep_extrude(getattr(s, attr)))
@@ -22,15 +27,20 @@ class VolumetricSlice(Slice):
 
     @classmethod
     def from_attrs(cls, params, **kwargs):
+        """Crates a volumetric slice with the given components. Foreign code should not call this
+        constructor."""
         new = cls(params)
         for attr, val in kwargs.iteritems():
             setattr(new, attr, val)
         return new
 
     def z(self):
+        """Prevents foreign code from relying on Slice.z()."""
         raise NotImplementedError("VolumetricSlice.z() doesn't make sense")
 
     def subdivide(self):
+        """Subdivides a volumetric slice lengthwise. This function shadows Slice.subdivide(). One
+        should call Slice.subdivide() before constructing a volumetric slice."""
         slices = [{} for _ in xrange(self.p.p_length)]
 
         for attr in self.components():
@@ -41,8 +51,11 @@ class VolumetricSlice(Slice):
         return [VolumetricSlice.from_attrs(self.p, **s) for s in slices]
 
     def push_boundaries(self, n, complete=False):
+        """Adds the boundaries in this slice to the numberer (wing, inflow, outflow and
+        slipwalls). Also adds hub and antihub if complete is True."""
         self._bnd_wing(n, kind='face')
 
+        # The Slice._bnd_xyz methods will work for volumes if we provide the right input
         kwargs = {'edge_kind': 'face', 'vx_kind': 'edge', 'vx_add': 8}
         self._bnd_slipwall(n, **kwargs)
         self._bnd_flow(n, 'inflow', **kwargs)
@@ -53,18 +66,23 @@ class VolumetricSlice(Slice):
             self.push_antihub(n)
 
     def push_hub(self, n):
+        """Adds the hub boundary to the numberer."""
         self._bnd_hub(n, 'hub')
 
     def push_antihub(self, n):
+        """Adds the antihub boundary to the numberer."""
         self._bnd_hub(n, 'antihub')
 
     def _bnd_hub(self, n, hub):
+        """Adds hub or antihub boundary to the numberer."""
+        # Index of face (up or down)
         face = 4 if hub == 'hub' else 5
 
         # The easy part
         for attr in self.components():
             n.AddBoundary(hub, (flatten_objects(getattr(self, attr)), 'face', face))
 
+        # Utility function for adding edges
         edge_add = 2 if hub == 'antihub' else 0
         def edge(patches, target, idx):
             if patches:

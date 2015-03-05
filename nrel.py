@@ -21,20 +21,17 @@ if params.mesh_mode == 'blade':
     if params.length_mode == 'extruded':
         gen.extrude()
     gen.loft_blade()
-    gen.lower_order()
-    gen.output()
-    sys.exit(0)
+else:
+    gen.make_slices()
+    gen.extend()
 
-gen.make_slices()
-gen.extend()
+    gen.subdivide_slices()
 
-gen.subdivide_slices()
+    if params.length_mode == 'extruded':
+        gen.extrude()
 
-if params.length_mode == 'extruded':
-    gen.extrude()
-
-if params.mesh_mode == '3d':
-    gen.loft_slices()
+    if params.mesh_mode == '3d':
+        gen.loft_slices()
 
 gen.lower_order()
 gen.output()

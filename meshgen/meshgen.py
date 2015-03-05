@@ -111,8 +111,9 @@ class MeshGen(object):
 
     def extrude(self):
         zvals = np.linspace(0, self.p.length, self.p.n_length + 1)
-        airfoil = self.airfoils[0]
-        self.airfoils = [airfoil.translate(Point(0,0,z)) for z in zvals]
+        attr = 'slices' if hasattr(self, 'slices') else 'airfoils'
+        root = getattr(self, attr)[0]
+        setattr(self, attr, [root.translate(Point(0,0,z)) for z in zvals])
 
 
     def loft_slices(self):
@@ -141,11 +142,12 @@ class MeshGen(object):
 
 
     def lower_order(self):
-        if self.p.mesh_mode == 'blade':
-            lower_order(self.blade, self.p.order)
-        else:
+        if hasattr(self, 'slices'):
             for s in self.slices:
                 s.lower_order()
+
+        if hasattr(self, 'blade'):
+            lower_order(self.blade, self.p.order)
 
 
     def output(self):

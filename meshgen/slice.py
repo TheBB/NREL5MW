@@ -14,7 +14,10 @@ COMPONENTS = {'inner_left', 'inner_right',
 
 class Slice(object):
 
-    def __init__(self, af):
+    def __init__(self, af=None):
+        if not af:
+            return
+
         self.p = af.p
 
         trailing = self._make_trailing(af.curve)
@@ -27,6 +30,13 @@ class Slice(object):
 
         self.inner_left = split[4:][::-1]
         self.inner_right = split[:4]
+
+    def translate(self, pt):
+        new = Slice()
+        new.p = self.p
+        for attr in self.components():
+            setattr(new, attr, deep_translate(getattr(self, attr), pt))
+        return new
 
     def components(self):
         return set(self.__dict__.keys()) & COMPONENTS

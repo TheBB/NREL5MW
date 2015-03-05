@@ -87,6 +87,11 @@ class AirFoil(object):
         pts = [(p_a + p_b)/2 for p_a, p_b in zip(pts_a, pts_b)]
         return cls.from_pts(a.p, (a.theta + b.theta)/2, pts)
 
+    def translate(self, pt):
+        airfoil = AirFoil(self.p, self.theta)
+        airfoil.curve = deep_translate(self.curve, pt)
+        return airfoil
+
     def objects(self):
         return [self.curve]
 

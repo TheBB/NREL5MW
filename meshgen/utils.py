@@ -25,9 +25,7 @@ def convert_openfoam(path, subfolder=False):
     f = InputFile('%s.xinp' % path)
     f.writeOpenFOAM(os.path.dirname(path))
 
-    for postfix in ['.xinp', '.g2',
-                    '_nodenumbers.hdf5', '_nodenumbers.xml',
-                    '_walldist.hdf5', '_walldist.xml']:
+    for postfix in ['.xinp', '.g2', '_nodenumbers.hdf5', '_nodenumbers.xml']:
         filename = path + postfix
         if os.path.exists(filename) and os.path.isfile(filename):
             os.remove(filename)

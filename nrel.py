@@ -17,6 +17,14 @@ gen.resolve_join()
 if params.length_mode != 'extruded' and params.mesh_mode != '2d':
     gen.resample_length()
 
+if params.mesh_mode == 'blade':
+    if params.length_mode == 'extruded':
+        gen.extrude()
+    gen.loft_blade()
+    gen.lower_order()
+    gen.output()
+    sys.exit(0)
+
 gen.make_slices()
 gen.extend()
 

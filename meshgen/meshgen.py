@@ -11,7 +11,7 @@ from GoTools.SurfaceFactory import LoftCurves
 import GeoUtils.Interpolate as ip
 from GeoUtils.IO import Numberer, InputFile
 
-from utils import grading, grading_double, gradspace, convert_openfoam
+from utils import *
 from airfoil import AirFoil
 from slice import Slice
 from volumetricslice import VolumetricSlice
@@ -121,6 +121,19 @@ class MeshGen(object):
         self.p.dump_g2files('slices_volumetric', self.slices)
 
 
+    def loft_blade(self):
+        params = map(float, range(len(self.airfoils)))
+        airfoils = list(self.airfoils)
+
+        airfoils.insert(1, AirFoil.from_mean(airfoils[0], airfoils[1]))
+        params.insert(1, 0.5)
+
+        airfoils.insert(-1, AirFoil.from_mean(airfoils[-2], airfoils[-1]))
+        params.insert(-1, (params[-2] + params[-1])/2)
+
+        self.blade = LoftCurves([af.curve for af in airfoils], params, 4)
+
+
     def subdivide_slices(self):
         for s in self.slices:
             s.subdivide()
@@ -128,8 +141,11 @@ class MeshGen(object):
 
 
     def lower_order(self):
-        for s in self.slices:
-            s.lower_order()
+        if self.p.mesh_mode == 'blade':
+            lower_order(self.blade, self.p.order)
+        else:
+            for s in self.slices:
+                s.lower_order()
 
 
     def output(self):
@@ -138,6 +154,11 @@ class MeshGen(object):
 
         getattr(self, '_output_' + self.p.mesh_mode)()
         self.p.out_yaml()
+
+
+    def _output_blade(self):
+        path = abspath(join(self.p.out, self.p.out)) + '.g2'
+        WriteG2(path, self.blade)
 
 
     def _output_2d(self):

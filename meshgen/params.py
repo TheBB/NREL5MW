@@ -164,12 +164,10 @@ class Params(object):
         rmtree(self.out, ignore_errors=True)
         self.make_folder(self.out)
 
-        if self.mesh_mode == '2d':
-            s = '2D mode'
-        elif self.mesh_mode == 'semi3d':
-            s = 'Semi3D mode (%i planes)' % (self.n_length + 1)
-        elif self.mesh_mode == '3d':
-            s = '3D mode'
+        s = {'blade': 'Blade mode',
+             '2d': '2D mode',
+             'semi3d': 'Semi3D mode (%i planes)' % (self.n_length + 1),
+             '3d': '3D mode'}[self.mesh_mode]
         s += ' -- ' + {2: 'linear', 3: 'quadratic', 4: 'cubic'}[self.order] + ' geometry'
         s += ' -- ' + self.format + ' format'
         print s
@@ -195,8 +193,8 @@ class Params(object):
 
         check_error(self.format in {'IFEM', 'OpenFOAM'},
                     "Invalid value for format (valid: IFEM, OpenFOAM)")
-        check_error(self.mesh_mode in {'2d', 'semi3d', '3d'},
-                    "Invalid value for mesh_mode (valid: 2d, semi3d, 3d)")
+        check_error(self.mesh_mode in {'blade', '2d', 'semi3d', '3d'},
+                    "Invalid value for mesh_mode (valid: blade, 2d, semi3d, 3d)")
         check_error(self.length_mode in {'extruded', 'uniform', 'double', 'triple'},
                     "Invalid value for length_mode (valid: extruded, uniform, double, triple)")
         check_error(self.order in {2, 3, 4}, "Order must be 2, 3 or 4")

@@ -140,14 +140,14 @@ class Params(object):
         self.wingdef = [Section(**fix_floats(s.attrib)) for s in wingdef.getroot()]
 
         # Perform some minor postprocessing
-        self.postprocess()
-        self.easy_extensions()
+        self._postprocess()
+        self._easy_extensions()
 
         # Warnings and errors in case something is wrong
-        self.sanity_check()
+        self._sanity_check()
 
         # Act on the parameters if necessary
-        self.act()
+        self._act()
 
         # Write a status message
         s = {'blade': 'Blade mode',
@@ -157,6 +157,61 @@ class Params(object):
         s += ' -- ' + {2: 'linear', 3: 'quadratic', 4: 'cubic'}[self.order] + ' geometry'
         s += ' -- ' + self.format + ' format'
         print s
+
+    def out_yaml(self):
+        """Writes a YAML file with the original parameters."""
+        filename = os.path.join(self.out, 'parameters.yaml')
+
+        time = datetime.now().isoformat()
+        proc = subprocess.Popen(['git', '-C', os.path.abspath(os.path.dirname(__file__)),
+                                 'rev-parse', 'HEAD'], stdout=subprocess.PIPE)
+        commit, _ = proc.communicate()
+
+        with open(filename, 'w') as f:
+            f.write('# Mesh generated on: %s\n' % time)
+            f.write('# Mesh generator version: %s\n' % commit)
+            f.write(yaml.dump(self.original, default_flow_style=False))
+
+    def radial_grading(self, length):
+        """Computes the radial grading factor needed for the given length to the circle."""
+        fac = grading(length, self.len_bndlayer, self.n_bndlayers)
+        return fac ** (1. / self.n_bndlayer)
+
+    def angular_splits(self):
+        """Computes the sizes of each angular part."""
+        n_quarter = (self.n_te + self.n_back + self.n_front) / 2
+        n_small = n_quarter / 2
+        n_large = n_quarter - n_small
+
+        return [0, n_small, n_quarter, n_quarter + n_large, 2*n_quarter,
+                2*n_quarter + n_small, 3*n_quarter, 3*n_quarter + n_large,
+                4*n_quarter]
+
+    def dump_g2files(self, folder, patches, always=False):
+        """Dump debug g2-files. The objects in the list patches must support the .objects()
+        method. This method only does something if in debug mode, or if always is True."""
+        if not (self.debug or always):
+            return
+
+        fn = 'out/{:02}_{}'.format(self._num_out, folder)
+        self._make_folder(fn)
+
+        fn += '/{:03}.g2'
+        for i, p in enumerate(patches):
+            WriteG2(fn.format(i+1), list(p.objects()))
+
+        self._num_out += 1
+
+    def dump_g2file(self, name, patches, always=False):
+        """Dump a single debug file with the given patches. This method only does something if in
+        debug mode, or if always is True."""
+        if not (self.debug or always):
+            return
+
+        fn = 'out/{:02}_{}.g2'.format(self._num_out, name)
+        WriteG2(fn, patches)
+
+        self._num_out += 1
 
     def _postprocess(self):
         """Performs all the postprocessing."""
@@ -168,6 +223,8 @@ class Params(object):
         self.behind *= self.radius
         self.ahead *= self.radius
         self.sides *= self.radius
+
+        self._num_out = 1
 
     def _easy_extensions(self):
         """This method produces ext_xyz_not_abc-names for all subsets xyz and abc of possible
@@ -197,7 +254,6 @@ class Params(object):
                     val = all(getattr(self, attr) > 0 for attr in on)
                     val = val and all(getattr(self, attr) == 0 for attr in off)
                     setattr(self, name, val)
-                    print name, val
 
     def _act(self):
         """Performs all the pre-actions necessary depending on the parameters given."""
@@ -205,24 +261,10 @@ class Params(object):
 
         if self.debug:
             rmtree('out', ignore_errors=True)
-            self.make_folder('out')
+            self._make_folder('out')
 
         rmtree(self.out, ignore_errors=True)
-        self.make_folder(self.out)
-
-    def out_yaml(self):
-        """Writes a YAML file with the original parameters."""
-        filename = os.path.join(self.out, 'parameters.yaml')
-
-        time = datetime.now().isoformat()
-        proc = subprocess.Popen(['git', '-C', os.path.abspath(os.path.dirname(__file__)),
-                                 'rev-parse', 'HEAD'], stdout=subprocess.PIPE)
-        commit, _ = proc.communicate()
-
-        with open(filename, 'w') as f:
-            f.write('# Mesh generated on: %s\n' % time)
-            f.write('# Mesh generator version: %s\n' % commit)
-            f.write(yaml.dump(self.original, default_flow_style=False))
+        self._make_folder(self.out)
 
     def _sanity_check(self):
         """Performs a basic sanity check of the parameters."""
@@ -293,47 +335,9 @@ class Params(object):
         check_warn((self.n_circle + self.n_square) % self.p_inner == 0,
                    "n_circle + n_square should be a multiple of p_inner for load balancing purposes")
 
-    def radial_grading(self, length):
-        """Computes the radial grading factor needed for the given length to the circle."""
-        fac = grading(length, self.len_bndlayer, self.n_bndlayers)
-        return fac ** (1. / self.n_bndlayer)
-
-    def angular_splits(self):
-        """Computes the sizes of each angular part."""
-        n_quarter = (self.n_te + self.n_back + self.n_front) / 2
-        n_small = n_quarter / 2
-        n_large = n_quarter - n_small
-
-        return [0, n_small, n_quarter, n_quarter + n_large, 2*n_quarter,
-                2*n_quarter + n_small, 3*n_quarter, 3*n_quarter + n_large,
-                4*n_quarter]
-
-    def make_folder(self, folder):
+    def _make_folder(self, folder):
         """Make a folder if it doesn't exist."""
         try:
             os.makedirs(folder)
         except OSError:
             pass
-
-    def dump_g2files(self, folder, patches, always=False):
-        """Dump debug g2-files. The objects in the list patches must support the .objects()
-        method. This method only does something if in debug mode, or if always is True."""
-        if not (self.debug or always):
-            return
-
-        fn = 'out/{}'.format(folder)
-        self.make_folder(fn)
-
-        fn += '/{:03}.g2'
-        for i, p in enumerate(patches):
-            WriteG2(fn.format(i+1), list(p.objects()))
-
-
-    def dump_g2file(self, name, patches, always=False):
-        """Dump a single debug file with the given patches. This method only does something if in
-        debug mode, or if always is True."""
-        if not (self.debug or always):
-            return
-
-        fn = 'out/{}.g2'.format(name)
-        WriteG2(fn, patches)

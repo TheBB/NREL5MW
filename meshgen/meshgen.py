@@ -231,6 +231,7 @@ class MeshGen(object):
             convert_openfoam(path)
         if self.p.format == 'IFEM':
             self._output_beam()
+            self.p.postprocess_xinp('%s.xinp' % path)
 
     def _resample_length_uniform(self, za, zb):
         """Uniform length resampling."""

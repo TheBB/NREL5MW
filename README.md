@@ -112,6 +112,18 @@ outputs a `beam.g2` file containing the actual beam.
 The spline order of the mesh.  The supported values are 2 (linear), 3 (quadratic) and 4 (cubic).
 Note that OpenFOAM format requires linear geometry.
 
+### Physical properties
+
+The `Re` parameter (Reynolds number) helps controlling the radial resolution near the body (see
+below under radial resolution).  The script will also output fluid properties (dynamic viscosity and
+density) in IFEM mode.  For this, the parameters `rho` (density) and `velocity` are provided.  The
+dynamic viscosity *mu* satifies
+
+*mu* = *rho* × *velocity* × *length* / *Re*,
+
+where *length* is the characteristic length, chosen as the *smallest* chordlength defined in the
+wing definition file.
+
 ### Boundary conditions
 
 The resulting mesh has five or seven boundary sets: inflow, outflow, wing as well as left and right

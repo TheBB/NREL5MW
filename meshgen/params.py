@@ -34,6 +34,11 @@ defaults = {
     # Global mesh parameters
     'order': 2,
 
+    # Flow and fluid characteristics
+    'Re': 10000.0,
+    'rho': 1.0,
+    'velocity': 1.0,
+
     # Boundary conditions
     'in_slip': 'in',
     'in_hub': 'in',
@@ -65,7 +70,6 @@ defaults = {
 
     # Radial resolution
     'radius': 10.0,
-    'Re': 10000.0,
     'n_bndlayer': 4,
     'n_circle': 72,
     'n_square': 10,
@@ -213,6 +217,16 @@ class Params(object):
         WriteG2(fn, patches)
 
         self._num_out += 1
+
+    def postprocess_xinp(self, path):
+        """Performs postprocessing on an IFEM xinp file."""
+        # Output flow characteristics
+        mu = self.rho * self.velocity * self.len_char / self.Re
+
+        with open(path, 'a') as f:
+            f.write('\n<stokes>\n')
+            f.write('  <fluidproperties mu="%e" rho="%e" />\n' % (mu, self.rho))
+            f.write('</stokes>\n')
 
     def _postprocess(self):
         """Performs all the postprocessing."""

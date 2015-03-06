@@ -151,6 +151,8 @@ class Slice(object):
 
         if self.p.format == 'OpenFOAM':
             convert_openfoam(path)
+        if self.p.format == 'IFEM':
+            self.p.postprocess_xinp('%s.xinp' % path)
 
     def push_patches(self, n):
         """Adds all the patches to the numberer."""

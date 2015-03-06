@@ -4,7 +4,7 @@ import os
 import sys
 import xml.etree.ElementTree as xml
 
-from itertools import product
+from itertools import product, combinations, permutations, chain
 from collections import namedtuple
 from datetime import datetime
 from math import sqrt
@@ -93,23 +93,27 @@ def usage():
 
 
 def fix_floats(dct, keys=['z', 'theta', 'chord', 'ac', 'ao']):
+    """Coerces the given keys in the dictionary to floats."""
     for k in keys:
         dct[k] = float(dct[k])
     return dct
 
 
 class Colors(object):
+    """Enum of colors used for ANSI terminal output."""
     WARNING = '\033[93m\033[1m'
     ERROR = '\033[91m\033[1m'
     END = '\033[0m'
 
 
 def check_warn(test, msg):
+    """Produces a warning message if the test fails."""
     if not test:
         print Colors.WARNING + "WARNING: " + Colors.END + msg
 
 
 def check_error(test, msg):
+    """Produces an error message and exits if the test fails."""
     if not test:
         print Colors.ERROR + "ERROR: " + Colors.END + msg
         sys.exit(0)
@@ -119,47 +123,43 @@ Section = namedtuple('Section', ['z', 'theta', 'chord', 'ac', 'ao', 'foil'])
 
 
 class Params(object):
+    """This class holds all the parameters."""
 
     def __init__(self, args=[]):
+        # Parse all the arguments using the defaults
         ParseArgs(args, defaults)
+
+        # Store the parsed arguments in their original state (no postprocessing)
         self.original = defaults
+
+        # Update the namespace
         self.__dict__.update(defaults)
 
+        # Parse the wing definition file
         wingdef = xml.parse(self.wingfile)
         self.wingdef = [Section(**fix_floats(s.attrib)) for s in wingdef.getroot()]
 
-        self.len_te_cyl = self.len_te_cyl_fac * self.len_te
-        self.len_char = min(wd.chord for wd in self.wingdef)
-        self.len_bndlayer = self.len_char / sqrt(self.Re)
-        self.n_bndlayers = float(self.n_circle) / self.n_bndlayer
+        # Perform some minor postprocessing
+        self._postprocess()
+        self._easy_extensions()
 
-        self.behind *= self.radius
-        self.ahead *= self.radius
-        self.sides *= self.radius
+        # Warnings and errors in case something is wrong
+        self._sanity_check()
 
-        self.sanity_check()
+        # Act on the parameters if necessary
+        self._act()
 
-        SetProcessorCount(self.nprocs_mg)
-
-        if self.debug:
-            rmtree('out', ignore_errors=True)
-            self.make_folder('out')
-
-        rmtree(self.out, ignore_errors=True)
-        self.make_folder(self.out)
-
-        if self.mesh_mode == '2d':
-            s = '2D mode'
-        elif self.mesh_mode == 'semi3d':
-            s = 'Semi3D mode (%i planes)' % (self.n_length + 1)
-        elif self.mesh_mode == '3d':
-            s = '3D mode'
+        # Write a status message
+        s = {'blade': 'Blade mode',
+             '2d': '2D mode',
+             'semi3d': 'Semi3D mode (%i planes)' % (self.n_length + 1),
+             '3d': '3D mode'}[self.mesh_mode]
         s += ' -- ' + {2: 'linear', 3: 'quadratic', 4: 'cubic'}[self.order] + ' geometry'
         s += ' -- ' + self.format + ' format'
         print s
 
-
     def out_yaml(self):
+        """Writes a YAML file with the original parameters."""
         filename = os.path.join(self.out, 'parameters.yaml')
 
         time = datetime.now().isoformat()
@@ -172,24 +172,123 @@ class Params(object):
             f.write('# Mesh generator version: %s\n' % commit)
             f.write(yaml.dump(self.original, default_flow_style=False))
 
+    def radial_grading(self, length):
+        """Computes the radial grading factor needed for the given length to the circle."""
+        fac = grading(length, self.len_bndlayer, self.n_bndlayers)
+        return fac ** (1. / self.n_bndlayer)
 
-    def sanity_check(self):
-        sum_elems = self.n_te + self.n_back + self.n_front
-        check_error(sum_elems % 4 == 0, "Number of angular elements must be a multiple of four")
+    def angular_splits(self):
+        """Computes the sizes of each angular part."""
+        n_quarter = (self.n_te + self.n_back + self.n_front) / 2
+        n_small = n_quarter / 2
+        n_large = n_quarter - n_small
 
+        return [0, n_small, n_quarter, n_quarter + n_large, 2*n_quarter,
+                2*n_quarter + n_small, 3*n_quarter, 3*n_quarter + n_large,
+                4*n_quarter]
+
+    def dump_g2files(self, folder, patches, always=False):
+        """Dump debug g2-files. The objects in the list patches must support the .objects()
+        method. This method only does something if in debug mode, or if always is True."""
+        if not (self.debug or always):
+            return
+
+        fn = 'out/{:02}_{}'.format(self._num_out, folder)
+        self._make_folder(fn)
+
+        fn += '/{:03}.g2'
+        for i, p in enumerate(patches):
+            WriteG2(fn.format(i+1), list(p.objects()))
+
+        self._num_out += 1
+
+    def dump_g2file(self, name, patches, always=False):
+        """Dump a single debug file with the given patches. This method only does something if in
+        debug mode, or if always is True."""
+        if not (self.debug or always):
+            return
+
+        fn = 'out/{:02}_{}.g2'.format(self._num_out, name)
+        WriteG2(fn, patches)
+
+        self._num_out += 1
+
+    def _postprocess(self):
+        """Performs all the postprocessing."""
+        self.len_te_cyl = self.len_te_cyl_fac * self.len_te
+        self.len_char = min(wd.chord for wd in self.wingdef)
+        self.len_bndlayer = self.len_char / sqrt(self.Re)
+        self.n_bndlayers = float(self.n_circle) / self.n_bndlayer
+
+        self.behind *= self.radius
+        self.ahead *= self.radius
+        self.sides *= self.radius
+
+        self._num_out = 1
+
+    def _easy_extensions(self):
+        """This method produces ext_xyz_not_abc-names for all subsets xyz and abc of possible
+        extensions.  This is basically just for simplicity. E.g.
+        p.behind > 0 => p.ext_b
+        p.behind > 0 and p.sides > 0 => p.ext_bs, p.ext_sb
+        p.behind > 0 and p.sides == 0 => p.ext_b_not_s
+        p.behind == 0 and p.sides == 0 => p.ext_not_bs, p.ext_not_sb
+        etc. Because I can."""
+        def subsets(s):
+            for length in xrange(0, len(s) + 1):
+                for comb in combinations(s, length):
+                    yield comb
+
+        extensions = {'behind', 'ahead', 'sides'}
+        for on_set in subsets(extensions):
+            remaining = extensions - set(on_set)
+            for off_set in subsets(remaining):
+                if not on_set and not off_set:
+                    continue
+                for on, off in product(permutations(on_set), permutations(off_set)):
+                    name = 'ext'
+                    if on:
+                        name += '_' + ''.join(attr[0] for attr in on)
+                    if off:
+                        name += '_not_' + ''.join(attr[0] for attr in off)
+                    val = all(getattr(self, attr) > 0 for attr in on)
+                    val = val and all(getattr(self, attr) == 0 for attr in off)
+                    setattr(self, name, val)
+
+    def _act(self):
+        """Performs all the pre-actions necessary depending on the parameters given."""
+        SetProcessorCount(self.nprocs_mg)
+
+        if self.debug:
+            rmtree('out', ignore_errors=True)
+            self._make_folder('out')
+
+        rmtree(self.out, ignore_errors=True)
+        self._make_folder(self.out)
+
+    def _sanity_check(self):
+        """Performs a basic sanity check of the parameters."""
+        # Check parameters that must be in a set of allowed values
         check_error(self.format in {'IFEM', 'OpenFOAM'},
                     "Invalid value for format (valid: IFEM, OpenFOAM)")
-        check_error(self.mesh_mode in {'2d', 'semi3d', '3d'},
-                    "Invalid value for mesh_mode (valid: 2d, semi3d, 3d)")
+        check_error(self.mesh_mode in {'blade', '2d', 'semi3d', '3d'},
+                    "Invalid value for mesh_mode (valid: blade, 2d, semi3d, 3d)")
         check_error(self.length_mode in {'extruded', 'uniform', 'double', 'triple'},
                     "Invalid value for length_mode (valid: extruded, uniform, double, triple)")
         check_error(self.order in {2, 3, 4}, "Order must be 2, 3 or 4")
 
+        for a, b in product(['in', 'out', 'hub', 'antihub', 'slip'], repeat=2):
+            attr = a + '_' + b
+            if hasattr(self, attr):
+                check_error(getattr(self, attr) in [a, b],
+                            "Invalid value for %s (valid: %s, %s)" % (attr, a, b))
+        # Output format checks
         if self.format == 'OpenFOAM':
             check_warn(self.mesh_mode != 'semi3d', "Semi3D output for OpenFOAM is incomplete (no beam)")
             check_error(self.order == 2, "OpenFOAM format requires order=2")
             check_error(not self.walldistance, "OpenFOAM format does not support wall distances")
 
+        # Checks for mesh_mode and length_mode
         if self.mesh_mode != '2d':
             if self.length_mode == 'extruded':
                 check_error(len(self.wingdef) == 1, "More than one wing definition in extruded mode")
@@ -216,6 +315,7 @@ class Params(object):
             check_error(len(self.wingdef) == 1, "More than one wing definition in 2D mode")
             check_warn(self.join_adds == 0, "join_adds > 0 has no effect in extruded mode")
 
+        # Checks for extensions
         for attr in ['sides', 'behind', 'ahead']:
             pn, nn = 'p_' + attr, 'n_' + attr
             check_error(getattr(self, attr) >= 0, attr + ' < 0')
@@ -225,55 +325,19 @@ class Params(object):
             check_warn(getattr(self, nn) % getattr(self, pn) == 0,
                        "%s should be a mulitple of %s for load balancing purposes" % (nn, pn))
 
+        # Angular refinement checks
+        sum_elems = self.n_te + self.n_back + self.n_front
+        check_error(sum_elems % 4 == 0, "Number of angular elements must be a multiple of four")
+
+        # Radial refinement checks
         check_error(0 < self.p_inner <= self.n_circle + self.n_square,
                     "Condition broken: 0 < p_inner <= n_circle + n_square")
         check_warn((self.n_circle + self.n_square) % self.p_inner == 0,
                    "n_circle + n_square should be a multiple of p_inner for load balancing purposes")
 
-        for a, b in product(['in', 'out', 'hub', 'antihub', 'slip'], repeat=2):
-            attr = a + '_' + b
-            if hasattr(self, attr):
-                check_error(getattr(self, attr) in [a, b],
-                            "Invalid value for %s (valid: %s, %s)" % (attr, a, b))
-
-
-    def radial_grading(self, length):
-        fac = grading(length, self.len_bndlayer, self.n_bndlayers)
-        return fac ** (1. / self.n_bndlayer)
-
-
-    def angular_splits(self):
-        n_quarter = (self.n_te + self.n_back + self.n_front) / 2
-        n_small = n_quarter / 2
-        n_large = n_quarter - n_small
-
-        return [0, n_small, n_quarter, n_quarter + n_large, 2*n_quarter,
-                2*n_quarter + n_small, 3*n_quarter, 3*n_quarter + n_large,
-                4*n_quarter]
-
-
-    def make_folder(self, folder):
+    def _make_folder(self, folder):
+        """Make a folder if it doesn't exist."""
         try:
             os.makedirs(folder)
         except OSError:
             pass
-
-
-    def dump_g2files(self, folder, patches, always=False):
-        if not (self.debug or always):
-            return
-
-        fn = 'out/{}'.format(folder)
-        self.make_folder(fn)
-
-        fn += '/{:03}.g2'
-        for i, p in enumerate(patches):
-            WriteG2(fn.format(i+1), p.objects())
-
-
-    def dump_g2file(self, name, patches, always=False):
-        if not (self.debug or always):
-            return
-
-        fn = 'out/{}.g2'.format(name)
-        WriteG2(fn, patches)

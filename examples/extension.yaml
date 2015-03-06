@@ -1,0 +1,10 @@
+# Not intended as a standalone setup.  Add extensions to all sides.  For testing.
+behind: 4
+n_behind: 36
+p_behind: 2
+ahead: 0.4
+n_ahead: 4
+p_ahead: 2
+sides: 0.4
+n_sides: 4
+p_sides: 2

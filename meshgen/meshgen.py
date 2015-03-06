@@ -11,16 +11,19 @@ from GoTools.SurfaceFactory import LoftCurves
 import GeoUtils.Interpolate as ip
 from GeoUtils.IO import Numberer, InputFile
 
-from utils import grading, grading_double, gradspace
-from airfoils import AirFoil
+from utils import *
+from airfoil import AirFoil
+from slice import Slice
+from volumetricslice import VolumetricSlice
 
 
 def fill_runner(af):
-    af.fill()
-    return af
+    """Produces slices from airfoils. Used for parallell computation."""
+    return Slice(af)
 
 
 def progress(title, i, tot):
+    """Progress output to stdout."""
     args = (title, i, tot, 100 * float(i) / tot)
     s = '\r%s: %i/%i (%.2f%%)' % args
     if i == tot:
@@ -30,152 +33,180 @@ def progress(title, i, tot):
 
 
 class MeshGen(object):
+    """This is a utility class used for mesh generation. It will not do everything on its
+    own. Methods must be called in the right order. Calling code can rely on just checking mesh_mode
+    and length_mode."""
 
     def __init__(self, params):
         self.p = params
 
-
     def load_airfoils(self):
-        self.airfoils = [AirFoil.from_wd(self.p, wd) for wd in self.p.wingdef]
+        """Loads airfoils from the wing definition file."""
+        self.airfoils = [AirFoil.from_wingdef(self.p, wd) for wd in self.p.wingdef]
         self.p.dump_g2files('airfoils_raw', self.airfoils)
 
-
     def resample_airfoils(self):
+        """Performs angular resampling of all airfoils."""
         for af in self.airfoils:
-            af.resample(self.p.n_te, self.p.n_back, self.p.n_front)
-        self.p.dump_g2files('airfoils_resampled_radial', self.airfoils)
-
+            af.resample()
+        self.p.dump_g2files('airfoils_resampled_angular', self.airfoils)
 
     def resolve_join(self):
+        """Resolves the join according to the join_adds and join_index parameters."""
         n = self.p.join_adds
         idx = self.p.join_index
 
         if n == 0:
             return
 
+        # Interpolation upwards
         for _ in xrange(n):
-            new = AirFoil.average(self.airfoils[idx], self.airfoils[idx+1])
+            new = AirFoil.from_mean(self.airfoils[idx], self.airfoils[idx+1])
             self.airfoils.insert(idx + 1, new)
 
+        # Interpolation downwards
         for i in xrange(n):
-            new = AirFoil.average(self.airfoils[idx+i-1], self.airfoils[idx+i])
+            new = AirFoil.from_mean(self.airfoils[idx+i-1], self.airfoils[idx+i])
             self.airfoils.insert(idx + i, new)
 
+        # Remove the join
         del self.airfoils[idx + n]
+
         self.p.dump_g2files('airfoils_joined', self.airfoils)
 
-
     def resample_length(self):
+        """Resamples airfoils in the length direction."""
+        # Loft the curves to produce a wing surface
         curves = [af.curve for af in self.airfoils]
         zvals = [af.z() for af in self.airfoils]
         wing = LoftCurves(curves, zvals, order=4)
+
+        # Interpolating curve for theta as a function of z
         thetas = ip.CubicCurve(x=[af.theta for af in self.airfoils],
                                t=zvals, boundary=ip.NATURAL)
         theta = lambda z: thetas.Evaluate(z)[0]
 
-        if self.p.length_mode == 'uniform':
-            zvals = self._resample_length_uniform(zvals[0], zvals[-1])
-        elif self.p.length_mode == 'double':
-            zvals = self._resample_length_double(zvals[0], zvals[-1])
-        elif self.p.length_mode == 'triple':
-            zvals = self._resample_length_triple(zvals[0], zvals[-1])
+        # Get the resampled z-values
+        resampler = getattr(self, '_resample_length_' + self.p.length_mode)
+        new_zvals = resampler(zvals[0], zvals[-1])
 
+        # Produce new airfoils from point-evaluating the wing
         self.airfoils = []
         kus, _ = wing.GetKnots()
-        for z in zvals:
+        for z in new_zvals:
             pts = [wing.Evaluate(ku, z) for ku in kus]
-            self.airfoils.append(AirFoil.from_pts(pts, theta(z)))
+            self.airfoils.append(AirFoil.from_pts(self.p, theta(z), pts))
 
         self.p.dump_g2files('airfoils_resampled_length', self.airfoils)
 
-
-    def fill_airfoils(self):
-        for af in self.airfoils:
-            af.prepare_fill(self.p)
-
-        progress('Filling slices', 0, len(self.airfoils))
+    def make_slices(self):
+        """Turns airfoils into slices."""
+        progress('Making slices', 0, len(self.airfoils))
         pool = mp.Pool(self.p.nprocs_mg)
         result = []
         for i, af in enumerate(pool.imap(fill_runner, self.airfoils)):
             result.append(af)
-            progress('Filling slices', i+1, len(self.airfoils))
+            progress('Making slices', i+1, len(self.airfoils))
 
-        self.airfoils = result
-        self.p.dump_g2files('airfoils_filled', self.airfoils)
+        del self.airfoils
+        self.slices = result
+        self.p.dump_g2files('slices_raw', self.slices)
 
-
-    def fill_sides(self):
-        for af in self.airfoils:
-            af.fill_sides()
-
-        self.p.dump_g2files('airfoils_sides', self.airfoils)
-
+    def extend(self):
+        """Extend all the slices according to parameters (behind, ahead, sides)."""
+        for s in self.slices:
+            s.extend()
+        self.p.dump_g2files('slices_sides', self.slices)
 
     def extrude(self):
+        """Performs extrusion of a single airfoil or slice."""
         zvals = np.linspace(0, self.p.length, self.p.n_length + 1)
-        airfoil = self.airfoils[0]
-        self.airfoils = [airfoil.translate(Point(0,0,z)) for z in zvals]
+        attr = 'slices' if hasattr(self, 'slices') else 'airfoils'
+        root = getattr(self, attr)[0]
+        setattr(self, attr, [root.translate(Point(0,0,z)) for z in zvals])
 
+    def loft_slices(self):
+        """Lofts slices together to produce volumetric slices."""
+        temp = VolumetricSlice.from_slices(self.slices)
+        self.slices = temp.subdivide()
+        self.p.dump_g2files('slices_volumetric', self.slices)
 
-    def loft_airfoils(self):
-        temp = AirFoil.loft_volumetric(self.airfoils)
-        self.airfoils = temp.subdivide_volumetric(self.p.p_length)
+    def loft_blade(self):
+        """Lofts airfoils together to produce a blade."""
+        params = extend_knots(map(float, range(len(self.airfoils))))
+        airfoils = list(self.airfoils)
+        airfoils.insert(1, AirFoil.from_mean(airfoils[0], airfoils[1]))
+        airfoils.insert(-1, AirFoil.from_mean(airfoils[-2], airfoils[-1]))
 
-        self.p.dump_g2files('airfoils_volumetric', self.airfoils)
+        self.blade = LoftCurves([af.curve for af in airfoils], params, 4)
 
-
-    def subdivide_airfoils(self):
-        for af in self.airfoils:
-            af.subdivide()
-
-        self.p.dump_g2files('airfoils_subdivided', self.airfoils)
-
+    def subdivide_slices(self):
+        """Subdivices all the slices."""
+        for s in self.slices:
+            s.subdivide()
+        self.p.dump_g2files('slices_subdivided', self.slices)
 
     def lower_order(self):
-        for af in self.airfoils:
-            af.lower_order(self.p.order)
+        """Lowers order on the slices and/or the blade."""
+        if hasattr(self, 'slices'):
+            for s in self.slices:
+                s.lower_order()
 
+        if hasattr(self, 'blade'):
+            lower_order(self.blade, self.p.order)
 
     def output(self):
+        """Produces the final output."""
         if self.p.format == 'OpenFOAM' and self.p.mesh_mode in {'2d', 'semi3d'}:
-            for af in self.airfoils:
-                af.dummy_volumetric()
+            self.slices = [VolumetricSlice.from_slice(s) for s in self.slices]
 
         getattr(self, '_output_' + self.p.mesh_mode)()
         self.p.out_yaml()
 
+    def _output_blade(self):
+        """Produces the final output of the blade."""
+        path = abspath(join(self.p.out, self.p.out)) + '.g2'
+        WriteG2(path, self.blade)
 
     def _output_2d(self):
+        """Produces the final output in 2D mode."""
         path = abspath(join(self.p.out, self.p.out))
-        self.airfoils[0].output(path)
-
+        self.slices[0].output(path)
 
     def _output_semi3d(self):
-        progress('Writing planes', 0, len(self.airfoils))
-        for i, af in enumerate(self.airfoils):
+        """Produces the final output in semi3D mode."""
+        progress('Writing planes', 0, len(self.slices))
+        for i, s in enumerate(self.slices):
             path = abspath(join(self.p.out, 'slice-%03i' % (i+1)))
+
+            # In OpenFOAM mode, we have to output to separate subfolders
             if self.p.format == 'OpenFOAM':
                 try:
                     os.makedirs(path)
                 except OSError:
                     pass
                 path = join(path, 'out')
-            af.output(path)
-            progress('Writing planes', i+1, len(self.airfoils))
 
-        zvals = [af.z() for af in self.airfoils]
-        beam = ip.LinearCurve(pts=[Point(z,0,0) for z in zvals])
-        WriteG2(join(self.p.out, 'beam.g2'), beam)
+            s.output(path)
+            progress('Writing planes', i+1, len(self.slices))
 
+        # Output the beam if IFEM mode.
+        if self.p.format == 'IFEM':
+            zvals = [s.z() for s in self.slices]
+            beam = ip.LinearCurve(pts=[Point(z,0,0) for z in zvals])
+            WriteG2(join(self.p.out, 'beam.g2'), beam)
 
     def _output_3d(self):
+        """Produces the final output in 3D mode."""
         path = abspath(join(self.p.out, self.p.out))
         n = Numberer()
 
-        for af in self.airfoils:
-            af.put_to_numberer(n)
-        self.airfoils[0].hub_to_numberer(n)
-        self.airfoils[-1].antihub_to_numberer(n)
+        # Add all the patches and boundaries
+        for s in self.slices:
+            s.push_patches(n)
+            s.push_boundaries(n)
+        self.slices[0].push_hub(n)
+        self.slices[-1].push_antihub(n)
 
         if self.p.debug:
             n.WriteBoundaries(path)
@@ -183,33 +214,30 @@ class MeshGen(object):
         if self.p.walldistance:
             n.AddWallGroup('wing')
 
+        # Renumber and final output
         n.Renumber(self.p.nprocs)
         n.WriteEverything(path, display=True)
 
         if self.p.format == 'OpenFOAM':
-            f = InputFile('%s.xinp' % path)
-            f.writeOpenFOAM(os.path.dirname(path))
-
-            for postfix in ['.xinp', '.g2', '_nodenumbers.hdf5', '_nodenumbers.xml']:
-                os.remove(path + postfix)
-
+            convert_openfoam(path)
 
     def _resample_length_uniform(self, za, zb):
+        """Uniform length resampling."""
         return np.linspace(za, zb, self.p.n_length + 1)
 
-
     def _resample_length_double(self, za, zb):
+        """Double-sided length resampling."""
         n = self.p.n_length / 2
         dj, dt = self.p.d_join, self.p.d_tip
 
-        r1, r2 = grading_double(zb - za, dj, dt, n-1, n-1)
+        r1, r2 = grading_double(zb - za, dj, dt, n, n)
 
-        zvals = gradspace(za, dj, 1./r1, n+1)
-        zvals += gradspace(zb, -dt, 1./r2, n)[::-1]
+        zvals = gradspace(za, dj, r1, n+1)
+        zvals += gradspace(zb, -dt, r2, n)[::-1]
         return zvals
 
-
     def _resample_length_triple(self, za, zb):
+        """Triple-sided length resampling."""
         join = self.p.wingdef[self.p.join_index].z
         dj, dt = self.p.d_join, self.p.d_tip
         nb, nl = self.p.n_base, (self.p.n_length - self.p.n_base) / 2
@@ -217,8 +245,8 @@ class MeshGen(object):
         rz = grading(join - za, dj, nb)
         zvals = gradspace(join, -dj, rz, nb + 1)[::-1]
 
-        rz1, rz2 = grading_double(zb - zvals[-1], dj, dt, nl-1, nl-1)
-        zvals += gradspace(zvals[-1], dj, 1./rz1, nl+1)[1:]
-        zvals += gradspace(zb, -dt, 1./rz2, nl)[::-1]
+        rz1, rz2 = grading_double(zb - zvals[-1], dj, dt, nl, nl)
+        zvals += gradspace(zvals[-1], dj, rz1, nl+1)[1:]
+        zvals += gradspace(zb, -dt, rz2, nl)[::-1]
 
         return zvals

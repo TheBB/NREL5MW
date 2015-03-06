@@ -92,7 +92,7 @@ class VolumetricSlice(Slice):
         target = hub if getattr(self.p, 'in_' + hub) == hub else 'inflow'
         patches = []
         if self.p.ext_a: patches += [q[-1] for q in self.ahead]
-        if self.p.ext_as: patches += [q[-1] for q in c for c in self.corners_ahead]
+        if self.p.ext_as: patches += [q[-1] for c in self.corners_ahead for q in c]
         if self.p.ext_not_a: patches += [self.inner_left[3][-1], self.inner_right[3][-1]]
         if self.p.ext_s_not_a: patches += self.left[-1] + self.right[-1]
         edge(patches, target, 1)

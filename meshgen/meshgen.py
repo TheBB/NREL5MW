@@ -170,7 +170,7 @@ class MeshGen(object):
         if not hasattr(self, 'zvals'):
             self.zvals = [s.z() for s in self.slices]
 
-        beam = ip.LinearCurve(pts=[Point(z,0,0) for z in self.zvals])
+        beam = ip.LinearCurve(pts=[Point(0,0,z) for z in self.zvals])
         WriteG2(join(self.p.out, 'beam.g2'), beam)
 
     def _output_blade(self):

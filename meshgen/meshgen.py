@@ -127,6 +127,8 @@ class MeshGen(object):
 
     def loft_slices(self):
         """Lofts slices together to produce volumetric slices."""
+        self.zvals = [s.z() for s in self.slices]
+
         temp = VolumetricSlice.from_slices(self.slices)
         self.slices = temp.subdivide()
         self.p.dump_g2files('slices_volumetric', self.slices)
@@ -163,6 +165,14 @@ class MeshGen(object):
         getattr(self, '_output_' + self.p.mesh_mode)()
         self.p.out_yaml()
 
+    def _output_beam(self):
+        """Writes a beam.g2 file."""
+        if not hasattr(self, 'zvals'):
+            self.zvals = [s.z() for s in self.slices]
+
+        beam = ip.LinearCurve(pts=[Point(z,0,0) for z in self.zvals])
+        WriteG2(join(self.p.out, 'beam.g2'), beam)
+
     def _output_blade(self):
         """Produces the final output of the blade."""
         path = abspath(join(self.p.out, self.p.out)) + '.g2'
@@ -190,11 +200,8 @@ class MeshGen(object):
             s.output(path)
             progress('Writing planes', i+1, len(self.slices))
 
-        # Output the beam if IFEM mode.
         if self.p.format == 'IFEM':
-            zvals = [s.z() for s in self.slices]
-            beam = ip.LinearCurve(pts=[Point(z,0,0) for z in zvals])
-            WriteG2(join(self.p.out, 'beam.g2'), beam)
+            self._output_beam()
 
     def _output_3d(self):
         """Produces the final output in 3D mode."""
@@ -222,6 +229,8 @@ class MeshGen(object):
 
         if self.p.format == 'OpenFOAM':
             convert_openfoam(path)
+        if self.p.format == 'IFEM':
+            self._output_beam()
 
     def _resample_length_uniform(self, za, zb):
         """Uniform length resampling."""

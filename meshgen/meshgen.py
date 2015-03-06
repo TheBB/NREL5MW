@@ -19,7 +19,7 @@ from volumetricslice import VolumetricSlice
 
 def fill_runner(af):
     """Produces slices from airfoils. Used for parallell computation."""
-    return Slice(af)
+    return Slice.from_airfoil(af)
 
 
 def progress(title, i, tot):

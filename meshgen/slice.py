@@ -17,33 +17,34 @@ COMPONENTS = {'inner_left', 'inner_right',
 class Slice(object):
     """This class represents a two-dimensional slice of the blade geometry."""
 
-    def __init__(self, af=None):
+    def __init__(self, params):
+        """Private constructor. Foreign code should call `from_airfoil`."""
+        self.p = params
+
+    @classmethod
+    def from_airfoil(cls, airfoil):
         """Constructs a slice from an airfoil. The parameters are inherited from the given
         airfoil. The constructor will make all the TFI computations necessary to produce the
-        surrounding O-mesh.
+        surrounding O-mesh."""
+        new = cls(airfoil.p)
 
-        Foreign code should not call this constructor without an airfoil."""
-        if not af:
-            return
-
-        self.p = af.p
-
-        trailing, fac = self._make_trailing(af.curve)
-        inner = self._make_inner(trailing, af.curve)
-        split_inner = self._split_inner(inner)
-        split_outer = self._make_outer(split_inner, fac)
+        trailing, fac = new._make_trailing(airfoil.curve)
+        inner = new._make_inner(trailing, airfoil.curve)
+        split_inner = new._split_inner(inner)
+        split_outer = new._make_outer(split_inner, fac)
         split = [merge_surfaces(i, m, 1) for i, m in zip(split_inner, split_outer)]
 
         # Ensure right-handedness
         deep_orient(split, 'flipu')
 
-        self.inner_left = split[4:][::-1]
-        self.inner_right = split[:4]
+        new.inner_left = split[4:][::-1]
+        new.inner_right = split[:4]
+
+        return new
 
     def translate(self, pt):
         """Create a new slice by translating this slice along a given vector."""
-        new = Slice()
-        new.p = self.p
+        new = Slice(self.p)
         for attr in self.components():
             setattr(new, attr, deep_translate(getattr(self, attr), pt))
         return new

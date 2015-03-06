@@ -85,6 +85,7 @@ defaults = {
     'p_ahead': 1,
     'p_sides': 1,
     'p_length': 20,
+    'p_rigid': 0,
 }
 
 

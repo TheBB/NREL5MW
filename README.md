@@ -213,3 +213,6 @@ To control the subdivision of the mesh into patches, the following parameters ma
 - `p_ahead`: The number of patches in the inflow extension.
 - `p_sides`: The number of patches in the slipwalls extension.
 - `p_length`: The number of patches lengthwise.
+
+For FSI purposes, the the innermost patches in the O-mesh can be added to a topologyset called
+*rigid*.  The number of patches can be controlled with `p_rigid`.

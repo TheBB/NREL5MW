@@ -1,3 +1,5 @@
+from itertools import *
+
 from GoTools.CurveFactory import Circle, IntersectCurve, LineSegment
 from GeoUtils.IO import Numberer, InputFile
 from GeoUtils.Refinement import GeometricRefineCurve, GeometricRefineSurface, UniformCurve
@@ -135,9 +137,11 @@ class Slice(object):
         n = Numberer()
         self.push_patches(n)
         self.push_boundaries(n, complete=True)
+        self.push_groups(n)
 
         if self.p.debug:
             n.WriteBoundaries(path)
+            n.WriteOutputGroups(path)
 
         if self.p.walldistance:
             n.AddWallGroup('wing')
@@ -160,6 +164,16 @@ class Slice(object):
         self._bnd_slipwall(n)
         self._bnd_flow(n, 'inflow')
         self._bnd_flow(n, 'outflow')
+
+    def push_groups(self, n):
+        """Adds the groups in this slice to the numberer (rigid). Call `push_patches` first."""
+        self._grp_rigid(n)
+
+    def _grp_rigid(self, n, kind='face'):
+        if self.p.p_rigid > 0:
+            patches = [q[:self.p.p_rigid] for q in self.inner_left + self.inner_right]
+            patches = list(chain.from_iterable(patches))
+            n.AddOutputGroup('rigid', kind, patches)
 
     def _bnd_wing(self, n, kind='edge', idx=2):
         """Adds the wing boundary to the numberer."""

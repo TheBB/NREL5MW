@@ -205,11 +205,13 @@ class MeshGen(object):
         for s in self.slices:
             s.push_patches(n)
             s.push_boundaries(n)
+            s.push_groups(n)
         self.slices[0].push_hub(n)
         self.slices[-1].push_antihub(n)
 
         if self.p.debug:
             n.WriteBoundaries(path)
+            n.WriteOutputGroups(path)
 
         if self.p.walldistance:
             n.AddWallGroup('wing')

@@ -65,6 +65,10 @@ class VolumetricSlice(Slice):
             self.push_hub(n)
             self.push_antihub(n)
 
+    def push_groups(self, n):
+        """Adds the groups in this slice to the numberer (rigid). Call `push_patches` first."""
+        self._grp_rigid(n, kind='volume')
+
     def push_hub(self, n):
         """Adds the hub boundary to the numberer."""
         self._bnd_hub(n, 'hub')

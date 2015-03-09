@@ -65,7 +65,7 @@ class VolumetricSlice(Slice):
             self.push_hub(n)
             self.push_antihub(n)
 
-        self._grp_rigid(n, kind='volume', subkind='face')
+        self._grp_rigid(n, kind='volume', subkind='face', subsubkind='edge', vx_add=8)
 
     def push_hub(self, n):
         """Adds the hub boundary to the numberer."""

@@ -351,7 +351,7 @@ class Params(object):
                    "n_circle + n_square should be a multiple of p_inner for load balancing purposes")
 
         # Rigid part
-        check_error(0 <= self.p_rigid < self.p_inner, "Condition broken: 0 <= p_rigid < p_inner")
+        check_error(0 <= self.p_rigid <= self.p_inner, "Condition broken: 0 <= p_rigid <= p_inner")
 
     def _make_folder(self, folder):
         """Make a folder if it doesn't exist."""

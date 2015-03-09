@@ -167,9 +167,14 @@ class Slice(object):
         self._bnd_flow(n, 'outflow')
         self._grp_rigid(n)
 
-    def _grp_rigid(self, n, kind='face', subkind='edge'):
+    def _grp_rigid(self, n, kind='face', subkind='edge', subsubkind='vertex', vx_add=0):
         if self.p.p_rigid == 0:
             return
+
+        def edge(patches, idx):
+            n.AddTopologySet('rigid', (patches, subkind, idx))
+        def vx(patches, idx):
+            n.AddTopologySet('rigid', (patches, subsubkind, idx + vx_add))
 
         # Volumetric part
         patches = [q[:self.p.p_rigid] for q in self.inner_left + self.inner_right]
@@ -177,8 +182,22 @@ class Slice(object):
         n.AddTopologySet('rigid', (patches, kind, []))
 
         # Boundary part
-        patches = [q[self.p.p_rigid] for q in self.inner_left + self.inner_right]
-        n.AddTopologySet('rigid', (patches, subkind, 2))
+        if self.p.p_rigid < self.p.p_inner:
+            edge([q[self.p.p_rigid] for q in self.inner_left + self.inner_right], 2)
+        else:
+            if self.p.ext_s:
+                edge([q[-1] for q in self.left], 1)
+                edge([q[0] for q in self.right], 0)
+            if self.p.ext_b:
+                edge([q[-1] for q in self.behind], 3)
+            if self.p.ext_a:
+                edge([q[0] for q in self.ahead], 2)
+            if self.p.ext_bs:
+                vx(self.corners_behind[0][-1][-1], 3)
+                vx(self.corners_behind[1][0][-1], 2)
+            if self.p.ext_as:
+                vx(self.corners_ahead[0][-1][0], 1)
+                vx(self.corners_ahead[1][0][0], 0)
 
     def _bnd_wing(self, n, kind='edge', idx=2):
         """Adds the wing boundary to the numberer."""

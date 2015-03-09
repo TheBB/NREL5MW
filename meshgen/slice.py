@@ -167,14 +167,14 @@ class Slice(object):
         self._bnd_flow(n, 'outflow')
         self._grp_rigid(n)
 
-    def _grp_rigid(self, n, kind='face', subkind='edge', subsubkind='vertex', vx_add=0):
+    def _grp_rigid(self, n, kind='face', edge_kind='edge', vx_kind='vertex', vx_add=0):
         if self.p.p_rigid == 0:
             return
 
         def edge(patches, idx):
-            n.AddTopologySet('rigid', (patches, subkind, idx))
+            n.AddTopologySet('rigid', (patches, edge_kind, idx))
         def vx(patches, idx):
-            n.AddTopologySet('rigid', (patches, subsubkind, idx + vx_add))
+            n.AddTopologySet('rigid', (patches, vx_kind, idx + vx_add))
 
         # Volumetric part
         patches = [q[:self.p.p_rigid] for q in self.inner_left + self.inner_right]
@@ -199,10 +199,10 @@ class Slice(object):
                 vx(self.corners_ahead[0][-1][0], 1)
                 vx(self.corners_ahead[1][0][0], 0)
 
-    def _bnd_wing(self, n, kind='edge', idx=2):
+    def _bnd_wing(self, n, edge_kind='edge'):
         """Adds the wing boundary to the numberer."""
         patches = [q[0] for q in self.inner_left + self.inner_right]
-        n.AddTopologySet('wing', (patches, kind, idx))
+        n.AddTopologySet('wing', (patches, edge_kind, 2))
 
     def _bnd_slipwall(self, n, edge_kind='edge', vx_kind='vertex', vx_add=0):
         """Adds the slipwall boundaries to the numberer."""

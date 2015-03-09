@@ -141,6 +141,8 @@ The interfaces are:
 - Outflow and antihub: `out_antihub`
 - Slipwalls and hub: `slip_hub`
 - Slipwalls and antihub: `slip_antihub`
+- Wing and hub: `wing_hub`
+- Wing and antihub: `wing_antihub`
 
 ### Trailing edge modification
 

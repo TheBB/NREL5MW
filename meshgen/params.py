@@ -48,6 +48,8 @@ defaults = {
     'out_antihub': 'antihub',
     'slip_hub': 'hub',
     'slip_antihub': 'antihub',
+    'wing_hub': 'hub',
+    'wing_antihub': 'antihub',
 
     # Trailing edge
     'len_te': 2e-2,
@@ -292,11 +294,12 @@ class Params(object):
                     "Invalid value for length_mode (valid: extruded, uniform, double, triple)")
         check_error(self.order in {2, 3, 4}, "Order must be 2, 3 or 4")
 
-        for a, b in product(['in', 'out', 'hub', 'antihub', 'slip'], repeat=2):
+        for a, b in product(['in', 'out', 'hub', 'antihub', 'slip', 'wing'], repeat=2):
             attr = a + '_' + b
             if hasattr(self, attr):
                 check_error(getattr(self, attr) in [a, b],
                             "Invalid value for %s (valid: %s, %s)" % (attr, a, b))
+
         # Output format checks
         if self.format == 'OpenFOAM':
             check_warn(self.mesh_mode != 'semi3d', "Semi3D output for OpenFOAM is incomplete (no beam)")

@@ -50,7 +50,7 @@ class VolumetricSlice(Slice):
 
         return [VolumetricSlice.from_attrs(self.p, **s) for s in slices]
 
-    def push_boundaries(self, n, complete=False):
+    def push_topsets(self, n, complete=False):
         """Adds the boundaries in this slice to the numberer (wing, inflow, outflow and
         slipwalls). Also adds hub and antihub if complete is True."""
         self._bnd_wing(n, kind='face')
@@ -65,9 +65,7 @@ class VolumetricSlice(Slice):
             self.push_hub(n)
             self.push_antihub(n)
 
-    def push_groups(self, n):
-        """Adds the groups in this slice to the numberer (rigid). Call `push_patches` first."""
-        self._grp_rigid(n, kind='volume')
+        self._grp_rigid(n, kind='volume', subkind='face')
 
     def push_hub(self, n):
         """Adds the hub boundary to the numberer."""
@@ -84,13 +82,13 @@ class VolumetricSlice(Slice):
 
         # The easy part
         for attr in self.components():
-            n.AddBoundary(hub, (flatten_objects(getattr(self, attr)), 'face', face))
+            n.AddTopologySet(hub, (flatten_objects(getattr(self, attr)), 'face', face))
 
         # Utility function for adding edges
         edge_add = 2 if hub == 'antihub' else 0
         def edge(patches, target, idx):
             if patches:
-                n.AddBoundary(target, (patches, 'edge', idx + edge_add))
+                n.AddTopologySet(target, (patches, 'edge', idx + edge_add))
 
         # Add edges on the inflow interface to the correct boundary
         target = hub if getattr(self.p, 'in_' + hub) == hub else 'inflow'

@@ -137,12 +137,10 @@ class Slice(object):
         """Outputs this slice by itself to the given path."""
         n = Numberer()
         self.push_patches(n)
-        self.push_boundaries(n, complete=True)
-        self.push_groups(n)
+        self.push_topsets(n, complete=True)
 
         if self.p.debug:
-            n.WriteBoundaries(path)
-            n.WriteOutputGroups(path)
+            n.WriteTopologySets(path)
 
         if self.p.walldistance:
             n.AddWallGroup('wing')
@@ -160,36 +158,40 @@ class Slice(object):
         for attr in self.components():
             n.AddPatches(flatten_objects(getattr(self, attr)))
 
-    def push_boundaries(self, n, complete=False):
-        """Adds the boundaries in this slice to the numberer (wing, inflow, outflow and
-        slipwalls). Call `push_patches` first."""
+    def push_topsets(self, n, complete=False):
+        """Adds the topology sets in this slice to the numberer (wing, inflow, outflow, slipwalls
+        and rigid). Call `push_patches` first."""
         self._bnd_wing(n)
         self._bnd_slipwall(n)
         self._bnd_flow(n, 'inflow')
         self._bnd_flow(n, 'outflow')
-
-    def push_groups(self, n):
-        """Adds the groups in this slice to the numberer (rigid). Call `push_patches` first."""
         self._grp_rigid(n)
 
-    def _grp_rigid(self, n, kind='face'):
-        if self.p.p_rigid > 0:
-            patches = [q[:self.p.p_rigid] for q in self.inner_left + self.inner_right]
-            patches = list(chain.from_iterable(patches))
-            n.AddOutputGroup('rigid', kind, patches)
+    def _grp_rigid(self, n, kind='face', subkind='edge'):
+        if self.p.p_rigid == 0:
+            return
+
+        # Volumetric part
+        patches = [q[:self.p.p_rigid] for q in self.inner_left + self.inner_right]
+        patches = list(chain.from_iterable(patches))
+        n.AddTopologySet('rigid', (patches, kind, []))
+
+        # Boundary part
+        patches = [q[self.p.p_rigid] for q in self.inner_left + self.inner_right]
+        n.AddTopologySet('rigid', (patches, subkind, 2))
 
     def _bnd_wing(self, n, kind='edge', idx=2):
         """Adds the wing boundary to the numberer."""
         patches = [q[0] for q in self.inner_left + self.inner_right]
-        n.AddBoundary('wing', (patches, kind, idx))
+        n.AddTopologySet('wing', (patches, kind, idx))
 
     def _bnd_slipwall(self, n, edge_kind='edge', vx_kind='vertex', vx_add=0):
         """Adds the slipwall boundaries to the numberer."""
         # Utility functions for adding an edge or a vertex
         def edge(side, patches, idx):
-            n.AddBoundary('slipwall_%s' % side, (patches, edge_kind, idx))
+            n.AddTopologySet('slipwall_%s' % side, (patches, edge_kind, idx))
         def vx(side, patches, idx):
-            n.AddBoundary('slipwall_%s' % side, (patches, vx_kind, idx + vx_add))
+            n.AddTopologySet('slipwall_%s' % side, (patches, vx_kind, idx + vx_add))
 
         # Add the easy part
         if self.p.ext_s:
@@ -264,9 +266,9 @@ class Slice(object):
 
         # Utility functions for adding edges and vertices
         def edge(patches, idx):
-            n.AddBoundary(flow, (patches, edge_kind, idx))
+            n.AddTopologySet(flow, (patches, edge_kind, idx))
         def vx(patches, idx):
-            n.AddBoundary(flow, (patches, vx_kind, idx + vx_add))
+            n.AddTopologySet(flow, (patches, vx_kind, idx + vx_add))
 
         # Whether this boundary is closed, or has an extension
         closed = getattr(self.p, flow[:-4] + '_slip') != 'slip'

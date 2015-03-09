@@ -211,14 +211,12 @@ class MeshGen(object):
         # Add all the patches and boundaries
         for s in self.slices:
             s.push_patches(n)
-            s.push_boundaries(n)
-            s.push_groups(n)
+            s.push_topsets(n)
         self.slices[0].push_hub(n)
         self.slices[-1].push_antihub(n)
 
         if self.p.debug:
-            n.WriteBoundaries(path)
-            n.WriteOutputGroups(path)
+            n.WriteTopologySets(path)
 
         if self.p.walldistance:
             n.AddWallGroup('wing')

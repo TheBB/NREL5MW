@@ -175,19 +175,18 @@ class MeshGen(object):
 
     def _output_blade(self):
         """Produces the final output of the blade."""
-        path = abspath(join(self.p.out, self.p.out)) + '.g2'
-        WriteG2(path, self.blade)
+        WriteG2(self.p.geometry_path(), self.blade)
 
     def _output_2d(self):
         """Produces the final output in 2D mode."""
-        path = abspath(join(self.p.out, self.p.out))
-        self.slices[0].output(path)
+        self.slices[0].output(self.p.out_path())
 
     def _output_semi3d(self):
         """Produces the final output in semi3D mode."""
         progress('Writing planes', 0, len(self.slices))
         for i, s in enumerate(self.slices):
-            path = abspath(join(self.p.out, 'slice-%03i' % (i+1)))
+            custom = 'slice-%03i' % (i+1)
+            path = self.p.out_path(custom)
 
             # In OpenFOAM mode, we have to output to separate subfolders
             if self.p.format == 'OpenFOAM':
@@ -197,7 +196,7 @@ class MeshGen(object):
                     pass
                 path = join(path, 'out')
 
-            s.output(path)
+            s.output(path, custom)
             progress('Writing planes', i+1, len(self.slices))
 
         if self.p.format == 'IFEM':
@@ -205,7 +204,7 @@ class MeshGen(object):
 
     def _output_3d(self):
         """Produces the final output in 3D mode."""
-        path = abspath(join(self.p.out, self.p.out))
+        path = self.p.out_path()
         n = Numberer()
 
         # Add all the patches and boundaries
@@ -229,7 +228,7 @@ class MeshGen(object):
             convert_openfoam(path)
         if self.p.format == 'IFEM':
             self._output_beam()
-            self.p.postprocess_xinp('%s.xinp' % path)
+            self.p.postprocess_xinp()
 
     def _resample_length_uniform(self, za, zb):
         """Uniform length resampling."""

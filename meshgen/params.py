@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+from os.path import *
 import sys
 import xml.etree.ElementTree as xml
 
@@ -167,10 +168,10 @@ class Params(object):
 
     def out_yaml(self):
         """Writes a YAML file with the original parameters."""
-        filename = os.path.join(self.out, 'parameters.yaml')
+        filename = join(self.out, 'parameters.yaml')
 
         time = datetime.now().isoformat()
-        proc = subprocess.Popen(['git', '-C', os.path.abspath(os.path.dirname(__file__)),
+        proc = subprocess.Popen(['git', '-C', abspath(dirname(__file__)),
                                  'rev-parse', 'HEAD'], stdout=subprocess.PIPE)
         commit, _ = proc.communicate()
 
@@ -220,15 +221,35 @@ class Params(object):
 
         self._num_out += 1
 
-    def postprocess_xinp(self, path):
-        """Performs postprocessing on an IFEM xinp file."""
-        # Output flow characteristics
+    def postprocess_xinp(self, custom=None):
+        """Writes extra output."""
+        # Output stokes tag
+        path = self.out_path(custom, 'stokes') + '.xinp'
         mu = self.rho * self.velocity * self.len_char / self.Re
+        data = ['<?xml version="1.0" encoding="UTF-8" standalone="no"?>', '',
+                '<stokes>',
+                '  <fluidproperties mu="%e" rho="%e" />' % (mu, self.rho),
+                '</stokes>', '']
+        with open(path, 'w') as f:
+            f.write('\n'.join(data))
 
-        with open(path, 'a') as f:
-            f.write('\n<stokes>\n')
-            f.write('  <fluidproperties mu="%e" rho="%e" />\n' % (mu, self.rho))
-            f.write('</stokes>\n')
+        # Output complete file
+        path = self.out_path(custom, 'full') + '.xinp'
+        data = ['<?xml version="1.0" encoding="UTF-8" standalone="no"?>', '',
+                '<simulation>']
+        data += ['  <include>%s.xinp</include>' % self.out_path(custom, q, False)
+                 for q in ['geometry', 'stokes']]
+        data += ['</simulation>', '']
+        with open(path, 'w') as f:
+            f.write('\n'.join(data))
+
+    def out_path(self, custom=None, name='geometry', absolute=True):
+        """Returns the proper path for output (without extension)."""
+        if custom:
+            name = '%s-%s' % (custom, name)
+        if not absolute:
+            return name
+        return abspath(join(self.out, name))
 
     def _postprocess(self):
         """Performs all the postprocessing."""

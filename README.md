@@ -79,6 +79,9 @@ not exist, and cleared if it does.
 The output format.  Valid values are `IFEM` and `OpenFOAM`.  Note that OpenFOAM output requires
 `order=2` and `walldistance` set to `false`.
 
+For IFEM format, a file called `full.xinp` will be produced that includes all the other relevant
+files.
+
 #### nprocs
 
 The number of processors to optimize for.  This is *not* the same as `nprocs_mg`.

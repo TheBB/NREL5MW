@@ -133,7 +133,7 @@ class Slice(object):
         for attr in self.components():
             deep_lower_order(getattr(self, attr), self.p.order)
 
-    def output(self, path):
+    def output(self, path, custom=None):
         """Outputs this slice by itself to the given path."""
         n = Numberer()
         self.push_patches(n)
@@ -151,7 +151,7 @@ class Slice(object):
         if self.p.format == 'OpenFOAM':
             convert_openfoam(path)
         if self.p.format == 'IFEM':
-            self.p.postprocess_xinp('%s.xinp' % path)
+            self.p.postprocess_xinp(custom)
 
     def push_patches(self, n):
         """Adds all the patches to the numberer."""

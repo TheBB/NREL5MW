@@ -175,7 +175,7 @@ class MeshGen(object):
 
     def _output_blade(self):
         """Produces the final output of the blade."""
-        WriteG2(self.p.geometry_path(), self.blade)
+        WriteG2(self.p.out_path() + '.g2', self.blade)
 
     def _output_2d(self):
         """Produces the final output in 2D mode."""

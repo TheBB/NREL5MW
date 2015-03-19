@@ -1,5 +1,6 @@
 from itertools import *
 
+from GoTools import Point
 from GoTools.CurveFactory import Circle, IntersectCurve, LineSegment
 from GeoUtils.IO import Numberer, InputFile
 from GeoUtils.Refinement import GeometricRefineCurve, GeometricRefineSurface, UniformCurve
@@ -61,7 +62,10 @@ class Slice(object):
 
     def z(self):
         """Returns the z-location of this slice."""
-        return self.inner_left[0][0][0][2]
+        k = self.inner_left
+        while type(k) is not Point:
+            k = k[0]
+        return k[2]
 
     def extend(self):
         """Creates extension patches according to the given parameters (behind, ahead and side)."""
@@ -254,7 +258,7 @@ class Slice(object):
                 
         # In case of open outflow, ensure the corner vertices belong to the slipwall
         if self.p.out_slip == 'slip':
-            if self.p.ext_bs:
+            if self.p.ext_not_bs:
                 vx('left', self.inner_left[0][-1], 3)
                 vx('right', self.inner_right[0][-1], 2)
             else:

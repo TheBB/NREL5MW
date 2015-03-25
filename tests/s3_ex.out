@@ -1,0 +1,2335 @@
+beam.g2
+patch 1
+<type 'GoTools.Curve'>
+kmult dir 1: 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2
+slice-001-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-001-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-002-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-002-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-003-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-003-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-004-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-004-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-005-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-005-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-006-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-006-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-007-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-007-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-008-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-008-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-009-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-009-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-010-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-010-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-011-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-011-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-012-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-012-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-013-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-013-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-014-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-014-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-015-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-015-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-016-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-016-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-017-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-017-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-018-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-018-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-019-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-019-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-020-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-020-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 
+slice-021-geometry.g2
+patch 1
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 2
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 3
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 4
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 5
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 6
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 7
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 8
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 9
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 10
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 11
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 12
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 13
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 14
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 15
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 16
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 17
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 18
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 19
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+patch 20
+<type 'GoTools.Surface'>
+kmult dir 1: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+kmult dir 2: 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3
+slice-021-geometry.xinp
+topset: outflow
+17 vertices:  edges: 3 faces: 
+19 vertices:  edges: 3 faces: 
+topset: slipwall_right
+10 vertices: 3 edges:  faces: 
+12 vertices:  edges: 4 faces: 
+14 vertices:  edges: 4 faces: 
+19 vertices: 2 edges: 2 faces: 
+20 vertices:  edges: 2 faces: 
+topset: slipwall_left
+2 vertices: 4 edges:  faces: 
+4 vertices:  edges: 4 faces: 
+6 vertices:  edges: 4 faces: 
+17 vertices: 1 edges: 1 faces: 
+18 vertices:  edges: 1 faces: 
+topset: wing
+1 vertices:  edges: 3 faces: 
+3 vertices:  edges: 3 faces: 
+5 vertices:  edges: 3 faces: 
+7 vertices:  edges: 3 faces: 
+9 vertices:  edges: 3 faces: 
+11 vertices:  edges: 3 faces: 
+13 vertices:  edges: 3 faces: 
+15 vertices:  edges: 3 faces: 
+topset: inflow
+6 vertices: 4 edges:  faces: 
+8 vertices:  edges: 4 faces: 
+14 vertices: 3 edges:  faces: 
+16 vertices:  edges: 4 faces: 

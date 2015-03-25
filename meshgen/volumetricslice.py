@@ -7,7 +7,7 @@ class VolumetricSlice(Slice):
 
     def __init__(self, params):
         """Private constructor. Foreign code should use `from_slices` or `from_slice`."""
-        self.p = params
+        super(VolumetricSlice, self).__init__(params)
 
     @classmethod
     def from_slices(cls, slices):
@@ -33,10 +33,6 @@ class VolumetricSlice(Slice):
         for attr, val in kwargs.iteritems():
             setattr(new, attr, val)
         return new
-
-    def z(self):
-        """Prevents foreign code from relying on Slice.z()."""
-        raise NotImplementedError("VolumetricSlice.z() doesn't make sense")
 
     def subdivide(self):
         """Subdivides a volumetric slice lengthwise. This function shadows Slice.subdivide(). One

@@ -59,16 +59,17 @@ def te_curve(pta, ptb, tnga, tngb):
 class AirFoil(object):
     """This class represents a single one-dimensional periodic airfoil curve."""
 
-    def __init__(self, params, theta):
+    def __init__(self, params, theta, z):
         """Private constructor. Foreign code should call one of the specialized constructors
         (`from_wingdef`, `from_pts` or `from_mean`)."""
         self.p = params
         self.theta = theta
+        self.z = z
 
     @classmethod
     def from_wingdef(cls, params, wd):
         """Produces an airfoil from a wing definition."""
-        airfoil = cls(params, wd.theta)
+        airfoil = cls(params, wd.theta, wd.z)
 
         if wd.foil == 'cylinder':
             center = Point(wd.chord * (.25 - wd.ao + wd.ac), 0, wd.z)
@@ -96,7 +97,7 @@ class AirFoil(object):
     def from_pts(cls, params, theta, pts):
         """Produces an airfoil from a point cloud (starting and ending at the trailing edge,
         positive rotation direction."""
-        airfoil = cls(params, theta)
+        airfoil = cls(params, theta, pts[0][2])
         airfoil.curve = ip.CubicCurve(pts=pts, t=range(len(pts)), boundary=ip.PERIODIC)
         return airfoil
 
@@ -109,17 +110,13 @@ class AirFoil(object):
 
     def translate(self, pt):
         """Creates a new airfoil by translating this one by a given vector."""
-        airfoil = AirFoil(self.p, self.theta)
+        airfoil = AirFoil(self.p, self.theta, self.z + pt[2])
         airfoil.curve = deep_translate(self.curve, pt)
         return airfoil
 
     def objects(self):
         """Required for debug output."""
         return [self.curve]
-
-    def z(self):
-        """Returns the z-location of this airfoil."""
-        return self.curve[0][2]
 
     def resample(self):
         """Resamples the airfoil according to the given parameters. The airfoil must have been

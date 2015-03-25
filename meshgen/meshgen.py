@@ -78,7 +78,7 @@ class MeshGen(object):
         """Resamples airfoils in the length direction."""
         # Loft the curves to produce a wing surface
         curves = [af.curve for af in self.airfoils]
-        zvals = [af.z() for af in self.airfoils]
+        zvals = [af.z for af in self.airfoils]
         wing = LoftCurves(curves, zvals, order=4)
 
         # Interpolating curve for theta as a function of z
@@ -127,7 +127,7 @@ class MeshGen(object):
 
     def loft_slices(self):
         """Lofts slices together to produce volumetric slices."""
-        self.zvals = [s.z() for s in self.slices]
+        self.zvals = [s.z for s in self.slices]
 
         temp = VolumetricSlice.from_slices(self.slices)
         self.slices = temp.subdivide()
@@ -168,7 +168,7 @@ class MeshGen(object):
     def _output_beam(self):
         """Writes a beam.g2 file."""
         if not hasattr(self, 'zvals'):
-            self.zvals = [s.z() for s in self.slices]
+            self.zvals = [s.z for s in self.slices]
 
         beam = ip.LinearCurve(pts=[Point(0,0,z) for z in self.zvals])
         WriteG2(join(self.p.out, 'beam.g2'), beam)

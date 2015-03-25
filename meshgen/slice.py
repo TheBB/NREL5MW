@@ -18,16 +18,18 @@ COMPONENTS = {'inner_left', 'inner_right',
 class Slice(object):
     """This class represents a two-dimensional slice of the blade geometry."""
 
-    def __init__(self, params):
+    def __init__(self, params, z=None):
         """Private constructor. Foreign code should call `from_airfoil`."""
         self.p = params
+        if z is not None:
+            self.z = z
 
     @classmethod
     def from_airfoil(cls, airfoil):
         """Constructs a slice from an airfoil. The parameters are inherited from the given
         airfoil. The constructor will make all the TFI computations necessary to produce the
         surrounding O-mesh."""
-        new = cls(airfoil.p)
+        new = cls(airfoil.p, airfoil.z)
 
         trailing, fac = new._make_trailing(airfoil.curve)
         inner = new._make_inner(trailing, airfoil.curve)
@@ -45,7 +47,7 @@ class Slice(object):
 
     def translate(self, pt):
         """Create a new slice by translating this slice along a given vector."""
-        new = Slice(self.p)
+        new = Slice(self.p, self.z + pt[2])
         for attr in self.components():
             setattr(new, attr, deep_translate(getattr(self, attr), pt))
         return new
@@ -59,13 +61,6 @@ class Slice(object):
         """Required for debug output."""
         return chain.from_iterable(flatten_objects(getattr(self, attr))
                                    for attr in self.components())
-
-    def z(self):
-        """Returns the z-location of this slice."""
-        k = self.inner_left
-        while type(k) is not Point:
-            k = k[0]
-        return k[2]
 
     def extend(self):
         """Creates extension patches according to the given parameters (behind, ahead and side)."""

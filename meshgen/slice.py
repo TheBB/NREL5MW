@@ -327,10 +327,12 @@ class Slice(object):
                 vx(self.inner_left[i_nidx][-1], i_or)
                 vx(self.inner_right[i_nidx][-1], j_or)
             else:
-                ext_es = (extended, self.p.ext_s)
-                l, r = {(True,  False): (ext_patches[0][v_idx], ext_patches[1][v_idx]),
-                        (False, True):  (self.left[v_idx][0], self.right[v_idx][-1]),
-                        (True,  True):  (corners[0][0][v_idx], corners[1][-1][v_idx])}[ext_es]
+                if extended and not self.p.ext_s:
+                    l, r =ext_patches[0][v_idx], ext_patches[1][v_idx]
+                elif extended and self.p.ext_s:
+                    l, r = corners[0][0][v_idx], corners[1][-1][v_idx]
+                elif not extended and self.p.ext_s:
+                    l, r = self.left[v_idx][0], self.right[v_idx][-1]
                 vx(l, l_vx)
                 vx(r, l_vx + 1)
 

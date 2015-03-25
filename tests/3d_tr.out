@@ -1,0 +1,3677 @@
+beam.g2
+patch 1
+<type 'GoTools.Curve'>
+kmult dir 1: 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2
+geometry.g2
+patch 1
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 2
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 3
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 4
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 5
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 6
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 7
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 8
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 9
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 10
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 11
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 12
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 13
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 14
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 15
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 16
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 17
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 18
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 19
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 20
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 21
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 22
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 23
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 24
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 25
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 26
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 27
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 28
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 29
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 30
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 31
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 32
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 33
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 34
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 35
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 36
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 37
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 38
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 39
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 40
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 41
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 42
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 43
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 44
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 45
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 46
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 47
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 48
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 49
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 50
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 51
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 52
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 53
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 54
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 55
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 56
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 57
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 58
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 59
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 60
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 61
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 62
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 63
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 64
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 65
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 66
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 67
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 68
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 69
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 70
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 71
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 72
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 73
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 74
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 75
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 76
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 77
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 78
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 79
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 80
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 81
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 82
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 83
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 84
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 85
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 86
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 87
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 88
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 89
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 90
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 91
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 92
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 93
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 94
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 95
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 96
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 97
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 98
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 99
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 100
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 101
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 102
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 103
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 104
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 105
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 106
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 107
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 108
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 109
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 110
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 111
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 112
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 113
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 114
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 115
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 116
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 117
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 118
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 119
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 120
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 121
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 122
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 123
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 124
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 125
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 126
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 127
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 128
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 129
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 130
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 131
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 132
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 133
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 134
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 135
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 136
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 137
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 138
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 139
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 140
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 141
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 142
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 143
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 144
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 145
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 146
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 147
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 148
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 149
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 150
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 151
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 152
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 153
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 154
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 155
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 156
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 157
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 158
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 159
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 160
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 161
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 162
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 163
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 164
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 165
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 166
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 167
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 168
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 169
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 170
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 171
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 172
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 173
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 174
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 175
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 176
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 177
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 178
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 179
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 180
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 181
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 182
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 183
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 184
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 185
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 186
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 187
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 188
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 189
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 190
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 191
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 192
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 193
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 194
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 195
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 196
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 197
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 198
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 199
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 200
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 201
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 202
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 203
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 204
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 205
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 206
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 207
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 208
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 209
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 210
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 211
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 212
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 213
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 214
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 215
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 216
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 217
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 218
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 219
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 220
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 221
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 222
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 223
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 224
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 225
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 226
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 227
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 228
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 229
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 230
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 231
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 232
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 233
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 234
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 235
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 236
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 237
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 238
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 239
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 240
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 241
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 242
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 243
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 244
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 245
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 246
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 247
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 248
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 249
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 250
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 251
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 252
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 253
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 254
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 255
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 256
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 257
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 258
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 259
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 260
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 261
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 262
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 263
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 264
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 265
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 266
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 267
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 268
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 269
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 270
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 271
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 272
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 273
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 274
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 275
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 276
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 277
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 278
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 279
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 280
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 281
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 282
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 283
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 284
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 285
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 286
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 287
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 288
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 289
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 290
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 291
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 292
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 293
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 294
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 295
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 296
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 297
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 298
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 299
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 300
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 301
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 302
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 303
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 304
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 305
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 306
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 307
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 308
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 309
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 310
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 311
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 312
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 313
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 314
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 315
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 316
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 317
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 318
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 319
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 320
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 321
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 322
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 323
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 324
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 325
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 326
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 327
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 328
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 329
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 330
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 331
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 332
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 333
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 334
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 335
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 336
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 337
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 338
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 339
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 340
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 341
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 342
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 343
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 344
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 345
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 346
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 347
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 348
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 349
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 350
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 351
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 352
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 353
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 354
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 355
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 356
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 357
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 358
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 359
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 360
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 361
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 362
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 363
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 364
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 365
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 366
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 367
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 368
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 369
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 370
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 371
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 372
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 373
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 374
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 375
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 376
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 377
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 378
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 379
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 380
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 381
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 382
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 383
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 384
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 385
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 386
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 387
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 388
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 389
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 390
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 391
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 392
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 393
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 394
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 395
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 396
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 397
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 398
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 399
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 400
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 401
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 402
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 403
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 404
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 405
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 406
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 407
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 408
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 409
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 410
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 411
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 412
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 413
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 414
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 415
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 416
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 417
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 418
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 419
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 420
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 421
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 422
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 423
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 424
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 425
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 426
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 427
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 428
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 429
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 430
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 431
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 432
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 433
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 434
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 435
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 436
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 437
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 438
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 439
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 440
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 441
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 442
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 443
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 444
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 445
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 446
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 447
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 448
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 449
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 450
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 451
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 452
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 453
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 454
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 455
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 456
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 457
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 458
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 459
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 460
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 461
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 462
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 463
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 464
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 465
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 466
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 467
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 468
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 469
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 470
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 471
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 472
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 473
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 474
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 475
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 476
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 477
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 478
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 479
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 480
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 481
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 482
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 483
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 484
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 485
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 486
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 487
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 488
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 489
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 490
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 491
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 492
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 493
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 494
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 495
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 496
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 497
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 498
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 499
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 500
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 501
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 502
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 503
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 504
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 505
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 506
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 507
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 508
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 509
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 510
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 511
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 512
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 513
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 514
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 515
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 516
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 517
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 518
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 519
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 520
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 521
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 522
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 523
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 524
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 525
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 526
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 527
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 528
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 529
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 530
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 531
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 532
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 533
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 534
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 535
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 536
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 537
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 538
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 539
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 540
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 541
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 542
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 543
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 544
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 545
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 546
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 547
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 548
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 549
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 550
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 551
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 552
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 553
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 554
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 555
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 556
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 557
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 558
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 559
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 560
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 561
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 562
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 563
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 564
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 565
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 566
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 567
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 568
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 569
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 570
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 571
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 572
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 573
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 574
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 575
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 576
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 577
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 578
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 579
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 580
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 581
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 582
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 583
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 584
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 585
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 586
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 587
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 588
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 589
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 590
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 591
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 592
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 593
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 594
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 595
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 596
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 597
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 598
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 599
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 600
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 601
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 602
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 603
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 604
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 605
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 606
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 607
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 608
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 609
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 610
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 611
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 612
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 613
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 614
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 615
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 616
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 617
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 618
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 619
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 620
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 621
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 622
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 623
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 624
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 625
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 626
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 627
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 628
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 629
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 630
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 631
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 632
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 633
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 634
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 635
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 636
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 637
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 638
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 639
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+patch 640
+<type 'GoTools.Volume'>
+kmult dir 1: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 2: 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
+kmult dir 3: 4 1 1 1 4
+geometry.xinp
+topset: slipwall_right
+24 vertices:  edges: 2 faces: 4
+28 vertices:  edges: 2 faces: 4
+56 vertices:  edges:  faces: 4
+60 vertices:  edges:  faces: 4
+88 vertices:  edges:  faces: 4
+92 vertices:  edges:  faces: 4
+120 vertices:  edges:  faces: 4
+124 vertices:  edges:  faces: 4
+152 vertices:  edges:  faces: 4
+156 vertices:  edges:  faces: 4
+184 vertices:  edges:  faces: 4
+188 vertices:  edges:  faces: 4
+216 vertices:  edges:  faces: 4
+220 vertices:  edges:  faces: 4
+248 vertices:  edges:  faces: 4
+252 vertices:  edges:  faces: 4
+280 vertices:  edges:  faces: 4
+284 vertices:  edges:  faces: 4
+312 vertices:  edges:  faces: 4
+316 vertices:  edges:  faces: 4
+344 vertices:  edges:  faces: 4
+348 vertices:  edges:  faces: 4
+376 vertices:  edges:  faces: 4
+380 vertices:  edges:  faces: 4
+408 vertices:  edges:  faces: 4
+412 vertices:  edges:  faces: 4
+440 vertices:  edges:  faces: 4
+444 vertices:  edges:  faces: 4
+472 vertices:  edges:  faces: 4
+476 vertices:  edges:  faces: 4
+504 vertices:  edges:  faces: 4
+508 vertices:  edges:  faces: 4
+536 vertices:  edges:  faces: 4
+540 vertices:  edges:  faces: 4
+568 vertices:  edges:  faces: 4
+572 vertices:  edges:  faces: 4
+600 vertices:  edges:  faces: 4
+604 vertices:  edges:  faces: 4
+632 vertices:  edges: 4 faces: 4
+636 vertices:  edges: 4 faces: 4
+topset: hub
+1 vertices:  edges: 1 faces: 5
+2 vertices:  edges:  faces: 5
+3 vertices:  edges:  faces: 5
+4 vertices:  edges:  faces: 5
+5 vertices:  edges: 1 faces: 5
+6 vertices:  edges:  faces: 5
+7 vertices:  edges:  faces: 5
+8 vertices:  edges:  faces: 5
+9 vertices:  edges: 1 faces: 5
+10 vertices:  edges:  faces: 5
+11 vertices:  edges:  faces: 5
+12 vertices:  edges:  faces: 5
+13 vertices:  edges: 1 faces: 5
+14 vertices:  edges:  faces: 5
+15 vertices:  edges:  faces: 5
+16 vertices:  edges:  faces: 5
+17 vertices:  edges: 1 faces: 5
+18 vertices:  edges:  faces: 5
+19 vertices:  edges:  faces: 5
+20 vertices:  edges:  faces: 5
+21 vertices:  edges: 1 faces: 5
+22 vertices:  edges:  faces: 5
+23 vertices:  edges:  faces: 5
+24 vertices:  edges:  faces: 5
+25 vertices:  edges: 1 faces: 5
+26 vertices:  edges:  faces: 5
+27 vertices:  edges:  faces: 5
+28 vertices:  edges:  faces: 5
+29 vertices:  edges: 1 faces: 5
+30 vertices:  edges:  faces: 5
+31 vertices:  edges:  faces: 5
+32 vertices:  edges:  faces: 5
+topset: slipwall_left
+8 vertices:  edges: 2 faces: 4
+12 vertices:  edges: 2 faces: 4
+40 vertices:  edges:  faces: 4
+44 vertices:  edges:  faces: 4
+72 vertices:  edges:  faces: 4
+76 vertices:  edges:  faces: 4
+104 vertices:  edges:  faces: 4
+108 vertices:  edges:  faces: 4
+136 vertices:  edges:  faces: 4
+140 vertices:  edges:  faces: 4
+168 vertices:  edges:  faces: 4
+172 vertices:  edges:  faces: 4
+200 vertices:  edges:  faces: 4
+204 vertices:  edges:  faces: 4
+232 vertices:  edges:  faces: 4
+236 vertices:  edges:  faces: 4
+264 vertices:  edges:  faces: 4
+268 vertices:  edges:  faces: 4
+296 vertices:  edges:  faces: 4
+300 vertices:  edges:  faces: 4
+328 vertices:  edges:  faces: 4
+332 vertices:  edges:  faces: 4
+360 vertices:  edges:  faces: 4
+364 vertices:  edges:  faces: 4
+392 vertices:  edges:  faces: 4
+396 vertices:  edges:  faces: 4
+424 vertices:  edges:  faces: 4
+428 vertices:  edges:  faces: 4
+456 vertices:  edges:  faces: 4
+460 vertices:  edges:  faces: 4
+488 vertices:  edges:  faces: 4
+492 vertices:  edges:  faces: 4
+520 vertices:  edges:  faces: 4
+524 vertices:  edges:  faces: 4
+552 vertices:  edges:  faces: 4
+556 vertices:  edges:  faces: 4
+584 vertices:  edges:  faces: 4
+588 vertices:  edges:  faces: 4
+616 vertices:  edges: 4 faces: 4
+620 vertices:  edges: 4 faces: 4
+topset: antihub
+609 vertices:  edges: 3 faces: 6
+610 vertices:  edges:  faces: 6
+611 vertices:  edges:  faces: 6
+612 vertices:  edges: 4 faces: 6
+613 vertices:  edges: 3 faces: 6
+614 vertices:  edges:  faces: 6
+615 vertices:  edges:  faces: 6
+616 vertices:  edges:  faces: 6
+617 vertices:  edges: 3 faces: 6
+618 vertices:  edges:  faces: 6
+619 vertices:  edges:  faces: 6
+620 vertices:  edges:  faces: 6
+621 vertices:  edges: 3 faces: 6
+622 vertices:  edges:  faces: 6
+623 vertices:  edges:  faces: 6
+624 vertices:  edges: 4 faces: 6
+625 vertices:  edges: 3 faces: 6
+626 vertices:  edges:  faces: 6
+627 vertices:  edges:  faces: 6
+628 vertices:  edges: 4 faces: 6
+629 vertices:  edges: 3 faces: 6
+630 vertices:  edges:  faces: 6
+631 vertices:  edges:  faces: 6
+632 vertices:  edges:  faces: 6
+633 vertices:  edges: 3 faces: 6
+634 vertices:  edges:  faces: 6
+635 vertices:  edges:  faces: 6
+636 vertices:  edges:  faces: 6
+637 vertices:  edges: 3 faces: 6
+638 vertices:  edges:  faces: 6
+639 vertices:  edges:  faces: 6
+640 vertices:  edges: 4 faces: 6
+topset: outflow
+4 vertices:  edges: 2 faces: 4
+8 vertices:  edges: 11 faces: 
+20 vertices:  edges: 2 faces: 4
+24 vertices:  edges: 12 faces: 
+36 vertices:  edges:  faces: 4
+40 vertices:  edges: 11 faces: 
+52 vertices:  edges:  faces: 4
+56 vertices:  edges: 12 faces: 
+68 vertices:  edges:  faces: 4
+72 vertices:  edges: 11 faces: 
+84 vertices:  edges:  faces: 4
+88 vertices:  edges: 12 faces: 
+100 vertices:  edges:  faces: 4
+104 vertices:  edges: 11 faces: 
+116 vertices:  edges:  faces: 4
+120 vertices:  edges: 12 faces: 
+132 vertices:  edges:  faces: 4
+136 vertices:  edges: 11 faces: 
+148 vertices:  edges:  faces: 4
+152 vertices:  edges: 12 faces: 
+164 vertices:  edges:  faces: 4
+168 vertices:  edges: 11 faces: 
+180 vertices:  edges:  faces: 4
+184 vertices:  edges: 12 faces: 
+196 vertices:  edges:  faces: 4
+200 vertices:  edges: 11 faces: 
+212 vertices:  edges:  faces: 4
+216 vertices:  edges: 12 faces: 
+228 vertices:  edges:  faces: 4
+232 vertices:  edges: 11 faces: 
+244 vertices:  edges:  faces: 4
+248 vertices:  edges: 12 faces: 
+260 vertices:  edges:  faces: 4
+264 vertices:  edges: 11 faces: 
+276 vertices:  edges:  faces: 4
+280 vertices:  edges: 12 faces: 
+292 vertices:  edges:  faces: 4
+296 vertices:  edges: 11 faces: 
+308 vertices:  edges:  faces: 4
+312 vertices:  edges: 12 faces: 
+324 vertices:  edges:  faces: 4
+328 vertices:  edges: 11 faces: 
+340 vertices:  edges:  faces: 4
+344 vertices:  edges: 12 faces: 
+356 vertices:  edges:  faces: 4
+360 vertices:  edges: 11 faces: 
+372 vertices:  edges:  faces: 4
+376 vertices:  edges: 12 faces: 
+388 vertices:  edges:  faces: 4
+392 vertices:  edges: 11 faces: 
+404 vertices:  edges:  faces: 4
+408 vertices:  edges: 12 faces: 
+420 vertices:  edges:  faces: 4
+424 vertices:  edges: 11 faces: 
+436 vertices:  edges:  faces: 4
+440 vertices:  edges: 12 faces: 
+452 vertices:  edges:  faces: 4
+456 vertices:  edges: 11 faces: 
+468 vertices:  edges:  faces: 4
+472 vertices:  edges: 12 faces: 
+484 vertices:  edges:  faces: 4
+488 vertices:  edges: 11 faces: 
+500 vertices:  edges:  faces: 4
+504 vertices:  edges: 12 faces: 
+516 vertices:  edges:  faces: 4
+520 vertices:  edges: 11 faces: 
+532 vertices:  edges:  faces: 4
+536 vertices:  edges: 12 faces: 
+548 vertices:  edges:  faces: 4
+552 vertices:  edges: 11 faces: 
+564 vertices:  edges:  faces: 4
+568 vertices:  edges: 12 faces: 
+580 vertices:  edges:  faces: 4
+584 vertices:  edges: 11 faces: 
+596 vertices:  edges:  faces: 4
+600 vertices:  edges: 12 faces: 
+612 vertices:  edges:  faces: 4
+616 vertices:  edges: 11 faces: 
+628 vertices:  edges:  faces: 4
+632 vertices:  edges: 12 faces: 
+topset: wing
+1 vertices:  edges:  faces: 3
+5 vertices:  edges:  faces: 3
+9 vertices:  edges:  faces: 3
+13 vertices:  edges:  faces: 3
+17 vertices:  edges:  faces: 3
+21 vertices:  edges:  faces: 3
+25 vertices:  edges:  faces: 3
+29 vertices:  edges:  faces: 3
+33 vertices:  edges:  faces: 3
+37 vertices:  edges:  faces: 3
+41 vertices:  edges:  faces: 3
+45 vertices:  edges:  faces: 3
+49 vertices:  edges:  faces: 3
+53 vertices:  edges:  faces: 3
+57 vertices:  edges:  faces: 3
+61 vertices:  edges:  faces: 3
+65 vertices:  edges:  faces: 3
+69 vertices:  edges:  faces: 3
+73 vertices:  edges:  faces: 3
+77 vertices:  edges:  faces: 3
+81 vertices:  edges:  faces: 3
+85 vertices:  edges:  faces: 3
+89 vertices:  edges:  faces: 3
+93 vertices:  edges:  faces: 3
+97 vertices:  edges:  faces: 3
+101 vertices:  edges:  faces: 3
+105 vertices:  edges:  faces: 3
+109 vertices:  edges:  faces: 3
+113 vertices:  edges:  faces: 3
+117 vertices:  edges:  faces: 3
+121 vertices:  edges:  faces: 3
+125 vertices:  edges:  faces: 3
+129 vertices:  edges:  faces: 3
+133 vertices:  edges:  faces: 3
+137 vertices:  edges:  faces: 3
+141 vertices:  edges:  faces: 3
+145 vertices:  edges:  faces: 3
+149 vertices:  edges:  faces: 3
+153 vertices:  edges:  faces: 3
+157 vertices:  edges:  faces: 3
+161 vertices:  edges:  faces: 3
+165 vertices:  edges:  faces: 3
+169 vertices:  edges:  faces: 3
+173 vertices:  edges:  faces: 3
+177 vertices:  edges:  faces: 3
+181 vertices:  edges:  faces: 3
+185 vertices:  edges:  faces: 3
+189 vertices:  edges:  faces: 3
+193 vertices:  edges:  faces: 3
+197 vertices:  edges:  faces: 3
+201 vertices:  edges:  faces: 3
+205 vertices:  edges:  faces: 3
+209 vertices:  edges:  faces: 3
+213 vertices:  edges:  faces: 3
+217 vertices:  edges:  faces: 3
+221 vertices:  edges:  faces: 3
+225 vertices:  edges:  faces: 3
+229 vertices:  edges:  faces: 3
+233 vertices:  edges:  faces: 3
+237 vertices:  edges:  faces: 3
+241 vertices:  edges:  faces: 3
+245 vertices:  edges:  faces: 3
+249 vertices:  edges:  faces: 3
+253 vertices:  edges:  faces: 3
+257 vertices:  edges:  faces: 3
+261 vertices:  edges:  faces: 3
+265 vertices:  edges:  faces: 3
+269 vertices:  edges:  faces: 3
+273 vertices:  edges:  faces: 3
+277 vertices:  edges:  faces: 3
+281 vertices:  edges:  faces: 3
+285 vertices:  edges:  faces: 3
+289 vertices:  edges:  faces: 3
+293 vertices:  edges:  faces: 3
+297 vertices:  edges:  faces: 3
+301 vertices:  edges:  faces: 3
+305 vertices:  edges:  faces: 3
+309 vertices:  edges:  faces: 3
+313 vertices:  edges:  faces: 3
+317 vertices:  edges:  faces: 3
+321 vertices:  edges:  faces: 3
+325 vertices:  edges:  faces: 3
+329 vertices:  edges:  faces: 3
+333 vertices:  edges:  faces: 3
+337 vertices:  edges:  faces: 3
+341 vertices:  edges:  faces: 3
+345 vertices:  edges:  faces: 3
+349 vertices:  edges:  faces: 3
+353 vertices:  edges:  faces: 3
+357 vertices:  edges:  faces: 3
+361 vertices:  edges:  faces: 3
+365 vertices:  edges:  faces: 3
+369 vertices:  edges:  faces: 3
+373 vertices:  edges:  faces: 3
+377 vertices:  edges:  faces: 3
+381 vertices:  edges:  faces: 3
+385 vertices:  edges:  faces: 3
+389 vertices:  edges:  faces: 3
+393 vertices:  edges:  faces: 3
+397 vertices:  edges:  faces: 3
+401 vertices:  edges:  faces: 3
+405 vertices:  edges:  faces: 3
+409 vertices:  edges:  faces: 3
+413 vertices:  edges:  faces: 3
+417 vertices:  edges:  faces: 3
+421 vertices:  edges:  faces: 3
+425 vertices:  edges:  faces: 3
+429 vertices:  edges:  faces: 3
+433 vertices:  edges:  faces: 3
+437 vertices:  edges:  faces: 3
+441 vertices:  edges:  faces: 3
+445 vertices:  edges:  faces: 3
+449 vertices:  edges:  faces: 3
+453 vertices:  edges:  faces: 3
+457 vertices:  edges:  faces: 3
+461 vertices:  edges:  faces: 3
+465 vertices:  edges:  faces: 3
+469 vertices:  edges:  faces: 3
+473 vertices:  edges:  faces: 3
+477 vertices:  edges:  faces: 3
+481 vertices:  edges:  faces: 3
+485 vertices:  edges:  faces: 3
+489 vertices:  edges:  faces: 3
+493 vertices:  edges:  faces: 3
+497 vertices:  edges:  faces: 3
+501 vertices:  edges:  faces: 3
+505 vertices:  edges:  faces: 3
+509 vertices:  edges:  faces: 3
+513 vertices:  edges:  faces: 3
+517 vertices:  edges:  faces: 3
+521 vertices:  edges:  faces: 3
+525 vertices:  edges:  faces: 3
+529 vertices:  edges:  faces: 3
+533 vertices:  edges:  faces: 3
+537 vertices:  edges:  faces: 3
+541 vertices:  edges:  faces: 3
+545 vertices:  edges:  faces: 3
+549 vertices:  edges:  faces: 3
+553 vertices:  edges:  faces: 3
+557 vertices:  edges:  faces: 3
+561 vertices:  edges:  faces: 3
+565 vertices:  edges:  faces: 3
+569 vertices:  edges:  faces: 3
+573 vertices:  edges:  faces: 3
+577 vertices:  edges:  faces: 3
+581 vertices:  edges:  faces: 3
+585 vertices:  edges:  faces: 3
+589 vertices:  edges:  faces: 3
+593 vertices:  edges:  faces: 3
+597 vertices:  edges:  faces: 3
+601 vertices:  edges:  faces: 3
+605 vertices:  edges:  faces: 3
+609 vertices:  edges:  faces: 3
+613 vertices:  edges:  faces: 3
+617 vertices:  edges:  faces: 3
+621 vertices:  edges:  faces: 3
+625 vertices:  edges:  faces: 3
+629 vertices:  edges:  faces: 3
+633 vertices:  edges:  faces: 3
+637 vertices:  edges:  faces: 3
+topset: inflow
+12 vertices:  edges: 12 faces: 
+16 vertices:  edges: 2 faces: 4
+28 vertices:  edges: 11 faces: 
+32 vertices:  edges: 2 faces: 4
+44 vertices:  edges: 12 faces: 
+48 vertices:  edges:  faces: 4
+60 vertices:  edges: 11 faces: 
+64 vertices:  edges:  faces: 4
+76 vertices:  edges: 12 faces: 
+80 vertices:  edges:  faces: 4
+92 vertices:  edges: 11 faces: 
+96 vertices:  edges:  faces: 4
+108 vertices:  edges: 12 faces: 
+112 vertices:  edges:  faces: 4
+124 vertices:  edges: 11 faces: 
+128 vertices:  edges:  faces: 4
+140 vertices:  edges: 12 faces: 
+144 vertices:  edges:  faces: 4
+156 vertices:  edges: 11 faces: 
+160 vertices:  edges:  faces: 4
+172 vertices:  edges: 12 faces: 
+176 vertices:  edges:  faces: 4
+188 vertices:  edges: 11 faces: 
+192 vertices:  edges:  faces: 4
+204 vertices:  edges: 12 faces: 
+208 vertices:  edges:  faces: 4
+220 vertices:  edges: 11 faces: 
+224 vertices:  edges:  faces: 4
+236 vertices:  edges: 12 faces: 
+240 vertices:  edges:  faces: 4
+252 vertices:  edges: 11 faces: 
+256 vertices:  edges:  faces: 4
+268 vertices:  edges: 12 faces: 
+272 vertices:  edges:  faces: 4
+284 vertices:  edges: 11 faces: 
+288 vertices:  edges:  faces: 4
+300 vertices:  edges: 12 faces: 
+304 vertices:  edges:  faces: 4
+316 vertices:  edges: 11 faces: 
+320 vertices:  edges:  faces: 4
+332 vertices:  edges: 12 faces: 
+336 vertices:  edges:  faces: 4
+348 vertices:  edges: 11 faces: 
+352 vertices:  edges:  faces: 4
+364 vertices:  edges: 12 faces: 
+368 vertices:  edges:  faces: 4
+380 vertices:  edges: 11 faces: 
+384 vertices:  edges:  faces: 4
+396 vertices:  edges: 12 faces: 
+400 vertices:  edges:  faces: 4
+412 vertices:  edges: 11 faces: 
+416 vertices:  edges:  faces: 4
+428 vertices:  edges: 12 faces: 
+432 vertices:  edges:  faces: 4
+444 vertices:  edges: 11 faces: 
+448 vertices:  edges:  faces: 4
+460 vertices:  edges: 12 faces: 
+464 vertices:  edges:  faces: 4
+476 vertices:  edges: 11 faces: 
+480 vertices:  edges:  faces: 4
+492 vertices:  edges: 12 faces: 
+496 vertices:  edges:  faces: 4
+508 vertices:  edges: 11 faces: 
+512 vertices:  edges:  faces: 4
+524 vertices:  edges: 12 faces: 
+528 vertices:  edges:  faces: 4
+540 vertices:  edges: 11 faces: 
+544 vertices:  edges:  faces: 4
+556 vertices:  edges: 12 faces: 
+560 vertices:  edges:  faces: 4
+572 vertices:  edges: 11 faces: 
+576 vertices:  edges:  faces: 4
+588 vertices:  edges: 12 faces: 
+592 vertices:  edges:  faces: 4
+604 vertices:  edges: 11 faces: 
+608 vertices:  edges:  faces: 4
+620 vertices:  edges: 12 faces: 
+624 vertices:  edges:  faces: 4
+636 vertices:  edges: 11 faces: 
+640 vertices:  edges:  faces: 4

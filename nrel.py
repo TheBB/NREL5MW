@@ -12,7 +12,8 @@ gen = MeshGen(params)
 
 gen.load_airfoils()
 gen.resample_airfoils()
-gen.resolve_join()
+if params.length_mode != 'extruded':
+    gen.resolve_join()
 
 if params.length_mode != 'extruded' and params.mesh_mode != '2d':
     gen.resample_length()

@@ -171,7 +171,8 @@ class Params(object):
         filename = join(self.out, 'parameters.yaml')
 
         time = datetime.now().isoformat()
-        proc = subprocess.Popen(['git', '-C', abspath(dirname(__file__)),
+        repo = join(dirname(dirname(__file__)), '.git')
+        proc = subprocess.Popen(['git', '--git-dir=' + abspath(repo),
                                  'rev-parse', 'HEAD'], stdout=subprocess.PIPE)
         commit, _ = proc.communicate()
 

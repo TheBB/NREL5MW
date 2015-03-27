@@ -61,13 +61,15 @@ if __name__ == '__main__':
     root = dirname(abspath(__file__))
 
     testfiles = [f for f in listdir(join(root, 'tests')) if f.endswith('.yaml')]
+    if not 'all' in sys.argv:
+        testfiles = list(set(testfiles) & set(sys.argv))
     testfiles.sort()
 
     script = join(root, 'nrel.py')
 
     try:
         nprocs = int(sys.argv[1])
-    except IndexError:
+    except (IndexError, ValueError):
         nprocs = 4
 
     total_ok = True

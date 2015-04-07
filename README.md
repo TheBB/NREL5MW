@@ -95,7 +95,7 @@ it already exists.
 
 #### nprocs_mg
 
-Number of processors to use for parallell speedup during mesh generation.
+Number of processors to use for parallel speedup during mesh generation.
 
 #### walldistance
 

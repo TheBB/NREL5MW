@@ -172,9 +172,12 @@ class Params(object):
 
         time = datetime.now().isoformat()
         repo = join(dirname(dirname(__file__)), '.git')
-        proc = subprocess.Popen(['git', '--git-dir=' + abspath(repo),
-                                 'rev-parse', 'HEAD'], stdout=subprocess.PIPE)
-        commit, _ = proc.communicate()
+        if isdir(repo):
+            proc = subprocess.Popen(['git', '--git-dir=' + abspath(repo),
+                                     'rev-parse', 'HEAD'], stdout=subprocess.PIPE)
+            commit, _ = proc.communicate()
+        else:
+            commit = '(unknown)'
 
         with open(filename, 'w') as f:
             f.write('# Mesh generated on: %s\n' % time)

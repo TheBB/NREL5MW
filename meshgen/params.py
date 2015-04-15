@@ -6,6 +6,7 @@ import sys
 import xml.etree.ElementTree as xml
 
 from itertools import product, combinations, permutations, chain
+from operator import itemgetter
 from collections import namedtuple
 from datetime import datetime
 from math import sqrt
@@ -142,6 +143,7 @@ class Params(object):
 
         # Update the namespace
         self.__dict__.update(defaults)
+        self.computed = {}
 
         # Parse the wing definition file
         wingdef = xml.parse(self.wingfile)
@@ -254,6 +256,17 @@ class Params(object):
         if not absolute:
             return name
         return abspath(join(self.out, name))
+
+    def out_computed(self):
+        if not self.computed:
+            return
+
+        print 'Computed quantities:'
+        for c in sorted(self.computed.items(), key=itemgetter(0)):
+            fmt = '- %s: ' + {float: '%e',
+                              int: '%i',
+                              str: '%s'}[type(c[1])]
+            print fmt % c
 
     def _postprocess(self):
         """Performs all the postprocessing."""

@@ -164,6 +164,7 @@ class MeshGen(object):
 
         getattr(self, '_output_' + self.p.mesh_mode)()
         self.p.out_yaml()
+        self.p.out_computed()
 
     def _output_beam(self):
         """Writes a beam.g2 file."""

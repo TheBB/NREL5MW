@@ -37,6 +37,9 @@ class Slice(object):
         split_outer = new._make_outer(split_inner, fac)
         split = [merge_surfaces(i, m, 1) for i, m in zip(split_inner, split_outer)]
 
+        p = airfoil.p
+        new.inner_width = (1 - fac) / (1 - fac**p.n_bndlayer) * p.len_bndlayer
+
         # Ensure right-handedness
         deep_orient(split, 'flipu')
 
@@ -48,6 +51,7 @@ class Slice(object):
     def translate(self, pt):
         """Create a new slice by translating this slice along a given vector."""
         new = Slice(self.p, self.z + pt[2])
+        new.inner_width = self.inner_width
         for attr in self.components():
             setattr(new, attr, deep_translate(getattr(self, attr), pt))
         return new

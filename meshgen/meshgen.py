@@ -110,6 +110,10 @@ class MeshGen(object):
 
         del self.airfoils
         self.slices = result
+
+        self.p.computed['min_inner_width'] = min(s.inner_width for s in result)
+        self.p.computed['max_inner_width'] = max(s.inner_width for s in result)
+
         self.p.dump_g2files('slices_raw', self.slices)
 
     def extend(self):

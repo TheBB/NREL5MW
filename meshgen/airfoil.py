@@ -10,19 +10,8 @@ import GeoUtils.Interpolate as ip
 from utils import *
 
 
-def load_airfoil(filename, gap):
-    """Loads an airfoil from the given file (relative to the airfoils folder).  Introduces a
-    trailing edge gap of the given size.  Returns x-values and y-values."""
-    filename = os.path.join(os.path.dirname(__file__), '../airfoils', filename)
-    data = np.loadtxt(filename)
-
-    # Determine the x- and y-values of the upper and lower sides
-    angles = np.arctan(data[:,3])
-    x_up = data[:,0] - .5 * data[:,1] * np.sin(angles)
-    y_up = data[:,2] + .5 * data[:,1] * np.cos(angles)
-    x_dn = data[:,0] + .5 * data[:,1] * np.sin(angles)
-    y_dn = data[:,2] - .5 * data[:,1] * np.cos(angles)
-
+def modify_airfoil_gap(x_dn, y_dn, x_up, y_up, gap):
+    """Adds a trailing edge modification to the given point cloud."""
     # Determine the midpoints and a normalized curve length parametrization
     midpoints = [Point(x, y, 0) for x, y in zip((x_up + x_dn)/2, (y_up + y_dn)/2)]
     coeffs = np.array(CurveLengthParametrization(midpoints, normalize=True))
@@ -36,6 +25,43 @@ def load_airfoil(filename, gap):
     xs = np.hstack((np.flipud(x_up), x_dn[1:]))
     ys = np.hstack((np.flipud(y_up), y_dn[1:]))
     return xs, ys
+
+
+def load_airfoil_mid(filename, gap):
+    """Loads an airfoil in midline format."""
+    data = np.loadtxt(filename)
+
+    angles = np.arctan(data[:,3])
+    x_dn = data[:,0] + .5 * data[:,1] * np.sin(angles)
+    y_dn = data[:,2] - .5 * data[:,1] * np.cos(angles)
+    x_up = data[:,0] - .5 * data[:,1] * np.sin(angles)
+    y_up = data[:,2] + .5 * data[:,1] * np.cos(angles)
+
+    return modify_airfoil_gap(x_dn, y_dn, x_up, y_up, gap)
+
+
+def load_airfoil_ldc(filename, gap):
+    """Loads an airfoil in Lednicer format."""
+    data = np.loadtxt(filename)
+
+    mid = data.shape[0] / 2
+    x_dn = data[mid:,0]
+    y_dn = data[mid:,1]
+    x_up = data[:mid,0]
+    y_up = data[:mid,1]
+
+    return modify_airfoil_gap(x_dn, y_dn, x_up, y_up, gap)
+
+
+def load_airfoil(filename, gap):
+    """Loads an airfoil from the given file (relative to the airfoils folder).  Introduces a
+    trailing edge gap of the given size.  Returns x-values and y-values."""
+    filename = os.path.join(os.path.dirname(__file__), '../airfoils', filename)
+    extension = filename.split('.')[-1]
+    if extension in ['txt', 'mid']:
+        return load_airfoil_mid(filename, gap)
+    elif extension == 'ldc':
+        return load_airfoil_ldc(filename, gap)
 
 
 def te_curve(pta, ptb, tnga, tngb):
@@ -129,7 +155,7 @@ class AirFoil(object):
         len_total = knots[-1]
         len_upper = knots[(len(knots) - 1) / 2]
 
-        # Element sizes 
+        # Element sizes
         ds_back  = self.len_te / n_te / 2
         ds_front = len_total / (n_te + n_back + n_front) / 2 * 1e-1
 

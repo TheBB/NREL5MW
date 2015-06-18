@@ -1,3 +1,4 @@
+paramfile: examples/nrel_wingdef.yaml
 length_mode: uniform
 n_base: 0
 n_length: 20

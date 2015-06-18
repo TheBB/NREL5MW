@@ -1,3 +1,3 @@
 mesh_mode: 2d
-wingfile: wingdefs/NACA_0015.xinp
+paramfile: examples/naca_wingdef.yaml
 join_adds: 0

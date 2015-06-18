@@ -22,7 +22,7 @@ from utils import grading, gradspace
 
 defaults = {
     # Input and output
-    'wingfile': 'wingdefs/NREL_5_MW.xinp',
+    'wingdef': None,
     'out': 'NREL',
     'format': 'IFEM',
     'nprocs': 8,
@@ -145,9 +145,8 @@ class Params(object):
         self.__dict__.update(defaults)
         self.computed = {}
 
-        # Parse the wing definition file
-        wingdef = xml.parse(self.wingfile)
-        self.wingdef = [Section(**fix_floats(s.attrib)) for s in wingdef.getroot()]
+        # Parse the wing definition
+        self.wingdef = [Section(**fix_floats(s)) for s in self.wingdef]
 
         # Perform some minor postprocessing
         self._postprocess()

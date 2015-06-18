@@ -51,17 +51,12 @@ All the airfoils are in the `airfoils` folder.
 
 ### Input and output parameters
 
-#### wingfile
+#### wingdef
 
-Gives path to an XML wing specification.  The file must be on the following form:
+Defines the wing. This parameter is a list of dicts, and must be specified in
+JSON or YAML. See `examples/nrel_wingdef.yaml` for an example.
 
-    <wingdef>
-        <section (...) />
-        <section (...) />
-        (...)
-    </wingdef>
-
-Each `<section>` tag specifies a section of the blade with the following attributes:
+Each element in the list specifies a section of the blade with the following attributes:
 - *z*: The location along the z-axis.
 - *theta*: The twist angle.
 - *chord*: The chord length.

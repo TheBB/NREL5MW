@@ -1,5 +1,5 @@
 mesh_mode: semi3d
-wingfile: wingdefs/NACA_0015.xinp
+paramfile: examples/naca_wingdef.yaml
 length_mode: extruded
 length: 62.9
 join_adds: 0

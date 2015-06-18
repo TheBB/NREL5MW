@@ -30,6 +30,7 @@ order: 2
 out_antihub: antihub
 out_hub: out
 out_slip: slip
+paramfile: examples/nrel_wingdef.yaml
 p_ahead: 1
 p_behind: 1
 p_inner: 2
@@ -46,4 +47,3 @@ velocity: 1.0
 walldistance: false
 wing_antihub: wing
 wing_hub: wing
-wingfile: wingdefs/NREL_5_MW.xinp

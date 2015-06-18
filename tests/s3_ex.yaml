@@ -30,6 +30,7 @@ order: 3
 out_antihub: antihub
 out_hub: hub
 out_slip: slip
+paramfile: examples/naca_wingdef.yaml
 p_ahead: 1
 p_behind: 2
 p_inner: 2
@@ -46,4 +47,3 @@ velocity: 1.0
 walldistance: false
 wing_antihub: antihub
 wing_hub: hub
-wingfile: wingdefs/NACA_0015.xinp
